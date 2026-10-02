@@ -45,3 +45,9 @@ next-env.d.ts
 
 # Local tool link used during design verification
 /.sites-runtime
+
+# Static home preview build
+/frontend/.next/
+/frontend/out/
+/frontend/next-env.d.ts
+/frontend/public/

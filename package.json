@@ -7,19 +7,22 @@
   },
   "scripts": {
     "install:ci": "bash scripts/install-ci.sh",
-    "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vite",
-    "build": "next build --webpack",
+    "dev": "next dev frontend --webpack",
+    "build": "next build frontend --webpack",
     "build:sites": "bash scripts/build-verified.sh",
-    "start": "next start",
+    "start": "node scripts/serve-home-preview.mjs",
     "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
-    "preview:demo": "node scripts/preview-demo.mjs",
+    "preview:demo": "npm run build && npm start",
     "test:ui": "node tests/feedback-redesign.browser.mjs",
     "test:ui:pst": "node tests/pst-restoration.browser.mjs",
     "test:ui:invites": "node tests/invites.browser.mjs",
     "test:ui:all-screens": "node tests/clinician-all-screens.browser.mjs",
-    "test:ui:accessibility": "THERANETRIX_CHECK_ACCESSIBILITY=1 node tests/clinician-all-screens.browser.mjs"
+    "test:ui:accessibility": "THERANETRIX_CHECK_ACCESSIBILITY=1 node tests/clinician-all-screens.browser.mjs",
+    "test:preview": "npm run build && node scripts/verify-home-export.mjs",
+    "prebuild": "node scripts/copy-home-assets.mjs",
+    "predev": "node scripts/copy-home-assets.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
