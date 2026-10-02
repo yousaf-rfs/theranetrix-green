@@ -1,0 +1,53 @@
+.patient-coordination .entry-form > fieldset,
+.patient-coordination .coordination-stage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.patient-coordination label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  font-size: 14px;
+}
+.patient-coordination label:has(input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+}
+.patient-coordination input:not([type="checkbox"]),
+.patient-coordination textarea,
+.patient-coordination select {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid #b8c5ce;
+  border-radius: 8px;
+  background: #fff;
+  color: #183b43;
+  font: inherit;
+}
+.patient-coordination :is(input,textarea,select):focus-visible {
+  outline: 3px solid #238b7c;
+  outline-offset: 2px;
+}
+.patient-coordination input[readonly] { background: #f4f7f8; }
+.patient-coordination .coordination-selector { margin-bottom: 20px; }
+.patient-coordination .coordination-stages,
+.patient-coordination .form-actions { grid-column: 1 / -1; }
+.patient-coordination .coordination-stage {
+  border: 1px solid #ccd8de;
+  border-radius: 10px;
+  padding: 16px;
+  margin-block: 12px;
+}
+.patient-coordination legend { font-weight: 600; padding-inline: 5px; }
+.patient-coordination .coordination-choices { border: 0; padding: 0; }
+.patient-coordination .coordination-choices label { margin-block: 8px; }
+.patient-coordination .resolution-note { overflow-wrap: anywhere; }
+.patient-coordination .resolution-note button { margin: 8px; }
+.patient-coordination .entry-form + .stack { margin-top: 20px; }

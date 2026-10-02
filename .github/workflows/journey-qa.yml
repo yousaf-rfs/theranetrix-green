@@ -1,0 +1,59 @@
+name: Journey QA
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: journey-qa-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      QA_ARTIFACT_DIR: /tmp/journey-browser-artifacts
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Production build
+        run: npm run build
+      - name: Full TypeScript check
+        run: npx tsc --noEmit
+      - name: Full repository tests
+        run: |
+          mkdir -p "$QA_ARTIFACT_DIR"
+          git rev-parse HEAD > "$QA_ARTIFACT_DIR/reviewed-sha.txt"
+          node --test tests/*.test.mjs | tee "$QA_ARTIFACT_DIR/unit-tests.log"
+      - name: Install isolated browser-test tooling
+        run: |
+          npm install --prefix "$RUNNER_TEMP/journey-browser" --no-package-lock --no-audit --ignore-scripts playwright@1.56.1
+          node "$RUNNER_TEMP/journey-browser/node_modules/playwright/cli.js" install --with-deps chromium
+      - name: Browser regression checks against built app
+        run: |
+          npm run start -- --hostname 127.0.0.1 --port 3100 > "$QA_ARTIFACT_DIR/server.log" 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          PLAYWRIGHT_MODULE_PATH="$RUNNER_TEMP/journey-browser/node_modules/playwright/index.mjs" node scripts/journey-browser-qa.mjs
+      - name: Retain QA evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: journey-browser-qa
+          path: /tmp/journey-browser-artifacts
+          retention-days: 7
+          if-no-files-found: warn

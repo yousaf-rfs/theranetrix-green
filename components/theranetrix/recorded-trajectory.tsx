@@ -1,0 +1,12 @@
+'use client';
+import {useId} from 'react';
+import {visitMetrics,type VisitObservation} from '@/lib/visit-observations';
+import {formatDate} from './ui';
+const metricLabels={pain:'Pain',function:'Daily function',sleep:'Sleep quality'};
+export function RecordedTrajectory({points}:{points:VisitObservation[]}){
+  const chartId=useId(),visible=points.slice(-8),start=Date.parse(visible[0].date),end=Date.parse(visible.at(-1)!.date);
+  const x=(point:VisitObservation,index:number)=>38+(end>start?(Date.parse(point.date)-start)/(end-start):index/Math.max(1,visible.length-1))*560;
+  const y=(value:number)=>124-value*10;
+  const strokes={pain:'#965357',function:'#087f75',sleep:'#667aaf'};
+  return <figure className="visit-trajectory"><div className="visit-trajectory-legend"><span><i style={{background:strokes.pain}}/>Pain ↓</span><span><i style={{background:strokes.function}}/>Function ↑</span><span><i style={{background:strokes.sleep}}/>Sleep ↑</span><small>Better direction</small></div><svg viewBox="0 0 626 157" role="img" aria-labelledby={chartId}><title id={chartId}>{`Recorded pain, daily function, and sleep, from ${formatDate(visible[0].date)} to ${formatDate(visible.at(-1)!.date)}. Pain is better when lower; function and sleep are better when higher. Exact values are in Source data and interpretation.`}</title>{[0,5,10].map(value=><g key={value}><line x1="38" y1={y(value)} x2="598" y2={y(value)} stroke="#e4eaee"/><text x="22" y={y(value)+4} textAnchor="end" fill="#546979" fontSize="12">{value}</text></g>)}{visitMetrics.map(key=><g key={key}>{visible.map((point,index)=>{const prior=visible[index-1],value=point[key];return value===null?null:<g key={point.date+index}>{prior&&prior[key]!==null&&<line x1={x(prior,index-1)} y1={y(prior[key]!)} x2={x(point,index)} y2={y(value)} stroke={strokes[key]} strokeWidth="2.5" strokeDasharray={key==='sleep'?'5 3':undefined}/>}<circle cx={x(point,index)} cy={y(value)} r="3.5" fill="white" stroke={strokes[key]} strokeWidth="2"><title>{`${formatDate(point.date)} · ${metricLabels[key]} ${value}/10`}</title></circle></g>;})}</g>)}{[0,Math.floor((visible.length-1)/2),visible.length-1].filter((value,index,array)=>array.indexOf(value)===index).map(index=><text key={index} x={x(visible[index],index)} y="149" textAnchor={index===0?'start':index===visible.length-1?'end':'middle'} fill="#546979" fontSize="12">{formatDate(visible[index].date)}</text>)}</svg></figure>;
+}

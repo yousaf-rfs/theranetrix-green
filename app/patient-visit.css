@@ -1,0 +1,261 @@
+/* Visit review: outcomes and treatment form one reading column; review work stays beside it. */
+.patient-visit-focus { --visit-ink:#17313f; --visit-muted:#546979; --visit-line:#dce4e9; display:flex; flex-direction:column; gap:16px; color:var(--visit-ink); font-size:14px; }
+.patient-visit-focus .profile-visit-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.patient-visit-focus .profile-visit-heading h2 { font-size:22px; line-height:1.3; font-weight:650; letter-spacing:-.5px; margin:0; }
+.patient-visit-focus .profile-visit-heading p { color:var(--visit-muted); font-size:14px; margin:5px 0 0; line-height:1.5; }
+.patient-visit-focus .profile-visit-actions { display:flex; align-items:center; gap:16px; flex-shrink:0; }
+.patient-visit-focus [data-slot=button] { min-height:38px; border-radius:8px; }
+.patient-visit-focus .visit-record-status { display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin-top:-4px; padding-bottom:12px; border-bottom:1px solid var(--visit-line); color:var(--visit-muted); font-size:12px; }
+.patient-visit-focus .visit-record-state { display:flex; align-items:center; gap:6px; color:var(--visit-ink); font-weight:600; }
+.patient-visit-focus .visit-record-state>span { width:6px; height:6px; border-radius:50%; background:#087f75; }
+.patient-visit-focus .visit-record-status>small { font-size:12px; }
+.patient-visit-focus .visit-record-status>.text-link { margin-left:auto; }
+.patient-visit-focus .profile-visit-layout { display:grid; grid-template-columns:minmax(0,1fr) 304px; align-items:start; gap:24px; }
+.patient-visit-focus .profile-clinical-column,.patient-visit-focus .profile-review-column { min-width:0; display:flex; flex-direction:column; gap:16px; }
+.patient-visit-focus .panel { border:1px solid var(--visit-line); border-radius:8px; box-shadow:none; background:#fff; overflow:visible; }
+.patient-visit-focus .panel-head { display:flex; align-items:center; justify-content:space-between; padding:16px 20px 12px; margin:0; border:0; background:transparent; gap:16px; }
+.patient-visit-focus .panel-head h2 { font-size:18px; font-weight:600; letter-spacing:-.25px; line-height:1.35; margin:0; }
+.patient-visit-focus .panel-head .text-link { flex-shrink:0; }
+.patient-visit-focus .visit-body { padding:0 20px 20px; gap:12px; font-size:14px; }
+.patient-visit-focus .text-link { display:inline-flex; align-items:center; gap:4px; font-size:13px; font-weight:500; color:#076d65; }
+.patient-visit-focus .text-link:hover { text-decoration:underline; text-underline-offset:3px; }
+.patient-visit-focus button:focus-visible,.patient-visit-focus a:focus-visible,.patient-visit-focus summary:focus-visible { outline:2px solid #087f75; outline-offset:3px; }
+.patient-visit-focus details>summary { cursor:pointer; font-size:12px; color:var(--visit-muted); line-height:1.5; list-style-position:inside; }
+.patient-visit-focus details>summary:hover { color:#076d65; }
+.patient-visit-focus details p { margin-top:8px; font-size:13px; line-height:1.6; white-space:pre-wrap; }
+.patient-visit-focus .text-rose { color:#a03946; }
+.patient-visit-focus .text-teal { color:#076d65; }
+
+/* The goal anchors the review without consuming a separate dashboard card. */
+.patient-visit-focus .visit-patient-priority { display:flex; justify-content:space-between; gap:20px; padding:0 0 0 16px; border-left:3px solid #087f75; min-height:62px; align-items:center; }
+.patient-visit-focus .visit-patient-priority>div:first-child { flex:1; }
+.patient-visit-focus .visit-patient-priority>div>span { display:block; font-size:12px; color:var(--visit-muted); margin-bottom:4px; }
+.patient-visit-focus .visit-patient-priority blockquote { padding:0; margin:0; border:0; font-size:18px; font-weight:500; line-height:1.4; letter-spacing:-.2px; }
+.patient-visit-focus .visit-goal-status { display:flex; flex-direction:column; align-items:flex-end; gap:8px; flex-shrink:0; }
+
+/* Four aligned measurements and a real observed trajectory, with methodology on demand. */
+.patient-visit-focus .visit-metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)) minmax(135px,1.2fr); gap:0; padding:0 20px; }
+.patient-visit-focus .visit-metrics>div { min-width:0; border-right:1px solid var(--visit-line); padding:0 12px; }
+.patient-visit-focus .visit-metrics>div:first-child { padding-left:0; }
+.patient-visit-focus .visit-metrics>div:last-child { border:0; padding-right:0; }
+.patient-visit-focus .visit-metrics>div>span { font-size:12px; line-height:1.5; color:var(--visit-muted); }
+.patient-visit-focus .visit-metrics>div>div { display:flex; align-items:baseline; gap:4px; margin:4px 0; }
+.patient-visit-focus .visit-metrics strong { font-size:28px; line-height:1.15; letter-spacing:-.8px; font-weight:600; color:var(--visit-ink); }
+.patient-visit-focus .visit-metrics strong:only-child { font-size:16px; line-height:1.7; letter-spacing:0; }
+.patient-visit-focus .visit-metrics small { font-size:12px; color:var(--visit-muted); }
+.patient-visit-focus .visit-metrics b { font-size:12px; font-weight:500; line-height:1.4; display:block; margin-top:3px; }
+.patient-visit-focus .visit-composite { position:relative; }
+.patient-visit-focus .visit-composite-help>summary { display:flex; gap:4px; align-items:center; font-size:11px; }
+.patient-visit-focus .visit-composite-help>summary::-webkit-details-marker { display:none; }
+.patient-visit-focus .visit-composite-help>div { position:absolute; right:0; top:calc(100% + 4px); z-index:10; width:min(350px,75vw); padding:16px; border:1px solid #cbd8df; border-radius:8px; background:#fff; box-shadow:0 8px 24px #17313f1a; }
+.patient-visit-focus .visit-composite-help>div>strong { display:block; font-size:14px; letter-spacing:0; line-height:1.4; }
+.patient-visit-focus .visit-composite-flag { display:block; margin:3px 0 2px; font-size:11px; font-weight:600; line-height:1.4; color:#8c6222; }
+.patient-visit-focus .visit-trajectory { margin:16px 20px 8px; }
+.patient-visit-focus .visit-trajectory-legend { display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; padding-left:30px; font-size:12px; color:var(--visit-muted); }
+.patient-visit-focus .visit-trajectory-legend>span { display:flex; align-items:center; gap:5px; white-space:nowrap; }
+.patient-visit-focus .visit-trajectory-legend i { width:14px; height:3px; border-radius:2px; }
+.patient-visit-focus .visit-trajectory-legend>small { margin-left:auto; font-size:11px; }
+.patient-visit-focus .visit-trajectory svg { width:100%; display:block; max-height:125px; }
+.patient-visit-focus .visit-observation-foot,.patient-visit-focus .visit-medication-foot { padding:10px 20px; border-top:1px solid #e5ebef; color:var(--visit-muted); font-size:12px; }
+.patient-visit-focus .visit-observation-foot>span,.patient-visit-focus .visit-medication-foot>span { display:block; margin-bottom:4px; }
+.patient-visit-focus .visit-observation-foot { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 16px; }
+.patient-visit-focus .visit-observation-foot>span { margin:0; }
+.patient-visit-focus .visit-observation-foot>details[open] { width:100%; }
+.patient-visit-focus .visit-source-table { overflow-x:auto; margin-top:12px; }
+.patient-visit-focus .visit-source-table table { width:100%; border-collapse:collapse; font-size:12px; }
+.patient-visit-focus .visit-source-table caption { text-align:left; color:var(--visit-ink); font-weight:600; padding-bottom:8px; }
+.patient-visit-focus .visit-source-table th,.patient-visit-focus .visit-source-table td { padding:8px; border-top:1px solid var(--visit-line); text-align:left; }
+.patient-visit-focus .visit-trajectory-empty { display:flex; gap:16px; align-items:flex-start; padding:20px; margin-top:16px; border-top:1px solid #e5ebef; }
+.patient-visit-focus .visit-step-count { display:grid; place-items:center; width:40px; height:40px; border:1px solid var(--visit-line); border-radius:8px; color:var(--visit-muted); flex-shrink:0; }
+.patient-visit-focus .visit-trajectory-empty h3 { font-size:15px; font-weight:600; }
+.patient-visit-focus .visit-trajectory-empty p { font-size:14px; line-height:1.6; color:var(--visit-muted); margin:4px 0 8px; max-width:540px; }
+
+/* One compact regimen row per medication. Important effects are never disclosed away. */
+.patient-visit-focus .visit-medication-groups { padding:0 20px; }
+.patient-visit-focus .visit-medication-group { padding:0 0 12px; }
+.patient-visit-focus .visit-medication-group+.visit-medication-group { border-top:1px solid var(--visit-line); padding-top:12px; }
+.patient-visit-focus .visit-medication-group>h3 { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:650; line-height:1.4; color:var(--visit-ink); margin:4px 0 10px; }
+.patient-visit-focus .visit-medication-group>h3>span { font-weight:400; font-size:12px; padding:0 5px; border-radius:4px; background:#f0f4f6; }
+.patient-visit-focus .visit-medication-row { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1.15fr); gap:8px 20px; padding:0 0 4px; }
+.patient-visit-focus .visit-medication-row+.visit-medication-row { padding-top:16px; margin-top:12px; border-top:1px solid #e5ebef; }
+.patient-visit-focus .visit-medication-name h4 { font-size:17px; font-weight:600; line-height:1.4; margin:0; }
+.patient-visit-focus .visit-medication-name p { font-size:14px; line-height:1.5; margin:4px 0; }
+.patient-visit-focus .visit-medication-name>span { font-size:12px; line-height:1.5; color:var(--visit-muted); }
+.patient-visit-focus .visit-medication-response { display:block; margin:0; }
+.patient-visit-focus .visit-medication-response p { font-size:14px; line-height:1.5; margin:8px 0 4px; }
+.patient-visit-focus .visit-medication-response p>span { font-size:12px; color:var(--visit-muted); }
+.patient-visit-focus .visit-medication-response small { color:var(--visit-muted); font-size:12px; }
+.patient-visit-focus .visit-medication-actions { grid-column:1/-1; display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.patient-visit-focus .visit-medication-actions details { text-align:right; }
+.patient-visit-focus .visit-medication-empty { font-size:12px; line-height:1.5; color:var(--visit-muted); margin:0; }
+.patient-visit-focus .visit-medication-group:has(.visit-medication-empty) { display:flex; align-items:baseline; gap:12px; padding-bottom:10px; }
+.patient-visit-focus .visit-medication-group:has(.visit-medication-empty)>h3 { margin:0; flex-shrink:0; }
+.patient-visit-focus .visit-empty-medications { padding-bottom:20px; }
+.patient-visit-focus .visit-empty-medications p { margin:6px 0 12px; color:var(--visit-muted); }
+.patient-visit-focus .visit-treatment-cautions { padding:0 20px; }
+.patient-visit-focus .visit-clinical-caution { display:flex; gap:8px; align-items:flex-start; margin:12px 0; padding:0; background:none; border:0; }
+.patient-visit-focus .visit-clinical-caution svg { color:#9a722e; flex-shrink:0; margin-top:3px; }
+.patient-visit-focus .visit-clinical-caution strong { font-size:13px; }
+.patient-visit-focus .visit-clinical-caution p { margin:4px 0 0; font-size:13px; line-height:1.5; color:var(--visit-muted); }
+.patient-visit-focus .visit-medication-foot ul { padding-left:18px; list-style:disc; margin-top:12px; }
+
+/* The review rail separates action from the longitudinal record. */
+.patient-visit-focus .visit-concerns { border:1px solid #e6cfd2; border-radius:8px; background:#fff; overflow:hidden; }
+.patient-visit-focus .visit-concerns-heading { display:flex; flex-wrap:wrap; align-items:center; padding:14px 16px; gap:7px; border-bottom:1px solid #eddddf; background:#fcf6f6; color:#a03946; }
+.patient-visit-focus .visit-concerns-heading h2 { color:var(--visit-ink); font-size:15px; font-weight:600; }
+.patient-visit-focus .visit-concerns-heading .badge { margin-left:auto; font-size:11px; }
+.patient-visit-focus .visit-review-row { display:flex; flex-direction:column; align-items:stretch; padding:16px; gap:12px; }
+.patient-visit-focus .visit-review-row+.visit-review-row { border-top:1px solid var(--visit-line); }
+.patient-visit-focus .visit-review-row h3 { font-size:14px; line-height:1.5; font-weight:600; margin:0; }
+.patient-visit-focus .visit-review-row p { font-size:13px; line-height:1.6; margin:6px 0; color:var(--visit-muted); white-space:pre-wrap; }
+.patient-visit-focus .visit-review-row small { display:block; font-size:12px; line-height:1.5; margin-top:8px; color:var(--visit-muted); }
+.patient-visit-focus .visit-review-row>button { align-self:flex-start; font-size:13px; min-height:36px; }
+.patient-visit-focus .visit-inline-details { margin-top:8px; }
+.patient-visit-focus .profile-clear-review { display:flex; gap:10px; align-items:flex-start; padding:16px; background:#fff; border:1px solid var(--visit-line); border-radius:8px; }
+.patient-visit-focus .profile-clear-review>svg { color:#076d65; margin-top:3px; }
+.patient-visit-focus .profile-clear-review h2 { font-size:14px; margin-bottom:8px; }
+.patient-visit-focus .visit-changes { border:1px solid var(--visit-line); border-radius:8px; background:#fff; }
+.patient-visit-focus .visit-rail-heading { padding:16px 16px 12px; }
+.patient-visit-focus .visit-rail-heading h2 { font-size:15px; line-height:1.4; font-weight:600; margin:0; }
+.patient-visit-focus .visit-rail-heading p { font-size:12px; line-height:1.5; color:var(--visit-muted); margin-top:4px; }
+.patient-visit-focus .visit-change-row { display:flex; align-items:center; gap:10px; width:100%; text-align:left; padding:12px 16px; border-top:1px solid #e5ebef; }
+.patient-visit-focus .visit-change-row:hover { background:#f4f6f8; }
+.patient-visit-focus .visit-change-row strong { display:block; font-size:13px; font-weight:500; }
+.patient-visit-focus .visit-change-row small { display:block; font-size:12px; line-height:1.5; margin-top:3px; color:var(--visit-muted); }
+.patient-visit-focus .visit-change-row>svg { color:#076d65; flex-shrink:0; margin-left:auto; }
+.patient-visit-focus .visit-change-marker { width:5px; height:5px; background:#617788; border-radius:50%; flex-shrink:0; }
+.patient-visit-focus .visit-change-row.better .visit-change-marker { background:#087f75; }
+.patient-visit-focus .visit-change-row.concern .visit-change-marker { background:#a03946; }
+.patient-visit-focus .visit-change-empty { padding:0 16px 16px; font-size:13px; line-height:1.6; color:var(--visit-muted); }
+.patient-visit-focus .visit-change-note { border-top:1px solid #e5ebef; padding:10px 16px; font-size:11px; line-height:1.5; color:var(--visit-muted); }
+.patient-visit-focus .visit-patient-voice { padding:0 0 16px; border-bottom:1px solid var(--visit-line); }
+.patient-visit-focus .visit-patient-voice .visit-rail-heading { padding:0 0 8px; }
+.patient-visit-focus .visit-patient-quote { padding-left:12px; border-left:2px solid #c8d6de; white-space:pre-wrap; font-size:14px; color:var(--visit-muted); line-height:1.65; margin:0 0 12px; }
+.patient-visit-focus .visit-open-work h3 { font-size:14px; line-height:1.4; color:var(--visit-ink); font-weight:650; margin:4px 0 8px; }
+.patient-visit-focus .visit-open-work>a,.patient-visit-focus .visit-open-work>button { display:flex; align-items:center; gap:10px; width:100%; text-align:left; padding:12px 0; border-top:1px solid var(--visit-line); }
+.patient-visit-focus .visit-open-work strong { display:block; font-size:13px; font-weight:500; }
+.patient-visit-focus .visit-open-work small { display:block; font-size:12px; color:var(--visit-muted); margin-top:3px; }
+.patient-visit-focus .visit-open-work>a>svg,.patient-visit-focus .visit-open-work>button>svg { margin-left:auto; flex-shrink:0; color:#076d65; }
+.patient-visit-focus .visit-open-work-dot { width:6px; height:6px; border-radius:50%; background:#617788; flex-shrink:0; }
+.patient-visit-focus .visit-open-work-dot.is-overdue { background:#a03946; }
+.patient-visit-focus .visit-complete-record { align-self:flex-start; }
+
+.patient-visit-focus .visit-plan-text { font-size:14px; line-height:1.7; }
+.patient-visit-focus .visit-followup { display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; padding-top:12px; margin-top:4px; }
+.patient-visit-focus .visit-followup>strong { font-size:13px; font-weight:500; }
+.patient-visit-focus .visit-followup>span:not(.badge) { font-size:13px; color:var(--visit-muted); }
+.patient-visit-focus .visit-followup>small { width:100%; color:var(--visit-muted); font-size:12px; }
+.patient-visit-focus .visit-empty-plan h3 { font-size:15px; }
+.patient-visit-focus .visit-empty-plan p { color:var(--visit-muted); margin:6px 0 12px; font-size:14px; }
+.patient-visit-focus .visit-supporting { padding:0 20px; border:1px solid var(--visit-line); background:#fff; border-radius:8px; }
+.patient-visit-focus .visit-supporting [data-slot=accordion-trigger] { padding:16px 0; }
+.patient-visit-focus .visit-supporting [data-slot=accordion-content] { padding-bottom:20px; }
+.patient-visit-focus .visit-supporting .visit-review-row { padding:16px 0; }
+.patient-visit-focus .visit-treatment-history>summary { display:flex; align-items:center; padding:16px 0; font-size:14px; font-weight:500; }
+.patient-visit-focus .visit-treatment-history>summary::after { content:'+'; margin-left:auto; font-size:20px; color:var(--visit-muted); }
+.patient-visit-focus .visit-treatment-history[open]>summary::after { content:'−'; }
+.patient-visit-focus .visit-treatment-history>summary small { display:block; font-size:12px; color:var(--visit-muted); font-weight:400; margin-top:4px; }
+.patient-visit-focus .visit-treatment-history-body { padding-bottom:20px; }
+.patient-visit-focus .visit-history-item { padding:12px 0; }
+.patient-visit-focus .visit-history-item+.visit-history-item { border-top:1px solid var(--visit-line); }
+.patient-visit-focus .treatment-decision-history { margin-top:12px; padding-top:12px; border-top:1px solid var(--visit-line); }
+.patient-visit-focus .treatment-decision-history ol>li { padding:10px 0; }
+.patient-visit-focus #visit-plan,.patient-visit-focus #visit-supporting { scroll-margin-top:230px; }
+
+/* At a glance: recorded values only, each chip a link to the section that holds the full record. */
+.patient-visit-focus .visit-glance { display:grid; grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr)); gap:8px; }
+.patient-visit-focus .visit-glance>a { display:flex; flex-direction:column; gap:2px; min-width:0; min-height:44px; padding:8px 12px; border:1px solid var(--visit-line); border-radius:8px; background:#fff; color:var(--visit-ink); }
+.patient-visit-focus .visit-glance>a:hover { border-color:#8cbbb3; background:#f7fbfa; }
+.patient-visit-focus .visit-glance>a>span { font-size:11px; font-weight:600; line-height:1.4; color:var(--visit-muted); }
+.patient-visit-focus .visit-glance strong { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; font-size:14px; font-weight:600; line-height:1.4; }
+.patient-visit-focus .visit-glance strong small { font-size:12px; font-weight:500; color:var(--visit-muted); }
+.patient-visit-focus .visit-glance strong>span small { color:inherit; }
+.patient-visit-focus .visit-glance>a.is-concern { border-color:#e6cfd2; background:#fcf6f6; }
+.patient-visit-focus .visit-glance>a.is-concern strong small { color:#a03946; }
+
+/* Visit progression from encounter records; check-ins never appear here. */
+.patient-visit-focus .visit-progress { display:flex; flex-wrap:wrap; align-items:center; gap:6px 20px; padding:10px 14px; border:1px solid var(--visit-line); border-radius:8px; background:#fff; }
+.patient-visit-focus .visit-progress>h2 { font-size:14px; font-weight:650; line-height:1.4; color:var(--visit-ink); margin:2px 0 0; }
+.patient-visit-focus .visit-progress ol { display:flex; flex-wrap:wrap; gap:6px 20px; margin:0; padding:0; list-style:none; }
+.patient-visit-focus .visit-progress li { display:flex; flex-wrap:wrap; align-items:baseline; gap:0 6px; min-width:0; }
+.patient-visit-focus .visit-progress li strong { font-size:12px; font-weight:600; line-height:1.45; }
+.patient-visit-focus .visit-progress li span,.patient-visit-focus .visit-progress li small { font-size:12px; line-height:1.45; color:var(--visit-muted); }
+.patient-visit-focus .visit-progress-dot { width:10px; height:10px; border-radius:50%; border:2px solid #9fb3bf; background:#fff; flex-shrink:0; align-self:center; }
+.patient-visit-focus .visit-progress li.is-current .visit-progress-dot { border-color:#087f75; }
+.patient-visit-focus .visit-progress li.is-done .visit-progress-dot { border-color:#087f75; background:#087f75; }
+.patient-visit-focus .visit-progress-empty { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; margin:0; font-size:12px; line-height:1.5; color:var(--visit-muted); }
+.patient-visit-focus .visit-progress-empty strong { font-size:13px; color:var(--visit-ink); }
+.patient-visit-focus .visit-history-row { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 14px; width:100%; margin:0; padding-top:6px; border-top:1px solid #e5ebef; font-size:12px; line-height:1.5; color:var(--visit-muted); }
+.patient-visit-focus .visit-history-row>span:first-child { font-weight:600; color:var(--visit-ink); }
+.patient-visit-focus .visit-history-row>small { font-size:12px; }
+.patient-visit-focus .visit-progress-note { margin-left:auto; font-size:11px; line-height:1.5; color:var(--visit-muted); }
+
+/* Previously tried: a one-line record per stopped medication; full history stays in the medication dialog. */
+.patient-visit-focus .visit-previously-tried { margin:4px 20px 0; padding:10px 0 4px; border-top:1px solid var(--visit-line); }
+.patient-visit-focus .visit-previously-tried>h3 { display:flex; align-items:center; gap:8px; margin:6px 0 8px; font-size:14px; font-weight:650; line-height:1.4; color:var(--visit-ink); }
+.patient-visit-focus .visit-previously-tried>h3>span,.patient-visit-focus .visit-previously-group>h4>span { font-size:12px; font-weight:400; padding:0 5px; border-radius:4px; background:#f0f4f6; }
+.patient-visit-focus .visit-previously-group+.visit-previously-group { margin-top:8px; }
+.patient-visit-focus .visit-previously-group>h4 { display:flex; align-items:center; gap:8px; margin:0 0 4px; font-size:12px; font-weight:600; line-height:1.4; color:var(--visit-muted); }
+.patient-visit-focus .visit-previously-tried ul { display:grid; gap:6px; margin:0 0 6px; padding:0; list-style:none; }
+.patient-visit-focus .visit-previously-tried li { display:flex; flex-wrap:wrap; gap:2px 12px; font-size:13px; line-height:1.5; overflow-wrap:anywhere; }
+.patient-visit-focus .visit-previously-tried li strong { font-weight:600; }
+.patient-visit-focus .visit-previously-tried li span { color:var(--visit-muted); }
+.patient-visit-focus .visit-previously-tried>.visit-medication-empty { margin-bottom:6px; }
+.patient-visit-focus .visit-previously-free-text { margin:0 0 6px; font-size:13px; line-height:1.55; white-space:pre-wrap; overflow-wrap:anywhere; }
+.patient-visit-focus .visit-previously-free-text>small { display:block; font-size:11px; font-weight:600; color:#8c6222; }
+
+/* Pre-visit questionnaire: the patient's answers as submitted, and who reviewed them. */
+.patient-visit-focus .visit-questionnaire { display:flex; flex-direction:column; gap:8px; padding:14px 16px; border:1px solid #c8d9d5; border-radius:8px; background:#f7fbfa; }
+.patient-visit-focus .visit-questionnaire-heading { display:flex; flex-wrap:wrap; align-items:center; gap:7px; color:#076d65; }
+.patient-visit-focus .visit-questionnaire-heading h2 { font-size:15px; font-weight:600; line-height:1.4; color:var(--visit-ink); margin:0; }
+.patient-visit-focus .visit-questionnaire-heading .badge { margin-left:auto; font-size:11px; }
+.patient-visit-focus .visit-questionnaire-meta { margin:0; font-size:12px; line-height:1.5; color:var(--visit-muted); }
+.patient-visit-focus .visit-questionnaire-answers { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px 12px; margin:0; }
+.patient-visit-focus .visit-questionnaire-answers dt { font-size:11px; line-height:1.4; color:var(--visit-muted); }
+.patient-visit-focus .visit-questionnaire-answers dd { margin:0; font-size:14px; font-weight:600; }
+.patient-visit-focus .visit-questionnaire>p { margin:0; font-size:13px; line-height:1.55; white-space:pre-wrap; overflow-wrap:anywhere; }
+.patient-visit-focus .visit-questionnaire>p>span { font-weight:600; }
+.patient-visit-focus .visit-questionnaire>.visit-questionnaire-reviewed { display:flex; align-items:center; gap:6px; font-weight:600; color:#076d65; }
+.patient-visit-focus .visit-questionnaire>small { font-size:11px; line-height:1.5; color:var(--visit-muted); }
+.patient-visit-focus .visit-questionnaire>[data-slot=button] { align-self:flex-start; }
+
+/* Shared medication groups in narrow cards (Complete synopsis, care overview detail). */
+.medication-group-compact .medication-category+.medication-category { margin-top:14px; padding-top:14px; }
+.medication-group-compact .medication-category-heading { margin-bottom:6px; }
+.care-synopsis .medication-group-compact .medication-category-heading h3,.triage-detail-section .medication-group-compact .medication-category-heading h3 { font-size:13px; font-weight:650; line-height:1.4; margin:0; }
+
+@media(min-width:1600px) { .patient-visit-focus .profile-visit-layout { grid-template-columns:minmax(0,1fr) 336px; } .patient-visit-focus .visit-trajectory svg { max-height:140px; } }
+@media(max-width:1250px) { .patient-visit-focus .profile-visit-layout { grid-template-columns:minmax(0,1fr) 270px; gap:16px; } .patient-visit-focus .profile-visit-heading { align-items:flex-start; } .patient-visit-focus .profile-visit-actions { gap:8px; flex-wrap:wrap; justify-content:flex-end; } .patient-visit-focus .visit-record-status>small { display:none; } .patient-visit-focus .visit-medication-group:has(.visit-medication-empty) { display:block; } .patient-visit-focus .visit-medication-group:has(.visit-medication-empty)>h3 { margin-bottom:4px; } }
+@media(max-width:1100px) { .patient-visit-focus .visit-metrics { grid-template-columns:repeat(3,minmax(0,1fr)); } .patient-visit-focus .visit-metrics>div:nth-child(3) { border:0; padding-right:0; } .patient-visit-focus .visit-metrics>.visit-composite { grid-column:1/-1; display:flex; align-items:center; flex-wrap:wrap; gap:8px 16px; border-top:1px solid var(--visit-line); padding:8px 0 0; margin-top:12px; } .patient-visit-focus .visit-composite>div { margin:0; } .patient-visit-focus .visit-composite strong { font-size:19px; } .patient-visit-focus .visit-composite-help>div { top:calc(100% + 4px); } .patient-visit-focus .visit-patient-priority { flex-wrap:wrap; gap:8px; } .patient-visit-focus .visit-goal-status { flex-direction:row; align-items:center; } .patient-visit-focus .visit-medication-row { grid-template-columns:1fr; } .patient-visit-focus .visit-trajectory-legend { padding-left:0; gap:8px; } .patient-visit-focus .visit-trajectory-legend>small { display:none; } }
+@media(max-width:950px) { .patient-visit-focus .profile-visit-layout { grid-template-columns:1fr; } .patient-visit-focus .profile-review-column { order:-1; display:grid; grid-template-columns:1fr 1fr; gap:16px; } .patient-visit-focus .visit-concerns,.patient-visit-focus .profile-clear-review { grid-column:1/-1; } .patient-visit-focus .visit-patient-voice { padding:16px; border:1px solid var(--visit-line); border-radius:8px; } .patient-visit-focus .visit-complete-record { align-self:center; } .patient-visit-focus .visit-metrics { grid-template-columns:repeat(3,minmax(0,1fr)) minmax(135px,1.2fr); } .patient-visit-focus .visit-metrics>div:nth-child(3) { border-right:1px solid var(--visit-line); } .patient-visit-focus .visit-metrics>.visit-composite { grid-column:auto; display:block; padding:0 0 0 12px; border-top:0; margin-top:0; } .patient-visit-focus .visit-composite strong { font-size:28px; } .patient-visit-focus .visit-composite-help>div { top:85px; } .patient-visit-focus .visit-medication-row { grid-template-columns:1fr 1fr; } }
+@media(max-width:620px) { .patient-visit-focus .profile-visit-heading { flex-direction:column; } .patient-visit-focus .profile-visit-actions { width:100%; justify-content:space-between; flex-wrap:nowrap; } .patient-visit-focus .profile-visit-actions>[data-slot=button] { padding:8px 10px; font-size:12px; }  .patient-visit-focus .profile-review-column { display:flex; } .patient-visit-focus .panel-head { padding:16px 16px 12px; } .patient-visit-focus .panel-head h2 { font-size:17px; } .patient-visit-focus .visit-body { padding:0 16px 16px; } .patient-visit-focus .visit-metrics { padding:0 16px; grid-template-columns:repeat(3,minmax(0,1fr)); } .patient-visit-focus .visit-metrics>div { padding:0 8px; } .patient-visit-focus .visit-metrics>div:nth-child(3) { border:0; padding-right:0; } .patient-visit-focus .visit-metrics>.visit-composite { grid-column:1/-1; display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px; border-top:1px solid var(--visit-line); padding:8px 0 0; margin-top:12px; } .patient-visit-focus .visit-composite strong { font-size:19px; } .patient-visit-focus .visit-composite-help>div { top:45px; } .patient-visit-focus .visit-trajectory { margin:16px 12px 8px; } .patient-visit-focus .visit-medication-groups { padding:0 16px; } .patient-visit-focus .visit-medication-row { grid-template-columns:1fr; } .patient-visit-focus .visit-patient-priority blockquote { font-size:17px; } .patient-visit-focus .visit-goal-status { flex-shrink:1; flex-wrap:wrap; } .patient-visit-focus .visit-supporting { padding:0 16px; } }
+
+/* The first level supports quick scanning; source detail stays one click away. */
+.patient-visit-focus .visit-rule-label { display:block; margin:3px 0 5px; font-size:11px; font-weight:600; color:#6b572d; }
+.patient-visit-focus .visit-medication-foot details li { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid #e4eaee; }
+.patient-visit-focus .visit-medication-foot details li:last-child { border-bottom:0; }
+.patient-visit-focus .visit-review-row>div { min-width:0; }
+.patient-redesign-overview .patient-section-nav a { min-height:40px; display:inline-flex; align-items:center; font-size:13px; }
+.patient-redesign-overview .record-activity-filters { display:flex; flex-wrap:wrap; gap:6px; padding:14px 18px; border-bottom:1px solid #e4eaee; }
+.patient-redesign-overview .record-activity-filters button { min-height:36px; padding:6px 12px; border:1px solid #d8e3e7; border-radius:6px; background:white; color:#486273; font-size:13px; }
+.patient-redesign-overview .record-activity-filters button[aria-pressed="true"] { color:#07685f; background:#eaf6f3; border-color:#8cbbb3; }
+.patient-redesign-overview .record-filter-empty { padding:20px; color:#546979; }
+.patient-context-dialog .context-review-date { margin:0; color:#546979; font-size:12px; }
+.patient-context-dialog .context-form-section { border-radius:8px; }
+.care-record-history>summary { min-height:40px; padding:9px 0; cursor:pointer; }
+.care-record-history article p { white-space:pre-wrap; overflow-wrap:anywhere; }
+.patient-redesign-overview .patient-activity-list article { padding:16px 20px; }
+.patient-redesign-overview .activity-detail>summary { min-height:36px; padding:8px 0; }
+.patient-redesign-overview .complete-record-trajectory { padding:4px 20px 0; }
+.visit-patient-medicines{margin:12px 20px 0;padding:12px 14px;border:1px dashed #c8d9d5;border-radius:8px;background:#f7fbfa;font-size:13px}
+.visit-patient-medicines h3{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:4px 0 8px;font-size:14px;font-weight:650;line-height:1.4;color:#17313f}
+.visit-patient-medicines h3 small{font-size:12px;font-weight:500;color:#8c6222}
+.visit-patient-medicines>div{display:grid;gap:4px;margin-top:6px}
+.visit-patient-medicines>div>span{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#546979}
+.visit-patient-medicines ul{margin:0;padding:0;list-style:none;display:grid;gap:4px}
+.visit-patient-medicines li strong{font-weight:600;margin-right:6px}
+.visit-patient-medicines li em{margin-right:6px;font-style:normal;font-size:12px;color:#3d5563}
+.visit-patient-medicines li span{color:#3d5563}
+@media(max-width:1100px) { .patient-visit-focus .visit-glance { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:950px) { .patient-visit-focus .visit-questionnaire { grid-column:1/-1; } }
+@media(max-width:620px) { .patient-visit-focus .visit-glance>a:first-child,.patient-visit-focus .visit-glance>a:last-child { grid-column:1/-1; } .patient-visit-focus .visit-progress { padding:10px 12px; } .patient-visit-focus .visit-progress ol { flex-direction:column; gap:4px; } .patient-visit-focus .visit-progress-note { margin-left:0; } .patient-visit-focus .visit-previously-tried { margin:4px 16px 0; } }

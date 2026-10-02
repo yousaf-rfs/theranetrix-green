@@ -1,0 +1,40 @@
+/* Task-first navigation preserves each mounted editor and its unsaved draft. */
+.clinician-workflow-tools {display:grid;gap:10px;margin:0 0 20px;padding:16px;background:#f5f8fa;border:1px solid #dfe7ed;border-radius:8px;}
+.clinician-task-jumps {display:flex;flex-wrap:wrap;gap:8px;}
+.clinician-task-jumps button {display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:40px;padding:8px 12px;border:1px solid #cedce3;border-radius:6px;background:white;color:#17313f;font-size:13px;font-weight:600;text-align:left;}
+.clinician-task-jumps button:hover {background:#e9f5f2;border-color:#087f75;}
+.clinician-task-jumps button:focus-visible {outline:3px solid #087f75;outline-offset:2px;}
+.clinician-task-jumps button span {color:#076d65;}
+.care-workbench [data-workflow-domain] :is(summary,h2,h3,legend) {scroll-margin-top:260px;}
+.care-workbench-stage-heading {padding-bottom:12px;}
+.care-workbench-stage-heading p {max-width:65ch;}
+.review-visible-concern {margin:9px 0;color:#734523;font-size:14px;line-height:1.5;max-width:74ch;}
+.review-work-item .recommendation-trigger,.agenda-main .recommendation-trigger,.pathways-workspace td .recommendation-trigger {margin-top:8px;}
+.care-workbench-main .entry-form {max-width:100%;}
+.care-workbench-main [data-workflow-domain] :is(input,select,textarea) {font-size:14px;min-height:38px;}
+.care-workbench-main [data-workflow-domain] input[type=checkbox],.care-workbench-main [data-workflow-domain] input[type=radio] {min-height:0;}
+.care-workbench-main [data-workflow-domain] label {line-height:1.5;}
+.care-workbench-main [data-workflow-domain] :is(p,li,dd) {line-height:1.55;}
+.care-workbench-main .clinical-workflow-step {border-radius:8px;}
+.care-workbench-main .clinical-workflow-step > summary {min-height:64px;border-radius:7px;padding:14px 16px;}
+.care-workbench-main .clinical-workflow-step[open] > summary {border-radius:7px 7px 0 0;}
+.care-workbench-main .clinical-step-body {padding:18px;}
+.care-workbench-main .clinical-step-body p,.care-workbench-main .clinical-step-body li {font-size:14px;}
+.care-evidence-treatment dl {display:grid;grid-template-columns:minmax(130px,1fr) minmax(160px,1.6fr);gap:10px 16px;}
+.care-evidence-treatment dt {color:#546979;}
+.care-evidence-treatment dd {margin:0;}
+.care-evidence-treatment .recommendation-trigger {margin-top:12px;}
+@media(max-width:1000px){.clinician-task-jumps button{flex:1 1 150px;}.care-workbench [data-workflow-domain] :is(summary,h2,h3,legend){scroll-margin-top:300px;}}
+@media(max-width:760px){.clinician-workflow-tools{padding:12px;}.clinician-task-jumps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}.clinician-task-jumps button{font-size:12px;gap:8px;}.care-workbench [data-workflow-domain] :is(summary,h2,h3,legend){scroll-margin-top:80px;}.care-evidence-treatment dl{grid-template-columns:1fr;gap:5px;}.care-evidence-treatment dd{margin-bottom:8px;}}
+.thread-concern-link {margin-left:auto;color:#87521f;text-decoration:underline;text-underline-offset:3px;font-weight:600;}
+.review-item-meta dt {font-size:12px;color:#546979;}
+.review-item-meta dd {font-size:14px;}
+.workflow-page :is(.review-item-action,.agenda-actions) button {min-height:38px;}
+
+.pathway-next-activity {display:flex;flex-direction:column;align-items:flex-start;gap:6px;}
+.pathways-workspace td .pathway-next-activity .recommendation-trigger {margin-top:0;}
+
+.briefing-review-actions {display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;}
+.synopsis-body > .engine-history > summary::after {content:'View details ▾';flex-shrink:0;color:#076d65;font-size:13px;font-weight:600;}
+.synopsis-body > .engine-history[open] > summary::after {content:'Hide details ▴';}
+@media(max-width:600px){.synopsis-body > .engine-history > summary{align-items:flex-start;flex-direction:column;gap:8px;}}

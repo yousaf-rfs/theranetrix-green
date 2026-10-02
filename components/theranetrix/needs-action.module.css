@@ -1,0 +1,19 @@
+.panel{z-index:150;width:min(380px,calc(100vw - 24px));max-height:min(560px,calc(100dvh - 80px));overflow-y:auto;padding:0;color:#17313f;font-size:13px;line-height:1.45}
+.head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 16px 10px;border-bottom:1px solid #e5ebee}
+.head h2{font-size:15px;font-weight:650}
+.head span,.groupHead small,.empty{font-size:12px;color:#546979}
+.group{padding:10px 16px 12px;border-bottom:1px solid #edf1f5}
+.groupHead{display:flex;flex-direction:column;gap:1px;margin-bottom:6px}
+.groupHead h3{font-size:13px;font-weight:650}
+.groupHead h3 span{display:inline-block;min-width:20px;margin-left:4px;padding:0 6px;border-radius:6px;background:#eef3f5;color:#40576a;font-size:12px;text-align:center}
+.group ul{display:grid;gap:2px;margin:0;padding:0;list-style:none}
+.group li a{display:flex;flex-direction:column;gap:2px;min-height:44px;padding:7px 8px;margin:0 -8px;border-radius:6px;color:inherit;text-decoration:none}
+.group li a:hover,.group li a:focus-visible{background:#f1f7f5}
+.group li a:focus-visible{outline:2px solid #087f75;outline-offset:-2px}
+.group li small{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#546979;font-size:12px}
+.rowTitle{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.empty{margin:0}
+.note{margin:0;padding:10px 16px 14px;font-size:12px;color:#546979}
+
+/* "View all" meets the 24px minimum target size (WCAG 2.2 AA). */
+.viewAll{display:inline-flex;align-items:center;gap:4px;min-height:24px;padding:2px 0}

@@ -1,0 +1,36 @@
+/* Fast orientation, visible actions, and one level of detailed reasoning. */
+.recommendation-trigger{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:5px 0;background:transparent;border:0;color:#08766d;font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;text-align:left;cursor:pointer;max-width:100%}
+.recommendation-trigger svg{flex:none}.recommendation-trigger:hover span{text-decoration:underline}
+.recommendation-trigger:focus-visible,.recommendation-source-link:focus-visible{outline:3px solid #58b8a8;outline-offset:3px;border-radius:3px}
+.recommendation-dialog[data-slot=dialog-content]{width:min(920px,calc(100vw - 32px));max-width:920px;max-height:calc(100dvh - 48px);padding:0;gap:0;border-radius:10px;overflow:hidden;background:#fff;display:flex;flex-direction:column;color:#17313f;z-index:100}
+.recommendation-dialog>[data-slot=dialog-header]{padding:24px 56px 20px 24px;text-align:left;border-bottom:1px solid #dce4e9;flex:none}
+.recommendation-eyebrow{font-size:11px;line-height:1.4;font-weight:650;letter-spacing:.055em;text-transform:uppercase;color:#08766d}
+.recommendation-dialog [data-slot=dialog-title]{font-size:23px;line-height:1.3;font-weight:650;letter-spacing:-.3px}
+.recommendation-dialog [data-slot=dialog-description]{font-size:13px;line-height:1.5;color:#546979}
+.recommendation-dialog>[data-slot=dialog-close]{width:32px;height:32px;display:grid;place-items:center;border-radius:5px;top:18px;right:18px}
+.recommendation-scroll{overflow:auto;overscroll-behavior:contain;min-height:0;padding:24px}
+.recommendation-summary{margin:0 0 20px;padding:14px 16px;border-left:3px solid #087f75;background:#eff7f5;font-size:15px;line-height:1.6;border-radius:3px;white-space:pre-wrap}
+.recommendation-explanation-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px}
+.recommendation-explanation h3{font-size:14px;line-height:1.5;font-weight:650;color:#17313f;margin:0 0 10px;text-transform:none;letter-spacing:0}
+.recommendation-section+ .recommendation-section{margin-top:24px}.recommendation-section ul{padding:0 0 0 18px;margin:0;display:grid;gap:10px}.recommendation-section li{font-size:13px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}
+.recommendation-considerations{border-left:3px solid #ca983e;padding:12px 14px;background:#fff9ee;border-radius:3px}
+.recommendation-sources{border-left:1px solid #dce4e9;padding-left:24px}.recommendation-sources article+article{border-top:1px solid #e2e8ec;margin-top:14px;padding-top:14px}
+.recommendation-sources h4{font-size:12px;font-weight:650;line-height:1.5;margin:0;color:#17313f}.recommendation-source-date{display:block;color:#607580;font-size:11px;line-height:1.5;margin-top:3px}
+.recommendation-sources p{font-size:13px;line-height:1.6;margin:6px 0;color:#496170;white-space:pre-wrap;overflow-wrap:anywhere}.recommendation-source-link{display:inline-flex;gap:4px;align-items:center;min-height:32px;font-size:12px;font-weight:600;color:#08766d}
+.recommendation-limitations{border-top:1px solid #dce4e9;margin-top:24px;padding-top:20px;color:#546979}
+.recommendation-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 24px;background:#f8fafb;border-top:1px solid #dce4e9;flex:none}.recommendation-footer span{font-size:11px;color:#546979}.recommendation-footer button{background:#087f75;color:#fff;font-size:13px;font-weight:600;padding:9px 14px;border-radius:5px;min-height:40px;white-space:nowrap}
+.redesign-shell :is(button,a,input,textarea,select,[role=slider],[role=checkbox],[role=switch],summary):focus-visible{outline:3px solid #58b8a8;outline-offset:3px}
+.redesign-shell :is(button,a,input,textarea,select,[role=slider],[role=checkbox],[role=switch],summary){scroll-margin-block:280px 180px}
+.redesign-shell .text-link{min-height:28px;align-items:center}.acronym-help{min-width:28px;min-height:28px}
+.redesign-shell .main-content>div:empty{display:none}
+.clinician-record-toolbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid #dce4e9;background:#f8fafb}.clinician-record-search{display:flex;align-items:center;gap:8px;flex:1;min-width:220px;color:#607580}.clinician-record-search input{background:#fff;min-width:0}.clinician-record-toolbar>span{font-size:12px;color:#546979}.clinician-notes .document-note{padding:20px 24px}.clinician-notes .document-note>header{display:flex;align-items:center;justify-content:space-between;gap:16px}.clinician-notes .document-note time{font-size:12px;color:#546979}.clinician-notes .document-note p{max-width:92ch;white-space:pre-wrap;font-size:14px;line-height:1.65;margin:12px 0}.clinician-record-more{display:flex;align-items:center;gap:16px;padding:16px 24px;font-size:12px;color:#546979;border-top:1px solid #dce4e9}
+.clinician-outcomes .outcome-grid{margin-bottom:20px}.clinician-outcomes .panel+.panel{margin-top:20px}.clinician-outcomes .outcome>strong{font-size:28px}.clinician-outcomes .trend-chart{max-width:950px;margin:auto}.clinician-outcomes .observation-table-scroll{overflow:auto}.clinician-outcomes .observation-table-scroll table{min-width:620px}
+.directory-table .recommendation-trigger{font-size:11px;margin-top:3px}.directory-table td{vertical-align:middle}.patient-directory-redesign .directory-heading p{max-width:60ch}
+.clinician-notes .document-note>summary{list-style:none;cursor:pointer}.clinician-notes .document-note>summary::-webkit-details-marker{display:none}.clinician-notes .document-note header{display:flex;align-items:center;justify-content:space-between;gap:16px}.clinician-notes .document-note .clinician-note-preview{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin:10px 0;color:#17313f}.clinician-notes .document-note small{display:flex;align-items:center;gap:6px}.clinician-notes .document-note small>span{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:#08766d;font-weight:600}.clinician-notes .document-note[open] .clinician-note-preview{display:none}.clinician-notes .document-note[open] small>span svg{transform:rotate(180deg)}.clinician-note-full{margin-top:16px;border-top:1px solid #dce4e9;padding-top:4px}.clinician-note-full p{color:#17313f}
+@media(max-width:760px){.recommendation-explanation-grid{grid-template-columns:1fr;gap:24px}.recommendation-sources{padding:20px 0 0;border-left:0;border-top:1px solid #dce4e9}.recommendation-dialog>[data-slot=dialog-header]{padding:20px 52px 16px 20px}.recommendation-scroll{padding:20px}.recommendation-dialog [data-slot=dialog-title]{font-size:20px}.recommendation-footer{padding:12px 20px}.recommendation-footer span{max-width:180px}.redesign-shell :is(button,a,input,textarea,select,summary){scroll-margin-block:80px 100px}}
+
+/* Keep record links below the persistent patient header. */
+:is(#patient-goal,#patient-medications,#visit-plan,#patient-context,#visit-observations){scroll-margin-top:280px}
+.care-workbench details>summary{min-height:32px;padding-block:5px}
+.recommendation-source-link>span{font-size:11px;font-weight:400}
+@media(max-width:760px){:is(#patient-goal,#patient-medications,#visit-plan,#patient-context,#visit-observations){scroll-margin-top:80px}}

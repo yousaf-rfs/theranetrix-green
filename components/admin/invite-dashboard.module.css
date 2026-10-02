@@ -1,0 +1,63 @@
+.page{min-height:100vh;background:#f4f7f8;color:#17313f;padding:20px 16px 48px}
+.brand{display:flex;align-items:center;gap:10px;max-width:880px;margin:0 auto 24px;font-weight:600;font-size:15px}
+.brand b{font-weight:400;color:#2d7d74}
+.mark{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#e3f1ef;color:#1f6b63}
+.divider{width:1px;height:18px;background:#c8d6db}
+.layout{max-width:880px;margin:0 auto;display:grid;gap:20px}
+.titleRow{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.titleRow h1{margin:0 0 4px;font-size:24px;font-weight:650}
+.card{background:#fff;border:1px solid #d8e2e6;border-radius:12px;padding:20px;display:grid;gap:12px}
+.card h1{margin:0;font-size:20px;font-weight:650}
+.card h2,.listHead h2{margin:0;font-size:16px;font-weight:650}
+.narrow{max-width:420px;margin:8vh auto 0}
+.icon{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:#e3f1ef;color:#1f6b63}
+.muted{margin:0;color:#566a75;font-size:14px}
+.hint{margin:0;color:#566a75;font-size:13px}
+.error{margin:0;color:#b42318;font-size:14px}
+.field{display:grid;gap:6px}
+.optional{font-weight:400;color:#566a75;font-size:12px}
+.switchRow{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.switchRow>div{display:grid;gap:4px}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+.wide{grid-column:1/-1}
+.choices{border:0;margin:0;padding:0;display:grid;gap:6px;min-width:0}
+.choices legend{font-size:14px;font-weight:500;margin-bottom:6px;padding:0}
+.choice{display:flex;align-items:center;gap:8px;min-height:36px;padding:6px 10px;border:1px solid #d8e2e6;border-radius:8px;font-size:14px;cursor:pointer}
+.choice:has(input:checked){border-color:#2d7d74;background:#f0f8f6}
+.choice input{accent-color:#1f6b63;width:16px;height:16px}
+.created{display:grid;gap:10px;padding:14px;border-radius:10px;background:#f0f8f6;border:1px solid #bfe0da}
+.created p{margin:0;display:flex;align-items:center;gap:6px;font-size:14px;flex-wrap:wrap}
+.linkRow{display:flex;gap:8px;align-items:center}
+.linkRow input{flex:1;min-width:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+.listHead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.person{background:#fff;border:1px solid #d8e2e6;border-radius:12px;padding:16px;display:grid;gap:10px}
+.person.off{background:#f8fafb}
+.person.off .who strong{color:#566a75}
+.person.fresh{border-color:#2d7d74;box-shadow:0 0 0 3px #e3f1ef}
+.personHead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.avatar{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#eef3f5;color:#3d5563;flex:none}
+.who{display:grid;min-width:0;flex:1}
+.who strong{font-weight:600;overflow-wrap:anywhere}
+.who span{font-size:13px;color:#566a75;overflow-wrap:anywhere}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag,.tagOn,.tagOff{font-size:12px;padding:2px 8px;border-radius:999px;background:#eef3f5;color:#3d5563;white-space:nowrap}
+.tagOn{background:#e3f1ef;color:#1f6b63}
+.tagOff{background:#fdecea;color:#9b2c1f}
+.note{margin:0;font-size:13px;color:#3d5563}
+.activity{margin:0;font-size:13px;color:#566a75}
+.actions{display:flex;flex-wrap:wrap;gap:4px;margin:-4px -8px -6px}
+.listMeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.newHead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.segment{display:inline-flex;padding:3px;border-radius:9px;background:#eef3f5;gap:2px}
+.segment button{min-height:32px;padding:4px 12px;border:0;border-radius:7px;background:transparent;color:#3d5563;font-size:13px;font-weight:500;cursor:pointer}
+.segment button[aria-pressed="true"]{background:#fff;color:#17313f;box-shadow:0 1px 2px rgb(23 49 63 / .12)}
+.segment button:focus-visible{outline:2px solid #2d7d74;outline-offset:1px}
+.empty{display:grid;justify-items:center;gap:8px;padding:28px 16px;border:1px dashed #c8d6db;border-radius:12px;color:#566a75;text-align:center}
+.empty p{margin:0}
+@media (max-width:620px){
+  .form{grid-template-columns:1fr}
+  .linkRow{flex-wrap:wrap}
+  .linkRow input{flex-basis:100%}
+  .switchRow{gap:12px}
+}

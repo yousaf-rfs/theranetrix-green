@@ -1,0 +1,17 @@
+.body{padding:1.15rem 1.25rem 1.35rem;min-width:0}
+.body[hidden],.body [hidden]{display:none!important}
+.tabs{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1rem}
+.tabs button{
+  min-height:38px;padding:.45rem .8rem;border:1px solid #d5e3dc;border-radius:999px;
+  background:#f7fbf8;color:#2b4a41;font:inherit;font-size:.8125rem;font-weight:650;cursor:pointer;
+}
+.tabs button[aria-pressed=true]{background:#17655e;border-color:#17655e;color:#fff}
+.picker{display:flex;flex-direction:column;gap:.4rem;font-size:.8125rem;font-weight:650;max-width:30rem;color:#4d655c}
+.picker select{font:inherit;padding:.65rem .8rem;border:1px solid #d5e3dc;border-radius:.7rem;background:#fff;color:#173a35;width:100%}
+.context{font-size:.82rem;color:#5d726a;margin:.2rem 0 1rem}
+.error{color:#9f1239;background:#fff1f2;border:1px solid #fecdd3;padding:.8rem;border-radius:.5rem}
+.body section{min-width:0}
+.body input,.body textarea,.body select{max-width:100%}
+.body :is(summary,h2,h3,legend){scroll-margin-top:1rem}
+.body :is(summary,h2,h3,legend):focus-visible{outline:3px solid #296fc0;outline-offset:4px;border-radius:3px}
+@media(max-width:640px){.body{padding:.85rem}.tabs button{width:100%}}

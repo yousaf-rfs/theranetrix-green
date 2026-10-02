@@ -1,0 +1,186 @@
+/* Patient preparation and medication verification, September feedback. */
+.previsit-checkin.checkin-panel { color:#17313f; padding:24px; border-radius:8px; }
+.previsit-state { display:flex; align-items:flex-start; gap:12px; padding-bottom:16px; }
+.previsit-state>svg { flex-shrink:0; margin-top:3px; color:#076d65; }
+.previsit-state>div { flex:1; }
+.previsit-state strong { font-size:18px; letter-spacing:-.3px; }
+.previsit-state p { margin:4px 0 0; font-size:14px; line-height:1.5; color:#546979; }
+.previsit-state>.badge { font-size:12px; }
+.previsit-flow { display:flex; align-items:center; gap:16px; padding:12px 16px; margin-bottom:24px; background:#f4f6f8; border-radius:8px; font-size:12px; color:#546979; }
+.previsit-flow>span { display:flex; align-items:center; gap:8px; }
+.previsit-flow b { display:grid; place-items:center; width:22px; height:22px; background:#fff; color:#076d65; border:1px solid #c8d9d7; border-radius:50%; font-weight:600; }
+.previsit-section { padding-bottom:24px; margin-bottom:24px; border-bottom:1px solid #dce4e8; }
+.previsit-section>.checkin-heading h3,.previsit-section h3 { font-size:16px; color:#17313f; margin:0; }
+.previsit-section>.checkin-heading+p { font-size:14px; color:#546979; line-height:1.5; margin:8px 0 20px; }
+.previsit-checkin .checkin-scale { padding:16px 0; margin:0; border-bottom:1px solid #edf0f2; }
+.previsit-checkin .checkin-scale legend { font-size:14px; color:#17313f; }
+.previsit-checkin .checkin-scale legend span { font-size:12px; color:#546979; }
+.previsit-checkin .checkin-chips button { border-radius:6px; min-height:40px; font-size:14px; }
+.previsit-checkin .checkin-chips button.selected { background:#087f75; border-color:#087f75; color:#fff; }
+.previsit-checkin .checkin-more { margin-top:16px; }
+.previsit-checkin .checkin-more summary { min-height:40px; }
+.previsit-checkin .weekly-checkin-toggle { min-height:40px; padding:8px 0 0; font-size:13px; }
+.previsit-section-heading { display:flex; align-items:flex-start; gap:10px; margin-bottom:16px; }
+.previsit-section-heading>svg { margin-top:2px; color:#076d65; flex-shrink:0; }
+.previsit-section-heading p { color:#546979; font-size:14px; margin:4px 0 0; line-height:1.5; }
+.previsit-recorded-medications { padding:12px 16px; margin:0 0 16px; border:1px solid #dce4e8; border-radius:8px; }
+.previsit-recorded-medications>span { color:#546979; font-size:12px; }
+.previsit-recorded-medications p { display:flex; justify-content:space-between; flex-wrap:wrap; gap:4px 16px; margin:8px 0 0; font-size:14px; }
+.previsit-recorded-medications p>span { font-size:12px; color:#546979; }
+.previsit-medication-row { display:grid; gap:12px; padding:16px; background:#f4f6f8; border:1px solid #dce4e8; border-radius:8px; margin-bottom:12px; }
+.previsit-medication-row-title { display:flex; justify-content:space-between; align-items:center; min-height:24px; }
+.previsit-medication-row-title strong { font-size:13px; }
+.previsit-medication-row label { display:flex; flex-direction:column; gap:8px; font-size:13px; color:#17313f; }
+.previsit-medication-row input,.previsit-medication-row select,.previsit-medication-row textarea { background:#fff; font-size:14px; min-height:40px; border-radius:6px; border:1px solid #cbd7dd; padding:8px 10px; width:100%; }
+.previsit-fields { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:12px; }
+.previsit-medication-actions { display:flex; align-items:center; gap:16px; }
+.previsit-medication-actions button { height:40px; flex-shrink:0; }
+.previsit-medication-actions small { font-size:12px; color:#546979; line-height:1.5; }
+.previsit-checkin .checkin-note { display:flex; flex-direction:column; gap:8px; margin:0 0 24px; font-size:14px; }
+.previsit-submit { padding-top:16px; border-top:1px solid #dce4e8; }
+.previsit-submit p { color:#546979; font-size:12px; margin:0 0 12px; }
+.previsit-submit button { min-height:44px; border-radius:8px; }
+.previsit-error { background:#fff4f2; color:#923d32!important; border:1px solid #efc9c2; border-radius:8px; padding:12px; font-size:14px; line-height:1.5; margin:12px 0; }
+.previsit-saved { background:#edf8f4; color:#276355; padding:12px; border-radius:8px; font-size:14px; }
+.previsit-history-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+.previsit-history-heading>span:last-child { color:#546979; font-size:12px; }
+.companion-response-history p { white-space:pre-line; }
+.medication-category+.medication-category,.medication-previous { margin-top:24px; padding-top:24px; border-top:1px solid #dce4e8; }
+.medication-category-heading { margin-bottom:12px; }
+.medication-category-heading h3 { display:flex; gap:8px; align-items:center; font-size:15px; color:#17313f; margin:0; }
+.medication-category-heading h3>span { font-size:12px; font-weight:500; min-width:22px; padding:2px 6px; text-align:center; background:#eef3f5; border-radius:4px; color:#546979; }
+.medication-category-heading p { font-size:12px; line-height:1.5; color:#546979; margin:4px 0 0; }
+.feedback-medication-review .medication-review-toolbar { gap:16px; align-items:center; border-bottom:1px solid #dce4e8; padding-bottom:16px; }
+.feedback-medication-review .medication-review-toolbar strong { font-size:16px; }
+.feedback-medication-review .medication-review-toolbar p { margin:4px 0 0; font-size:13px; color:#546979; }
+.feedback-medication-review .medication-review-item { padding:16px 0; border-bottom:1px solid #edf0f2; border-radius:0; }
+.feedback-medication-review .medication-review-item:last-child { border-bottom:0; }
+.care-medication-indication { font-size:13px; margin:0; color:#17313f; }
+.care-medication-indication>span { font-size:12px; color:#546979; margin-right:8px; }
+.feedback-medication-review .care-medication-response>div { background:#f4f6f8; border:0; padding:10px 12px; border-radius:6px; }
+.feedback-medication-review .care-medication-response>div>span { text-transform:none; letter-spacing:0; font-size:12px; }
+.feedback-medication-review .care-medication-response>div:has(.text-rose) { background:#fff5f2; }
+.feedback-medication-review .medication-prompts { background:#f4f6f8; border-radius:8px; padding:16px; margin-top:24px; }
+.feedback-medication-review .medication-prompts>div { padding:10px 0; border-bottom:1px solid #dce4e8; }
+.feedback-medication-review .medication-prompts>div:last-child { border:0; }
+.feedback-companion-medications .companion-med { padding:24px; }
+.feedback-companion-medications .companion-med-title h3 { font-size:18px; color:#17313f; }
+.feedback-companion-medications .companion-med-title>.badge { align-self:flex-start; }
+.feedback-companion-medications .companion-med-title>div>span { color:#546979; font-size:14px; }
+.companion-med-response { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:16px; padding:16px 0; margin:16px 0; border-top:1px solid #dce4e8; border-bottom:1px solid #dce4e8; }
+.companion-med-response>div { display:flex; flex-direction:column; gap:6px; min-width:0; }
+.companion-med-response span { font-size:12px; color:#546979; }
+.companion-med-response strong { font-size:14px; color:#17313f; font-weight:500; line-height:1.5; }
+.companion-dose-report { margin-top:24px; }
+.companion-dose-report h4 { margin:0 0 12px; font-size:15px; font-weight:600; color:#17313f; }
+.companion-dose-report label { display:block; font-size:14px; color:#17313f; }
+.companion-dose-report label>span { color:#546979; font-size:12px; margin-left:8px; }
+.companion-dose-report textarea { margin-top:8px; border-radius:6px; background:#fff; font-size:14px; }
+.companion-dose-report>small { display:block; margin-top:8px; font-size:12px; color:#546979; }
+.feedback-companion-medications .form-actions button { min-height:40px; min-width:110px; border-radius:6px; }
+.companion-device-status { display:flex; gap:12px; align-items:flex-start; padding:16px; background:#f4f6f8; border:1px solid #dce4e8; border-radius:8px; color:#546979; }
+.companion-device-status>svg { margin-top:2px; flex-shrink:0; }
+.companion-device-status strong { font-size:14px; color:#17313f; }
+.companion-device-status p { font-size:12px; margin:4px 0 0; line-height:1.5; }
+@media(max-width:600px){
+  .previsit-checkin.checkin-panel,.feedback-companion-medications .companion-med { padding:16px; }
+  .previsit-state { flex-wrap:wrap; }
+  .previsit-state>.badge { margin-left:32px; }
+  .previsit-flow { gap:8px; padding:12px; }
+  .previsit-fields,.companion-med-response { grid-template-columns:1fr; }
+  .previsit-medication-row { padding:12px; }
+  .previsit-medication-actions { align-items:flex-start; flex-direction:column; gap:8px; }
+}
+
+/* Patient medicine questions: can't take, tried before, taking now. */
+.medq{display:grid;gap:14px}
+.medq-question{display:grid;gap:10px;margin:0;padding:14px;border:1px solid #dce4e8;border-radius:10px;background:#fff;min-width:0}
+.medq-question legend{float:left;width:100%;padding:0;font-size:15px;font-weight:650;color:#17313f}
+.medq-question legend+*{clear:both}
+.medq-hint{margin:-4px 0 0;font-size:13px;line-height:1.45;color:#546979}
+.medq-answer,.medq-chips{display:flex;flex-wrap:wrap;gap:8px}
+.medq-answer button,.medq-chips button{min-height:40px;padding:7px 14px;border:1px solid #cfdadf;border-radius:999px;background:#fff;color:#17313f;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.medq-answer button{min-width:84px;justify-content:center;font-weight:600}
+.medq-answer button.selected,.medq-chips button.selected{border-color:#087f75;background:#e6f4f1;color:#065f57;font-weight:600}
+.medq-answer button:focus-visible,.medq-chips button:focus-visible{outline:2px solid #087f75;outline-offset:2px}
+.medq-chips button small{font-size:11px;font-weight:500;color:#8c6222;background:#fff4dd;border-radius:999px;padding:1px 6px}
+.medq-chips .medq-more{border-style:dashed;color:#546979}
+.medq-label{display:block;font-size:13px;font-weight:600;color:#3d5563}
+.medq-picker{display:grid;gap:8px}
+.medq-type{display:flex;gap:8px;align-items:center}
+.medq-type input{flex:1;min-width:0}
+.medq-card{display:grid;gap:8px;padding:12px;border:1px solid #c8d9d5;border-radius:8px;background:#f7fbfa}
+.medq-card-title{display:flex;align-items:center;gap:8px}
+.medq-card-title strong{font-size:14px}
+.medq-card-title span{font-size:13px;color:#546979}
+.medq-card-title button{margin-left:auto;display:grid;place-items:center;width:30px;height:30px;border:0;border-radius:6px;background:transparent;color:#546979;cursor:pointer}
+.medq-card-title button:hover{background:#0000000d}
+.medq-card-compact{padding:8px 12px}
+.medq-field{display:grid;gap:5px;font-size:13px;font-weight:600;color:#3d5563}
+.medq-field input{font-weight:400}
+.medq-now{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:8px;align-items:end}
+.medq-footnote{margin:4px 0 0;font-size:12px;color:#566a75}
+@media(max-width:560px){.medq-now{grid-template-columns:1fr}.medq-answer button{flex:1;min-width:0}}
+.medq-row-remove{display:grid;place-items:center;width:36px;height:36px;border:0;border-radius:6px;background:transparent;color:#546979;cursor:pointer}
+.medq-row-remove:hover{background:#0000000d}
+.medq-add-row{justify-self:start}
+
+/* Daily quick check-in, today's saved check-in and the 7-day strip. */
+.checkin-mode{display:inline-flex;gap:4px;padding:4px;margin-bottom:16px;background:#f4f6f8;border-radius:8px}
+.checkin-mode button{min-height:40px;padding:6px 14px;border:0;border-radius:6px;background:transparent;color:#3d5563;font:inherit;font-size:14px;cursor:pointer}
+.checkin-mode button.selected{background:#fff;color:#065f57;font-weight:600;box-shadow:0 1px 2px #17313f1f}
+.checkin-mode button:focus-visible,.checkin-more-toggle:focus-visible,.medq-unknown-toggle:focus-visible{outline:2px solid #087f75;outline-offset:2px}
+.checkin-safety{margin:0 0 20px;padding:10px 12px;border-left:3px solid #c9a24a;background:#fffaf0;border-radius:4px;font-size:13px;line-height:1.5;color:#3d5563}
+.checkin-more-toggle{display:inline-flex;align-items:center;gap:6px;min-height:40px;margin:0 0 20px;padding:6px 12px;border:1px dashed #9fb8b3;border-radius:8px;background:#fff;color:#065f57;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.checkin-detail>.previsit-section>h3{margin-bottom:4px}
+.checkin-affecting{margin-top:16px}
+.checkin-updating{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:12px 14px;margin-bottom:16px;border:1px solid #c8d9d5;border-radius:8px;background:#f7fbfa;font-size:14px}
+.checkin-updating p{margin:4px 0 0;font-size:13px;line-height:1.5;color:#546979}
+.checkin-today{padding:32px 8px}
+.checkin-today .checkin-today-time{margin:4px 0 16px;font-size:13px}
+.checkin-today-values{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;max-width:520px;margin:0 auto 8px}
+.checkin-today-values>div{padding:10px;border:1px solid #dce4e8;border-radius:8px;background:#fff}
+.checkin-today-values dt{font-size:12px;color:#546979}
+.checkin-today-values dd{margin:2px 0 0;font-size:18px;font-weight:600;color:#17313f}
+.checkin-week{display:flex;justify-content:center;gap:10px;margin:0 0 16px;padding:0;list-style:none}
+.checkin-week li{display:grid;justify-items:center;gap:4px;font-size:12px;color:#546979}
+.checkin-week li i{width:14px;height:14px;border:2px solid #b7c7cc;border-radius:50%;background:#fff}
+.checkin-week li.done i{border-color:#087f75;background:#087f75}
+.checkin-week li.today span{font-weight:700;color:#17313f}
+.checkin-today .checkin-week-caption{margin:0 0 8px;font-size:13px;font-weight:600;color:#17313f}
+.checkin-today .checkin-week-key{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 14px;margin:-6px 0 16px;font-size:12px;color:#546979}
+.checkin-week-key span{display:inline-flex;align-items:center;gap:5px}
+.checkin-week-key i{width:10px;height:10px;border:2px solid #b7c7cc;border-radius:50%;background:#fff}
+.checkin-week-key .done i{border-color:#087f75;background:#087f75}
+.checkin-readback{display:grid;gap:2px;margin:6px 0 0;font-size:13px;line-height:1.6;color:#546979}
+.checkin-readback>div{display:flex;flex-wrap:wrap;gap:0 6px;min-width:0}
+.checkin-readback dt{font-weight:600;color:#17313f}
+.checkin-readback dt::after{content:':'}
+.checkin-readback dd{margin:0;overflow-wrap:anywhere}
+.checkin-today .checkin-safety{max-width:520px;margin:0 auto 20px;text-align:left}
+@media(min-width:1250px){
+  .clinician-companion .checkin-mode,.clinician-companion .checkin-safety,.clinician-companion .checkin-updating,.clinician-companion .checkin-quick,.clinician-companion .checkin-more-toggle,.clinician-companion .checkin-detail{grid-column:1/-1}
+  .clinician-companion .checkin-more-toggle{justify-self:start}
+  .clinician-companion .checkin-detail:not([hidden]){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:24px;align-items:start}
+  .clinician-companion .checkin-detail>.checkin-note{grid-column:1/-1}
+}
+
+/* A medicine the patient cannot name, and the kind of thing they take. */
+.medq-now-row{display:grid;gap:8px;padding-bottom:12px;border-bottom:1px solid #edf0f2}
+.medq-now-row:last-of-type{border-bottom:0}
+.medq-chips button small{white-space:nowrap}
+.medq-now-row .medq-chips button small{color:#546979;background:#f4f6f8}
+.medq-unknown-toggle{justify-self:start;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:4px 10px;border:1px solid #cfdadf;border-radius:999px;background:#fff;color:#3d5563;font:inherit;font-size:13px;cursor:pointer}
+.medq-unknown-toggle[aria-pressed=true]{border-color:#087f75;background:#e6f4f1;color:#065f57}
+.medq-unknown{display:grid;gap:8px;padding:12px;border:1px dashed #c9a24a;border-radius:8px;background:#fffdf7}
+.medq-unknown-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.medq-reminder{margin:0;font-size:13px;font-weight:600;color:#6b4d15}
+@media(max-width:560px){.medq-unknown-fields{grid-template-columns:1fr}.checkin-updating{flex-direction:column}.checkin-mode{display:flex}.checkin-mode button{flex:1}}
+
+/* Clinician view of patient-reported items. */
+.visit-patient-medicines>div>small,.visit-patient-medicines>small{display:block;margin-top:4px;font-size:12px;color:#546979}
+.visit-reported-unidentified>span{color:#8c6222!important}
+
+/* Settings: symptom-change review rule. */
+.symptom-rule-current small{display:block;margin-top:4px;font-size:12px;color:#546979}
+.symptom-rule-history ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:#3d5563}

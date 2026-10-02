@@ -1,0 +1,79 @@
+/* Clinical editors retain their mounted forms inside native disclosures. */
+.clinical-registry-list {display:grid;gap:12px;min-width:0;}
+.clinical-workflow-step {
+  min-width:0;border:1px solid var(--ux-line,#dfe7ed);border-radius:12px;
+  background:#fff;overflow:visible;
+}
+.clinical-workflow-step > summary {
+  display:flex;align-items:center;gap:16px;min-height:76px;padding:17px 20px;
+  color:var(--ux-ink,#142d41);font-size:15px;font-weight:650;line-height:1.4;
+  cursor:pointer;list-style:none;border-radius:11px;
+}
+.clinical-workflow-step > summary::-webkit-details-marker {display:none;}
+.clinical-workflow-step > summary::marker {content:'';}
+.clinical-workflow-step > summary::after {
+  content:'+';display:grid;place-items:center;flex:none;width:24px;height:24px;
+  color:var(--ux-primary,#147d73);font-size:22px;font-weight:400;
+}
+.clinical-workflow-step[open] > summary::after {content:'−';}
+.clinical-workflow-step > summary > span {flex:1;min-width:0;overflow-wrap:anywhere;}
+.clinical-workflow-step > summary small {
+  display:block;margin-top:4px;color:var(--ux-muted,#63758a);
+  font-size:12px;line-height:1.5;font-weight:400;max-width:76ch;
+}
+.clinical-workflow-step > summary > b {
+  flex:none;max-width:170px;padding:5px 9px;border-radius:6px;
+  background:#f0f5f7;color:#496171;font-size:11px;font-weight:650;overflow-wrap:anywhere;
+}
+.clinical-workflow-step > summary > b.clinical-attention-count {
+  color:#8b501a;background:#fff2db;
+}
+.clinical-workflow-step > summary:hover {background:#f6faf9;}
+.clinical-workflow-step > summary:focus-visible {outline:3px solid #4fa99c;outline-offset:3px;}
+.clinical-workflow-step[open] > summary {background:#f5f9f8;border-bottom:1px solid var(--ux-line,#dfe7ed);border-radius:11px 11px 0 0;}
+.clinical-step-body {padding:20px;min-width:0;display:grid;gap:18px;}
+.clinical-step-body > .panel {border:0;box-shadow:none;border-radius:0;}
+.clinical-step-body > .panel > .panel-head {padding:0 0 18px;}
+.clinical-step-body > .panel > .panel-head h2 {font-size:14px;color:#4a6372;}
+.clinical-step-body :is(input,select,textarea) {max-width:100%;min-width:0;box-sizing:border-box;}
+.clinical-step-body :is(p,li,code,legend) {overflow-wrap:anywhere;}
+.clinical-step-body :is(p,li) {font-size:13px;line-height:1.6;}
+.clinical-step-body label {font-size:13px;line-height:1.5;}
+.clinical-stage-status,.clinical-editor-warning {
+  margin:0;padding:12px 15px;border:1px solid #e5d8b8;border-radius:8px;
+  color:#785519;background:#fffaf0;font-size:13px;line-height:1.55;
+}
+.clinical-decision-editor {padding:20px;gap:16px;}
+.clinical-decision-editor > h2 {font-size:20px;}
+.clinical-decision-editor > p {margin:0;font-size:13px;}
+.clinical-decision-editor .clinical-step-body > fieldset,
+.clinical-decision-editor .clinical-step-body > form,
+.clinical-decision-editor .clinical-step-body > section {border:0;padding:0;border-radius:0;}
+.clinical-decision-editor .clinical-step-body > fieldset > legend {font-size:14px;margin-bottom:12px;padding:0;color:#4a6372;}
+.clinical-decision-editor :is(input,textarea,select) {font-size:14px;}
+.clinical-decision-editor table {width:100%;font-size:13px;border-collapse:collapse;}
+.clinical-decision-editor :is(th,td) {padding:10px;text-align:left;border-bottom:1px solid #e5ebef;}
+.clinical-proof-note {font-size:13px;color:var(--ux-muted,#63758a);}
+.clinical-proof-note > summary {cursor:pointer;font-weight:600;}
+.clinical-decision-editor .clinical-comparison-priorities {grid-template-columns:repeat(3,minmax(0,1fr));}
+.clinical-comparison-priorities > :is(h4,button) {grid-column:1 / -1;}
+.clinical-option-editor {border:1px solid #dfe7ed;border-radius:9px;min-width:0;}
+.clinical-option-editor > summary {display:flex;justify-content:space-between;gap:12px;cursor:pointer;padding:13px 15px;font-size:14px;font-weight:600;line-height:1.5;}
+.clinical-option-editor > summary > span {min-width:0;overflow-wrap:anywhere;}
+.clinical-option-editor > summary > small {color:#546979;font-size:11px;font-weight:500;flex:none;}
+.clinical-option-editor > fieldset {border:0;border-radius:0;padding:15px;}
+.clinical-option-editor[open] > summary {border-bottom:1px solid #dfe7ed;background:#f7faf9;}
+.clinical-coordination-editor > .panel:first-child {padding-bottom:16px;}
+.clinical-coordination-editor > .panel:first-child > :not(.panel-head) {margin-inline:20px;}
+.clinical-coordination-editor .entry-form > fieldset > label:has(textarea),
+.clinical-coordination-editor .entry-form > fieldset > p,
+.clinical-coordination-editor .entry-form > fieldset > .coordination-choices {grid-column:1 / -1;}
+.clinical-coordination-editor .entry-form {padding:0;}
+@media(max-width:760px) {
+  .clinical-workflow-step > summary {padding:14px;gap:10px;min-height:72px;align-items:flex-start;font-size:14px;}
+  .clinical-workflow-step > summary > b {max-width:95px;font-size:10px;}
+  .clinical-workflow-step > summary::after {width:16px;}
+  .clinical-step-body {padding:15px;}
+  .clinical-decision-editor {padding:14px;}
+  .clinical-decision-editor .clinical-comparison-priorities {grid-template-columns:1fr;}
+}

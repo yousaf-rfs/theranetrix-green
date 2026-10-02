@@ -1,0 +1,1935 @@
+{
+  "acceptanceManifestVersion": 3,
+  "contractPath": "docs/clinical-workflows-v3-contract.md",
+  "evaluatedOn": "2026-09-17",
+  "repository": "RocketFarm/theranetrix-app",
+  "evidenceScope": "Completion batch verified with npm test: 428 passed, including build and actual API persistence scenarios. The PR body records the saved commit and its cloud CI result.",
+  "statusDefinitions": {
+    "local-passed": "The explicitly described synthetic local assertions passed. Each evidence reference identifies actual route/SQLite/reload, unit or SSR execution; this does not imply clinical validation, production integration or interactive browser acceptance.",
+    "external-blocked": "The draft/manual-record and rejection boundaries passed locally; the named live provider/identity journey remains unavailable.",
+    "Not run": "No direct completed scenario evidence for the named cross-flow case. Adjacent tests are listed only as partial context.",
+    "Blocked": "A required external capability or test environment is unavailable."
+  },
+  "summary": {
+    "status": "local-api-acceptance-with-external-and-browser-gaps",
+    "journeyCount": 34,
+    "localPassedJourneys": 31,
+    "externalBlockedJourneys": [
+      "J12",
+      "J19",
+      "J21"
+    ],
+    "crossFlowBranchCount": 24,
+    "delivered": [
+      "Seven real domain reducers, schemas, validators and panels are integrated with source provenance.",
+      "Authenticated workflow.apply routes commands through strict scope/version checks into persisted domain slices.",
+      "Signed encounters project actual care plans, notes and pending coordination tasks; confirmed observations/corrections project without fabricating missing scores.",
+      "J10 handoffs project into attributed shared review-queue rows with source-driven closure; due contact, result/referral and scheduling work project as coordination tasks.",
+      "Observation history renders saved zero, missing, declined and corrected entries with provenance and original records retained.",
+      "Patient/program workflow panels are mounted through WorkflowWorkbench, with patient-scoped saved context.",
+      "Reusable fixtures exercise all 34 journey identifiers with domain-specific rejected commands and persisted reload checks.",
+      "Populated Emma, Lucas and Priya workflow records and program registries with resumable, versioned patient stories and home-screen shortcuts.",
+      "Persisted local demonstration connection for J12/J19/J21: imports, duplicate detection, retained mismatches and corrections, plan delivery failure/retry, consent and proxy-access preview; live integration state unchanged.",
+      "Patient check-ins start unanswered and save zero, declined, unanswered and notes through the encounter command path with actor-bound replay protection.",
+      "Owned urgent handoffs, source-controlled queue closure, accepted transfers of actual outstanding work, service coverage, remote visit recovery and separate monitoring gaps.",
+      "Interim signatures, structured teach-back clarification and amendments, observation withdrawal, dated source comparisons and closure snapshots.",
+      "Result request/coverage milestones, preliminary-to-final versions, referral exceptions, treatment evidence and actual-start follow-up; reconciled sources prepare a reviewable shared-plan amendment.",
+      "Current-plan language preferences and reviewed Spanish instructions; original patient wording, role/action access previews and filtered historical exports.",
+      "Atomic saved-engine capture, owned decision follow-up, server-saved working copies, material source changes and immutable historical packages.",
+      "Exact artifact runtime scope, evidence/model recalls, published protocol assignments/migrations, versioned monitoring rules and recovery ledgers.",
+      "Completed Emma, Lucas and Priya stories retain signed history, current governed runs, separate resumable work, pending care and natural product wording."
+    ],
+    "notClaimed": [
+      "Production identity, live PostgreSQL, external provider delivery or EHR integration acceptance.",
+      "Clinical validation, prescribing authority, regulatory approval or production release authorization.",
+      "Interactive browser end-to-end acceptance or complete coverage of every original cross-flow branch."
+    ],
+    "crossFlowStatusCounts": {
+      "local-passed": 23,
+      "Blocked": 1
+    }
+  },
+  "validation": {
+    "api-journeys": {
+      "status": "Passed",
+      "command": "node --test tests/clinical-workflow-api.test.mjs",
+      "file": "tests/clinical-workflow-api.test.mjs",
+      "test": "all 34 workflow journeys persist through the real API with one domain-specific rejection each",
+      "reportedBy": "Root completion verification; actual persisted handler scenarios",
+      "journeys": 34,
+      "localPassed": 31,
+      "externalBlocked": 3,
+      "acceptedCommandResponsesWithFreshReload": 172,
+      "rejectedCommandsWithUnchangedPersistedWorkspace": 71,
+      "environment": "Actual app/api/workspace GET/POST, command schemas, reducers, bridges, normalization and prepared SQL; in-memory SQLite storage adapter and verified-session shim. No production Vercel identity or live PostgreSQL connection.",
+      "testFileTopLevelTests": 15,
+      "careWorkTransfersWithFreshReload": 1
+    },
+    "full-suite": {
+      "status": "Passed",
+      "command": "node --test tests/*.test.mjs",
+      "tests": 428,
+      "passed": 428,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "durationMs": 69354.71922,
+      "reportedBy": "Root final npm test; build followed by all tests",
+      "finalAfterFreeze": "Passed"
+    },
+    "production-build": {
+      "status": "Passed",
+      "command": "npm run build",
+      "includes": "Next production build and built-in TypeScript checks",
+      "reportedBy": "Root verification of the demonstration update"
+    },
+    "browser": {
+      "status": "Blocked",
+      "reason": "No interactive browser acceptance run was completed. Cloud browser URL policy denied the local test server and prohibited alternate-path workarounds.",
+      "completedInteractiveJourneys": 0
+    },
+    "production-end-to-end": {
+      "status": "Not run",
+      "reason": "Production identity, external services, live storage and interactive browser execution are not proven by the local harness."
+    },
+    "typecheck": {
+      "status": "Passed",
+      "command": "npx tsc --noEmit",
+      "reportedBy": "Root verification of the demonstration update"
+    },
+    "workflow-lint": {
+      "status": "Passed",
+      "scope": "49 domain/shared modules, changed host panels, route and new regression files; repository-wide lint not claimed.",
+      "errors": 0,
+      "warnings": 37,
+      "reportedBy": "Root final targeted ESLint check"
+    },
+    "demonstration-connection": {
+      "status": "Passed",
+      "files": [
+        "tests/clinical-workflow-api.test.mjs",
+        "tests/demonstration-workspace.test.mjs"
+      ],
+      "scope": "Persisted local walkthrough, SSR and pure-state checks. J12/J19/J21 remain external-blocked for live provider and production identity acceptance.",
+      "checks": [
+        "Curated patient and encounter binding",
+        "Accepted import, duplicate recognition, original quarantine retained and separately matched replacement",
+        "Local inbox plan snapshot, interrupted delivery, retry and receipt",
+        "Newer independent encounter plan prevents stale delivery",
+        "Patient-specific proxy grant and expiry; revoked consent blocks chart and data sharing",
+        "Actor-bound replay, stale versions and forged request fields rejected",
+        "Live integration slice remains unchanged",
+        "Offline/read-only recovery, event replay payload conflicts and partial inbox receipts",
+        "Sharing checked before exact export replay, including replacement proxy grants",
+        "22 accepted demonstration commands and 5 rejected transitions checked after persisted reload"
+      ]
+    },
+    "sites-publication": {
+      "status": "Blocked",
+      "reason": "The saved Sites app project ID returns NOT_FOUND (404); a separate TheraNetrix review Site was not overwritten."
+    }
+  },
+  "workerProvenance": [
+    {
+      "domain": "encounters",
+      "issue": 10,
+      "pullRequest": 11,
+      "headSha": "78fba342d244015d51b0db6c64eb827e48337901",
+      "component": "EncountersPanel",
+      "integrated": true,
+      "status": "imported-and-reviewed",
+      "source": "lib/clinical-flows/index.ts clinicalWorkflowWorkerProvenance",
+      "modulePath": "lib/clinical-flows/encounters.ts",
+      "panelPath": "components/theranetrix/clinical-flows/encounters.tsx",
+      "testPath": "tests/clinical-encounters.test.mjs",
+      "fixturePath": "tests/fixtures/encounters-scenarios.mjs",
+      "note": "Source PR commit plus local integration/review fixes; this SHA is not an assertion that the working tree is identical to the imported source."
+    },
+    {
+      "domain": "treatment-continuity",
+      "issue": 8,
+      "pullRequest": 9,
+      "headSha": "67f7a74bf9f4c429c64d5418d461caa8b52adb89",
+      "component": "TreatmentContinuityPanel",
+      "integrated": true,
+      "status": "imported-and-reviewed",
+      "source": "lib/clinical-flows/index.ts clinicalWorkflowWorkerProvenance",
+      "modulePath": "lib/clinical-flows/treatment-continuity.ts",
+      "panelPath": "components/theranetrix/clinical-flows/treatment-continuity.tsx",
+      "testPath": "tests/treatment-continuity.test.mjs",
+      "fixturePath": "tests/fixtures/treatment-continuity-scenarios.mjs",
+      "note": "Source PR commit plus local integration/review fixes; this SHA is not an assertion that the working tree is identical to the imported source."
+    },
+    {
+      "domain": "patient-coordination",
+      "issue": 12,
+      "pullRequest": 13,
+      "headSha": "1bc05fb072c785c594b5b99f5b6bbce3498c80f4",
+      "component": "PatientCoordinationPanel",
+      "integrated": true,
+      "status": "imported-and-reviewed",
+      "source": "lib/clinical-flows/index.ts clinicalWorkflowWorkerProvenance",
+      "modulePath": "lib/clinical-flows/patient-coordination.ts",
+      "panelPath": "components/theranetrix/clinical-flows/patient-coordination.tsx",
+      "testPath": "tests/patient-coordination.test.mjs",
+      "fixturePath": "tests/fixtures/patient-coordination-scenarios.mjs",
+      "note": "Source PR commit plus local integration/review fixes; this SHA is not an assertion that the working tree is identical to the imported source."
+    },
+    {
+      "domain": "decisions",
+      "issue": 14,
+      "pullRequest": 15,
+      "headSha": "31892f1f4a61d38a82fb3f55398d4ae720fd8b0d",
+      "component": "DecisionsPanel",
+      "integrated": true,
+      "status": "imported-and-reviewed",
+      "source": "lib/clinical-flows/index.ts clinicalWorkflowWorkerProvenance",
+      "modulePath": "lib/clinical-flows/decisions.ts",
+      "panelPath": "components/theranetrix/clinical-flows/decisions.tsx",
+      "testPath": "tests/clinical-decisions.test.mjs",
+      "fixturePath": "tests/fixtures/decisions-scenarios.mjs",
+      "note": "Source PR commit plus local integration/review fixes; this SHA is not an assertion that the working tree is identical to the imported source."
+    },
+    {
+      "domain": "integration-access",
+      "issue": 16,
+      "pullRequest": 17,
+      "headSha": "a9e917dec443677d517d717372064b87c705cca3",
+      "component": "IntegrationAccessPanel",
+      "integrated": true,
+      "status": "imported-and-reviewed",
+      "source": "lib/clinical-flows/index.ts clinicalWorkflowWorkerProvenance",
+      "modulePath": "lib/clinical-flows/integration-access.ts",
+      "panelPath": "components/theranetrix/clinical-flows/integration-access.tsx",
+      "testPath": "tests/integration-access.test.mjs",
+      "fixturePath": "tests/fixtures/integration-access-scenarios.mjs",
+      "note": "Source PR commit plus local integration/review fixes; this SHA is not an assertion that the working tree is identical to the imported source."
+    },
+    {
+      "domain": "program-governance",
+      "issue": 18,
+      "pullRequest": 19,
+      "headSha": "4d7c64a587fb743fac650149c0e8002b0a20eced",
+      "component": "ProgramGovernancePanel",
+      "integrated": true,
+      "status": "imported-and-reviewed",
+      "source": "lib/clinical-flows/index.ts clinicalWorkflowWorkerProvenance",
+      "modulePath": "lib/clinical-flows/program-governance.ts",
+      "panelPath": "components/theranetrix/clinical-flows/program-governance.tsx",
+      "testPath": "tests/program-governance.test.mjs",
+      "fixturePath": "tests/fixtures/program-governance-scenarios.mjs",
+      "note": "Source PR commit plus local integration/review fixes; this SHA is not an assertion that the working tree is identical to the imported source."
+    },
+    {
+      "domain": "results-referrals",
+      "issue": 5,
+      "pullRequest": 6,
+      "headSha": "4fc31b4bdb694f0f59ab644b6cdc86d7610fce5e",
+      "component": "ResultsReferralsPanel",
+      "integrated": true,
+      "status": "imported-and-reviewed",
+      "source": "lib/clinical-flows/index.ts clinicalWorkflowWorkerProvenance",
+      "modulePath": "lib/clinical-flows/results-referrals.ts",
+      "panelPath": "components/theranetrix/clinical-flows/results-referrals.tsx",
+      "testPath": "tests/results-referrals.test.mjs",
+      "fixturePath": "tests/fixtures/results-referrals-scenarios.mjs",
+      "note": "Source PR commit plus local integration/review fixes; this SHA is not an assertion that the working tree is identical to the imported source."
+    }
+  ],
+  "commonEvidence": [
+    {
+      "file": "tests/clinical-workflow-api.test.mjs",
+      "test": "all 34 workflow journeys persist through the real API with one domain-specific rejection each",
+      "assertions": "Each accepted command is reloaded and deep-equal to the response; every rejected command leaves persisted data unchanged. Journey ownership/counts and workspace isolation are asserted.",
+      "execution": "api-journeys"
+    },
+    {
+      "file": "tests/clinical-workflow-api.test.mjs",
+      "test": "workflow commands enforce patient, domain, request identity, strict metadata, and all version boundaries",
+      "assertions": "Rejects malformed/scope/version/forged metadata commands without a write.",
+      "execution": "api-journeys"
+    },
+    {
+      "file": "tests/clinical-workflow-api.test.mjs",
+      "test": "idempotent retries do not duplicate workflow history, audit, or downstream records",
+      "assertions": "Repeated exact commands preserve domain history, audit and projected records.",
+      "execution": "api-journeys"
+    },
+    {
+      "file": "tests/clinical-workflow-api.test.mjs",
+      "test": "anonymous and cross-origin requests cannot apply workflow commands or create private data",
+      "assertions": "Denies anonymous and cross-origin mutation before persistence under the test session boundary.",
+      "execution": "api-journeys"
+    },
+    {
+      "file": "tests/clinical-workflow-api.test.mjs",
+      "test": "legacy empty workflow snapshots migrate without losing existing chart data and can then save real commands",
+      "assertions": "Migrates empty workflow scaffolds while preserving prior patient data.",
+      "execution": "api-journeys"
+    },
+    {
+      "file": "tests/clinical-workflow-bridges.test.mjs",
+      "test": "corrections to partial reports retain original provenance and name the actual correcting clinician",
+      "assertions": "Original entries keep actor/time; later correction and note use the correcting clinician/time and the corrected report label.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/clinical-workflows-ui.test.mjs",
+      "test": "every journey maps to its imported workflow domain while preserving patient/program scope",
+      "assertions": "SSR/navigation mapping covers all journey IDs; missing or injected patient context is separately rejected. This does not execute interactive controls.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/clinical-workflow-api.test.mjs",
+      "test": "malformed saved workflow slices fail reload without resetting or rewriting the stored row",
+      "assertions": "Invalid slice maps and nonzero slices missing state return 503 without modifying the exact stored row; restoring the row recovers all records.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/clinical-workflow-api.test.mjs",
+      "test": "superseded signed plans are excluded from trusted coordination and decision references",
+      "assertions": "A signed amendment supersedes the original plan; old-plan support and decision signatures are rejected, while the current-plan equivalents persist.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/clinical-workflow-api.test.mjs",
+      "test": "unprojected source workflow changes invalidate decision inputs until the source is reviewed again",
+      "assertions": "A preparation changes authoritative workflowInputRevision while legacy patient fields remain equal; stale/current-token-with-old-evidence saves are rejected and re-reviewed evidence is retained as a new revision.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/clinical-workflow-bridges.test.mjs",
+      "test": "human handoffs project to one attributed queue row, preserve manual changes and close only with the source",
+      "assertions": "A handoff projects one source-linked queue row and contact task; repeat projection retains manual changes, later source transitions retain history, and source closure resolves the row.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/clinical-workflow-bridges.test.mjs",
+      "test": "handoff without a due time stays in the queue and scheduling outreach stays explicitly unbooked",
+      "assertions": "A handoff without a due instant still projects to the review queue; scheduling outreach projects a due task while its appointment remains undefined.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/clinical-workflow-bridges.test.mjs",
+      "test": "result follow-up task closes and reopens with explicit source transitions while notes stay versioned",
+      "assertions": "Result source transitions set the operational task completion state and preserve versioned notes.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/clinical-workflow-bridges.test.mjs",
+      "test": "current signed plan follow-up supersedes a completed legacy plan task",
+      "assertions": "A completed legacy plan task does not mark the new signed plan follow-up complete; toggling the actual current-plan task does.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/observation-history-ui.test.mjs",
+      "test": "partial observations show actual zero, unanswered and declined responses with their source provenance",
+      "assertions": "SSR shows 0 / 10 only for the actual zero response, missing/declined labels, original source, clinician and timestamps without mutating entries.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/observation-history-ui.test.mjs",
+      "test": "correction chains retain original values and clinicians, with working links in both directions",
+      "assertions": "SSR retains both earlier values/clinicians, marks the current declined entry and verifies each correction link resolves to an existing element.",
+      "execution": "full-suite"
+    },
+    {
+      "file": "tests/observation-history-ui.test.mjs",
+      "test": "numeric history uses saved sources and never substitutes obsolete corrected check-ins",
+      "assertions": "Numeric display uses the source of the active trajectory entry; absent matching source stays Source not recorded rather than using an obsolete corrected check-in.",
+      "execution": "full-suite"
+    }
+  ],
+  "journeys": [
+    {
+      "id": "J01",
+      "title": "Prepare the clinic and next visit",
+      "domain": "encounters",
+      "component": "EncountersPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "record",
+        "evidence",
+        "visit"
+      ],
+      "status": "local-passed",
+      "normalPath": "Save a reviewed preparation, record new information, and review it again; reviewNeeded changes true then false and the latest information remains saved.",
+      "exceptionPath": "An update using the preparation version from before the new information is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/encounters-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J02",
+      "title": "Enroll a new patient",
+      "domain": "encounters",
+      "component": "EncountersPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "record",
+        "companion",
+        "outcomes",
+        "pathway"
+      ],
+      "status": "local-passed",
+      "normalPath": "Enroll with reviewed baseline and consent/access readiness; retain declined video contact and an empty finalDiagnosis in a synthetic evaluation.",
+      "exceptionPath": "Enrollment with consentReadiness=declined is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/encounters-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "patient-access",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J03",
+      "title": "Reconcile missing or conflicting information",
+      "domain": "treatment-continuity",
+      "component": "TreatmentContinuityPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "record",
+        "treatment",
+        "evidence",
+        "visit"
+      ],
+      "status": "local-passed",
+      "normalPath": "Resolve an explicitly documented patient-versus-outside-list conflict and retain its previous unreviewed snapshot.",
+      "exceptionPath": "Marking reconciliation resolved while its conflict outcome is still unreviewed is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/treatment-continuity-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J04",
+      "title": "Review treatment experience",
+      "domain": "treatment-continuity",
+      "component": "TreatmentContinuityPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "visit",
+        "treatment",
+        "evidence",
+        "notes",
+        "companion"
+      ],
+      "status": "local-passed",
+      "normalPath": "Save active treatment with duration zero, then a stopped report with duration unknown; partial benefit and side effects remain separate.",
+      "exceptionPath": "Stopping without a stop reason is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/treatment-continuity-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J05",
+      "title": "Understand progress through the Digital Twin",
+      "domain": "decisions",
+      "component": "DecisionsPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "twin",
+        "outcomes",
+        "evidence",
+        "visit",
+        "notes"
+      ],
+      "status": "local-passed",
+      "normalPath": "Capture synthetic observations with pain zero and a missing function baseline; pain is improved, function is insufficient-data, and provenance remains synthetic.",
+      "exceptionPath": "A future receivedAt timestamp is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/decisions-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J06",
+      "title": "Compare options and patient priorities",
+      "domain": "decisions",
+      "component": "DecisionsPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "visit",
+        "pst",
+        "evidence",
+        "trace",
+        "notes"
+      ],
+      "status": "local-passed",
+      "normalPath": "Capture discussion options, function weight 60, missing baseline information and evidence; defaultAction remains no-prescription.",
+      "exceptionPath": "An option referencing evidence omitted from the captured evidence list is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/decisions-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J07",
+      "title": "Review PST and Shadow differences",
+      "domain": "decisions",
+      "component": "DecisionsPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "pst",
+        "shadow",
+        "evidence",
+        "notes",
+        "trace"
+      ],
+      "status": "local-passed",
+      "normalPath": "Store distinct synthetic PST and Shadow summaries, unsupported suitability and a request-clarification disposition.",
+      "exceptionPath": "Claiming evidence-reviewed suitability without captured supporting or conflicting evidence is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/decisions-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J08",
+      "title": "Assess a new or unexplained problem",
+      "domain": "encounters",
+      "component": "EncountersPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "visit",
+        "record",
+        "evidence",
+        "notes",
+        "schedule"
+      ],
+      "status": "local-passed",
+      "normalPath": "Save a structured manual assessment and assert its completed status.",
+      "exceptionPath": "The same finding cannot be both supporting and refuting evidence.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/encounters-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J09",
+      "title": "Support the patient between visits",
+      "domain": "patient-coordination",
+      "component": "PatientCoordinationPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "companion",
+        "advisor",
+        "outcomes",
+        "messages"
+      ],
+      "status": "local-passed",
+      "normalPath": "Link staff-recorded telephone support to the actual saved patient care plan/version, retain attribution, replay idempotently and save a revised summary.",
+      "exceptionPath": "A wrong care-plan version and a stale support-record version are rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/patient-coordination-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "patient-access",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J10",
+      "title": "Carry a concern through human resolution",
+      "domain": "patient-coordination",
+      "component": "PatientCoordinationPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "advisor",
+        "queue",
+        "visit",
+        "messages",
+        "notes"
+      ],
+      "status": "local-passed",
+      "normalPath": "Advance a local high-priority concern through manually reported delivery, owner acceptance, review, documented action and response to closure; six transitions and manual provenance remain.",
+      "exceptionPath": "Skipping delivery evidence or closing with failed patient contact is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/patient-coordination-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J11",
+      "title": "Collect assessments and check-ins",
+      "domain": "encounters",
+      "component": "EncountersPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "companion",
+        "outcomes",
+        "twin",
+        "queue"
+      ],
+      "status": "local-passed",
+      "normalPath": "Confirm pain zero, unanswered function and declined sleep; explicitly correct function, retain all four original/corrected entries and preserve declined sleep.",
+      "exceptionPath": "Ordinary save cannot replace an already confirmed observation report.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/encounters-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J12",
+      "title": "Reconcile external observations",
+      "domain": "integration-access",
+      "component": "IntegrationAccessPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "integrations",
+        "evidence",
+        "outcomes",
+        "twin"
+      ],
+      "status": "external-blocked",
+      "normalPath": "Save and replay a disabled, unconfigured source draft; adapter stays unconfigured and EHR launch remains not-validated. No live observation ingestion occurs.",
+      "exceptionPath": "Enabling a live adapter or validating browser-claimed launch identity is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/integration-access-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "external-blocked"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "ehr-provider",
+        "clinical-validation"
+      ],
+      "blockingReason": "A separate local demonstration path is implemented and tested. Live provider/identity acceptance still requires configured external services.",
+      "demonstration": {
+        "status": "Passed",
+        "component": "DemoConnectionPanel",
+        "implementation": "lib/demo-connection.ts",
+        "evidence": [
+          "tests/clinical-workflow-api.test.mjs",
+          "tests/demonstration-workspace.test.mjs"
+        ],
+        "scope": "Local dated report import, duplicate handling and quarantine resolution with retained originals."
+      }
+    },
+    {
+      "id": "J13",
+      "title": "Support language, accessibility, and caregivers",
+      "domain": "patient-coordination",
+      "component": "PatientCoordinationPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "companion",
+        "access",
+        "advisor",
+        "messages"
+      ],
+      "status": "local-passed",
+      "normalPath": "Save unsupported-language/access needs, then an attributed manual Spanish translation; verifiedPatientAuth remains false and proxyStatus remains revoked.",
+      "exceptionPath": "Self-asserted verified patient authentication and translated content without a reviewer are rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/patient-coordination-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "patient-access",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J14",
+      "title": "Agree the plan and next actions",
+      "domain": "encounters",
+      "component": "EncountersPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "visit",
+        "notes",
+        "schedule",
+        "companion",
+        "trace"
+      ],
+      "status": "local-passed",
+      "normalPath": "Review and sign the saved assessment/observation snapshot; follow-up stays unbooked and delivery pending. Review and sign an amendment while preserving the original signed record.",
+      "exceptionPath": "Signing an unreviewed draft is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/encounters-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J15",
+      "title": "Execute the care pathway",
+      "domain": "patient-coordination",
+      "component": "PatientCoordinationPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "pathway",
+        "outcomes",
+        "schedule",
+        "companion"
+      ],
+      "status": "local-passed",
+      "normalPath": "Advance both operational pathway stages through active to completed, retaining five processed events.",
+      "exceptionPath": "Starting a stage before its prerequisite or removing a completed stage is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/patient-coordination-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J16",
+      "title": "Book and recover missed care",
+      "domain": "patient-coordination",
+      "component": "PatientCoordinationPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "schedule",
+        "messages",
+        "queue",
+        "pathway"
+      ],
+      "status": "local-passed",
+      "normalPath": "Record follow-up due, request, manually reported booking, confirmation and retrospective attendance.",
+      "exceptionPath": "Starting at attended, claiming booking without evidence or silently changing a confirmed appointment is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/patient-coordination-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J17",
+      "title": "Review the episode and goals",
+      "domain": "encounters",
+      "component": "EncountersPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "outcomes",
+        "treatment",
+        "visit",
+        "pathway",
+        "notes"
+      ],
+      "status": "local-passed",
+      "normalPath": "Review documented goals/outcomes and pending-work ownership, then close the episode.",
+      "exceptionPath": "Closing an unreviewed episode is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/encounters-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J18",
+      "title": "Reconstruct a decision",
+      "domain": "decisions",
+      "component": "DecisionsPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "trace",
+        "evidence",
+        "notes"
+      ],
+      "status": "local-passed",
+      "normalPath": "Sign the exact reviewed summary and distinct stored outputs against an existing patient plan; amend without changing the original; export exact patient/encounter-scoped JSON.",
+      "exceptionPath": "Unreviewed displayed text, a fork from an already amended ancestor and a foreign-encounter export are rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/decisions-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J19",
+      "title": "Launch from the EHR and confirm write-back",
+      "domain": "integration-access",
+      "component": "IntegrationAccessPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "integrations",
+        "visit",
+        "notes",
+        "trace"
+      ],
+      "status": "external-blocked",
+      "normalPath": "Verify that accepted external event and bridge counts remain unchanged at the shared-owner boundary. Live EHR launch and write-back are not available.",
+      "exceptionPath": "Browser ingestion and a forged server-adapter identity are rejected. The same domain fixture also rejects outbox preparation and acknowledgement without trusted server context.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/integration-access-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "external-blocked"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "ehr-provider",
+        "clinical-validation"
+      ],
+      "blockingReason": "A separate local demonstration path is implemented and tested. Live provider/identity acceptance still requires configured external services.",
+      "demonstration": {
+        "status": "Passed",
+        "component": "DemoConnectionPanel",
+        "implementation": "lib/demo-connection.ts",
+        "evidence": [
+          "tests/clinical-workflow-api.test.mjs",
+          "tests/demonstration-workspace.test.mjs"
+        ],
+        "scope": "Curated patient/encounter launch, current-plan snapshot and local inbox delivery with failure/retry."
+      }
+    },
+    {
+      "id": "J20",
+      "title": "Recover interrupted or stale work",
+      "domain": "decisions",
+      "component": "DecisionsPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "visit",
+        "evidence",
+        "trace",
+        "integrations"
+      ],
+      "status": "local-passed",
+      "normalPath": "Persist a draft, dispute and correct its actual summary, cancel and retry it, then re-review after a new source record revision; prior source records remain.",
+      "exceptionPath": "Disputed/cancelled signing, a stale draft update and signing after the reviewed source changed are rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/decisions-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J21",
+      "title": "Manage access, consent, and proxies",
+      "domain": "integration-access",
+      "component": "IntegrationAccessPanel",
+      "requiresPatient": false,
+      "guideScreens": [
+        "access",
+        "settings"
+      ],
+      "status": "external-blocked",
+      "normalPath": "Save a policy draft without changing the active policy and save attributed manual external evidence without changing the outbox.",
+      "exceptionPath": "Policy activation, browser-asserted principal, untrusted write-back preparation/acknowledgement, unknown-patient evidence and stale domain versions are rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/integration-access-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "external-blocked"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "patient-access",
+        "clinical-validation"
+      ],
+      "blockingReason": "A separate local demonstration path is implemented and tested. Live provider/identity acceptance still requires configured external services.",
+      "demonstration": {
+        "status": "Passed",
+        "component": "DemoConnectionPanel",
+        "implementation": "lib/demo-connection.ts",
+        "evidence": [
+          "tests/clinical-workflow-api.test.mjs",
+          "tests/demonstration-workspace.test.mjs"
+        ],
+        "scope": "Patient-specific local consent and expiring proxy-access preview."
+      }
+    },
+    {
+      "id": "J22",
+      "title": "Configure the existing dashboard and program",
+      "domain": "program-governance",
+      "component": "ProgramGovernancePanel",
+      "requiresPatient": false,
+      "guideScreens": [
+        "settings",
+        "access"
+      ],
+      "status": "local-passed",
+      "normalPath": "Draft, review and activate a documentation configuration drawn from enabled runtime capabilities; retain its original draft revision.",
+      "exceptionPath": "Activation before review and rewriting an active configuration are rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/program-governance-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "governance-approval"
+      ]
+    },
+    {
+      "id": "J23",
+      "title": "Author and publish a clinical pathway",
+      "domain": "program-governance",
+      "component": "ProgramGovernancePanel",
+      "requiresPatient": false,
+      "guideScreens": [
+        "settings",
+        "integrations"
+      ],
+      "status": "local-passed",
+      "normalPath": "Document review and publication of a synthetic operational protocol; assign its exact published snapshot to the episode and retain it after a later draft edit.",
+      "exceptionPath": "Publication before documented review is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/program-governance-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "governance-approval"
+      ]
+    },
+    {
+      "id": "J24",
+      "title": "Curate evidence and clinical content",
+      "domain": "program-governance",
+      "component": "ProgramGovernancePanel",
+      "requiresPatient": false,
+      "guideScreens": [
+        "settings",
+        "integrations"
+      ],
+      "status": "local-passed",
+      "normalPath": "Create a dated synthetic evidence memo, request review and record approval in the local evidence registry.",
+      "exceptionPath": "Approval before the review-request transition is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/program-governance-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "governance-approval"
+      ]
+    },
+    {
+      "id": "J25",
+      "title": "Govern model and software releases",
+      "domain": "program-governance",
+      "component": "ProgramGovernancePanel",
+      "requiresPatient": false,
+      "guideScreens": [
+        "settings",
+        "integrations"
+      ],
+      "status": "local-passed",
+      "normalPath": "Record conditional release review, one rollout observation, one rollback observation and an approval with the exact configuration version; these are documentation records.",
+      "exceptionPath": "Approval with unresolved conditions is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/program-governance-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "governance-approval"
+      ]
+    },
+    {
+      "id": "J26",
+      "title": "Operate securely and recover incidents",
+      "domain": "program-governance",
+      "component": "ProgramGovernancePanel",
+      "requiresPatient": false,
+      "guideScreens": [
+        "access",
+        "integrations",
+        "settings"
+      ],
+      "status": "local-passed",
+      "normalPath": "Record, confirm, review and close a synthetic incident with closure evidence.",
+      "exceptionPath": "Closure before review and reopening a closed incident through a draft rewrite are rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/program-governance-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "governance-approval"
+      ]
+    },
+    {
+      "id": "J27",
+      "title": "Review monitoring-service documentation",
+      "domain": "program-governance",
+      "component": "ProgramGovernancePanel",
+      "requiresPatient": false,
+      "guideScreens": [
+        "settings",
+        "integrations"
+      ],
+      "status": "local-passed",
+      "normalPath": "Save and review monitoring-service documentation while retaining the missing payer/legal review item.",
+      "exceptionPath": "A duplicate with normalized case and whitespace is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/program-governance-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "governance-approval"
+      ]
+    },
+    {
+      "id": "J28",
+      "title": "Approve the exact release",
+      "domain": "program-governance",
+      "component": "ProgramGovernancePanel",
+      "requiresPatient": false,
+      "guideScreens": [
+        "settings",
+        "integrations"
+      ],
+      "status": "local-passed",
+      "normalPath": "Record a proposed readiness decision with all mandatory gates; later evidence revision invalidates release/readiness decisions, preserves the prior proposal and can be withdrawn.",
+      "exceptionPath": "Removing a mandatory gate during a proposed decision is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/program-governance-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "governance-approval"
+      ]
+    },
+    {
+      "id": "J29",
+      "title": "Track tests through result action",
+      "domain": "results-referrals",
+      "component": "ResultsReferralsPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "notes",
+        "queue",
+        "evidence",
+        "messages",
+        "trace"
+      ],
+      "status": "local-passed",
+      "normalPath": "Document requested, awaiting, received, reviewed, acted, communicated and closed result states. A corrected report reopens review, clears interpretation and retains the original before explicit re-review/closure.",
+      "exceptionPath": "Premature result closure is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/results-referrals-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J30",
+      "title": "Close the specialist referral loop",
+      "domain": "results-referrals",
+      "component": "ResultsReferralsPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "notes",
+        "schedule",
+        "messages",
+        "pathway",
+        "trace"
+      ],
+      "status": "local-passed",
+      "normalPath": "Document manual referral send/accept/schedule/consultation, retain original specialist advice, then review, reconcile and close.",
+      "exceptionPath": "Closure before advice review and reconciliation is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/results-referrals-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J31",
+      "title": "Track medication authorization, access, and use",
+      "domain": "treatment-continuity",
+      "component": "TreatmentContinuityPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "treatment",
+        "notes",
+        "queue",
+        "companion",
+        "trace"
+      ],
+      "status": "local-passed",
+      "normalPath": "Document medication consideration, clinician review, authorization, reported transmission/dispensing, reported start, response review and continuation; dispensing is explicitly distinct from starting.",
+      "exceptionPath": "Skipping from considered directly to dispensing-reported is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/treatment-continuity-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "prescribing-authority",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J32",
+      "title": "Resolve access barriers",
+      "domain": "treatment-continuity",
+      "component": "TreatmentContinuityPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "visit",
+        "notes",
+        "queue",
+        "messages",
+        "pathway"
+      ],
+      "status": "local-passed",
+      "normalPath": "Document a cost barrier, patient choice and an explicit resolution; retain the barrier type.",
+      "exceptionPath": "A resolved state without resolution evidence is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/treatment-continuity-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J33",
+      "title": "Reconcile transitions and covering responsibility",
+      "domain": "treatment-continuity",
+      "component": "TreatmentContinuityPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "record",
+        "treatment",
+        "queue",
+        "notes",
+        "trace"
+      ],
+      "status": "local-passed",
+      "normalPath": "Document transition draft, pending ownership, reconciled instructions, patient communication and completion with explicit resolved pending work.",
+      "exceptionPath": "Pending work cannot disappear when instructions are reconciled.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/treatment-continuity-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    },
+    {
+      "id": "J34",
+      "title": "Coordinate multidisciplinary care",
+      "domain": "treatment-continuity",
+      "component": "TreatmentContinuityPanel",
+      "requiresPatient": true,
+      "guideScreens": [
+        "visit",
+        "pathway",
+        "schedule",
+        "outcomes",
+        "notes"
+      ],
+      "status": "local-passed",
+      "normalPath": "Keep concurrent physical-therapy and occupational-therapy interventions, including the transport barrier, through explicit completion.",
+      "exceptionPath": "Removing an existing intervention from the submitted list is rejected.",
+      "evidence": {
+        "execution": "api-journeys",
+        "fixture": "tests/fixtures/treatment-continuity-scenarios.mjs",
+        "entrypoint": "runScenarios",
+        "recordedStatus": "passed"
+      },
+      "dependencies": [
+        "production-identity",
+        "production-storage",
+        "browser-qa",
+        "external-delivery",
+        "clinical-validation"
+      ]
+    }
+  ],
+  "crossFlowBranches": [
+    {
+      "name": "pain phenotype/exam",
+      "status": "local-passed",
+      "verifiedScope": "Reported phenotype and examination limits remain in the immutable interim signature; assessment remains unresolved with owned receiving work.",
+      "evidence": [
+        {
+          "file": "tests/clinical-encounters.test.mjs",
+          "test": "pain phenotype and limited examination preserve uncertainty in an owned interim signed plan",
+          "assertions": "Reported phenotype and examination limits remain in the immutable interim signature; assessment remains unresolved with owned receiving work.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/clinical-encounters.test.mjs",
+          "test": "assessment supports defer and out-of-scope routes and rejects conflicting findings",
+          "assertions": "Phenotype and examination are fixture text; assertions check routing and conflicting findings only.",
+          "execution": "full-suite"
+        }
+      ]
+    },
+    {
+      "name": "competing conditions",
+      "status": "local-passed",
+      "verifiedScope": "Competing contributors, alternatives and uncertainty reach the explicit reviewed disposition; later assessment edits retain the signed original.",
+      "evidence": [
+        {
+          "file": "tests/clinical-encounters.test.mjs",
+          "test": "competing conditions retain alternatives and a reviewed no-change disposition in the signed assessment",
+          "assertions": "Competing contributors, alternatives and uncertainty reach the explicit reviewed disposition; later assessment edits retain the signed original.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/clinical-encounters.test.mjs",
+          "test": "assessment supports defer and out-of-scope routes and rejects conflicting findings",
+          "assertions": "Comorbid conditions and alternatives are fixture text, without a condition-specific outcome assertion.",
+          "execution": "full-suite"
+        }
+      ]
+    },
+    {
+      "name": "urgent distress",
+      "status": "local-passed",
+      "verifiedScope": "An urgent patient request is routed independently of conversational intent, with coverage, backup, ownership and exact retries. No automated clinical triage performance is claimed.",
+      "evidence": [
+        {
+          "file": "tests/care-operations.test.mjs",
+          "test": "an explicitly urgent question produces one staged owned handoff and retry cannot duplicate conversation or reviews",
+          "assertions": "An urgent patient request is routed independently of conversational intent, with coverage, backup, ownership and exact retries. No automated clinical triage performance is claimed.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/clinical-encounters.test.mjs",
+          "test": "enrollment, urgent routes, closure review, and timezone values enforce prerequisites",
+          "assertions": "Rejects urgent-review when its reason is blank; no distress case proceeds through care.",
+          "execution": "full-suite"
+        }
+      ]
+    },
+    {
+      "name": "deliberate no-change",
+      "status": "local-passed",
+      "verifiedScope": "Explicit no-change encounter disposition is accepted through review/signature and immutable amendment.",
+      "evidence": [
+        {
+          "file": "tests/fixtures/encounters-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J14"
+          ],
+          "assertions": "The signoff command contains noChange=true with selected/rejected/deferred dispositions; review/sign succeeds and the signed original is deep-equal after amendment. Each response survives API reload.",
+          "execution": "api-journeys"
+        }
+      ],
+      "remainingGap": "This validates recorded clinician choice, not the clinical appropriateness of leaving treatment unchanged."
+    },
+    {
+      "name": "source-summary correction",
+      "status": "local-passed",
+      "verifiedScope": "Corrected summary text and re-reviewed source versions persist before signing.",
+      "evidence": [
+        {
+          "file": "tests/fixtures/decisions-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J20",
+            "J18"
+          ],
+          "assertions": "Disputed text is actually replaced, stale reviewed input blocks signing, and signed displayedOutputs.summary equals the corrected text.",
+          "execution": "api-journeys"
+        }
+      ],
+      "remainingGap": "Human factual accuracy and browser editing behavior remain outside this automated evidence."
+    },
+    {
+      "name": "alert volume",
+      "status": "local-passed",
+      "verifiedScope": "Four unresolved High concerns remain rendered; duplicate high-priority handoffs retain/escalate urgency.",
+      "evidence": [
+        {
+          "file": "tests/encounter-review.test.mjs",
+          "test": "visit keeps all unresolved High concerns visible, including acknowledged concerns, without rendering the full record",
+          "assertions": "Asserts all four High concern details and an acknowledged concern remain in SSR output; the resolved concern is absent.",
+          "execution": "full-suite"
+        },
+        {
+          "file": "tests/patient-coordination.test.mjs",
+          "test": "duplicate high-priority concerns escalate the existing handoff instead of losing urgency",
+          "assertions": "A high-priority duplicate escalates the existing handoff and retains duplicate priority.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "This is bounded rendering/deduplication coverage; high-volume load, alert-fatigue thresholds and browser usability are not tested."
+    },
+    {
+      "name": "teach-back",
+      "status": "local-passed",
+      "verifiedScope": "Understanding outcomes require accountable clarification; an understood amendment resolves the linked task while retaining the original plan.",
+      "evidence": [
+        {
+          "file": "tests/clinical-encounters.test.mjs",
+          "test": "teach-back requiring clarification must have owned work and is resolved by an attributed amendment",
+          "assertions": "Understanding outcomes require accountable clarification; an understood amendment resolves the linked task while retaining the original plan.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/fixtures/encounters-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J14"
+          ],
+          "assertions": "Signoff includes a teachBack string but assertions focus on signing, source snapshots and amendment immutability.",
+          "execution": "api-journeys"
+        },
+        {
+          "file": "tests/fixtures/patient-coordination-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J13"
+          ],
+          "assertions": "Language fixture includes teachBack text but assertions target translation/authentication/proxy state.",
+          "execution": "api-journeys"
+        }
+      ]
+    },
+    {
+      "name": "non-digital participation",
+      "status": "local-passed",
+      "verifiedScope": "Staff-recorded telephone participation is linked to the saved patient plan without requiring patient digital authentication.",
+      "evidence": [
+        {
+          "file": "tests/fixtures/patient-coordination-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J09"
+          ],
+          "assertions": "Saves telephone support with staff-recorded participation against the actual current plan/version; rejects a wrong version.",
+          "execution": "api-journeys"
+        },
+        {
+          "file": "tests/patient-coordination.test.mjs",
+          "test": "patient support keeps plan/version links, summary attribution, chronology, idempotency, and non-mutation",
+          "assertions": "Directly asserts participation.mode=staff-recorded, plan version and summary attribution.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "No live telephone interaction or real patient-accessibility acceptance is implied."
+    },
+    {
+      "name": "closure/transfer",
+      "status": "local-passed",
+      "verifiedScope": "Episode closure and transfer documentation require review and retained pending-work ownership.",
+      "evidence": [
+        {
+          "file": "tests/fixtures/encounters-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J17"
+          ],
+          "assertions": "Rejects unreviewed closure; reviewed episode closes with documented pending-work disposition and owner.",
+          "execution": "api-journeys"
+        },
+        {
+          "file": "tests/fixtures/treatment-continuity-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J33"
+          ],
+          "assertions": "Rejects disappearance of pending work; explicit resolution and reconciled instructions progress through communication to completion.",
+          "execution": "api-journeys"
+        }
+      ],
+      "remainingGap": "Receiving-service acceptance and patient communication are manually reported, without external delivery confirmation."
+    },
+    {
+      "name": "revocation",
+      "status": "local-passed",
+      "verifiedScope": "Domain authorization and pending write-back honor later revoked grants and proxy relationships.",
+      "evidence": [
+        {
+          "file": "tests/integration-access.test.mjs",
+          "test": "authorization honors timezone offsets, expiry boundaries, future grants and later consent revocation",
+          "assertions": "Directly asserts denial after a later consent revocation, expired grant and revoked proxy relationship.",
+          "execution": "full-suite"
+        },
+        {
+          "file": "tests/integration-access.test.mjs",
+          "test": "write-back rechecks revoked grants and policy changes before dispatch",
+          "assertions": "Revoked integration consent and stale policy prevent dispatch; outbox remains pending with zero attempts.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Trusted principal/adapter objects are synthetic unit contexts. Real identity-provider revocation propagation and dispatch remain blocked."
+    },
+    {
+      "name": "interpreters/proxies",
+      "status": "local-passed",
+      "verifiedScope": "Attributed manual translation, partial language support and revoked-proxy/authentication documentation boundaries.",
+      "evidence": [
+        {
+          "file": "tests/fixtures/patient-coordination-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J13"
+          ],
+          "assertions": "Rejects a translation without reviewer and self-asserted verified authentication; saved translation is attributed while verifiedPatientAuth=false and proxyStatus=revoked.",
+          "execution": "api-journeys"
+        }
+      ],
+      "remainingGap": "Interpreter identity, translation quality, actual proxy authorization and live audience delivery require separate services and review."
+    },
+    {
+      "name": "corrected data",
+      "status": "local-passed",
+      "verifiedScope": "Original observations/results remain immutable while explicit corrections reopen review and replace active chart values once.",
+      "evidence": [
+        {
+          "file": "tests/fixtures/results-referrals-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J29"
+          ],
+          "assertions": "Corrected report retains original revision, clears prior interpretation and reopens the review lifecycle.",
+          "execution": "api-journeys"
+        },
+        {
+          "file": "tests/clinical-workflow-api.test.mjs",
+          "test": "confirmed numeric observations and corrections update existing patient charts once and retain originals",
+          "assertions": "Pain 0 is replaced by corrected pain 2 in one active trajectory point; original check-in remains 0 and replay produces no duplicate. Other patient data is unchanged.",
+          "execution": "api-journeys"
+        }
+      ],
+      "remainingGap": "External-source transport and clinical interpretation remain outside this local correction evidence."
+    },
+    {
+      "name": "sensitive audiences",
+      "status": "local-passed",
+      "verifiedScope": "Patient/proxy copies omit internal rationale; sharing revocation and changed proxy grant prevent old receipt reuse.",
+      "evidence": [
+        {
+          "file": "tests/clinical-workflow-api.test.mjs",
+          "test": "historical patient and caregiver exports recheck current sharing permissions before receipt replay",
+          "assertions": "Patient/proxy copies omit internal rationale; sharing revocation and changed proxy grant prevent old receipt reuse.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/clinical-decisions.test.mjs",
+          "test": "authorized exports include the exact records and authorization is rechecked on replay",
+          "assertions": "Tests export feature permission and exact patient/encounter scoping, not sensitive audience segmentation.",
+          "execution": "full-suite"
+        }
+      ]
+    },
+    {
+      "name": "wrong-chart correction",
+      "status": "local-passed",
+      "verifiedScope": "Withdrawal retains the original source and signature, removes current numeric projections and opens an owned review; identity review keeps both charts.",
+      "evidence": [
+        {
+          "file": "tests/clinical-encounters.test.mjs",
+          "test": "withdrawal retains source entries and signed history, rejects wrong-chart requests and cannot be bypassed by save or correction",
+          "assertions": "Withdrawal retains the original source and signature, removes current numeric projections and opens an owned review; identity review keeps both charts.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/integration-access.test.mjs",
+          "test": "corrections cannot target another patient or metric and reconciliation cannot bypass that guard",
+          "assertions": "Quarantines a cross-patient correction and prevents reconciliation from accepting it.",
+          "execution": "full-suite"
+        },
+        {
+          "file": "tests/treatment-continuity.test.mjs",
+          "test": "existing treatment IDs cannot be reassigned to another known patient and history remains immutable",
+          "assertions": "Prevents reassignment of existing records; it does not repair a previously wrong-chart entry.",
+          "execution": "full-suite"
+        }
+      ]
+    },
+    {
+      "name": "nonresponse",
+      "status": "local-passed",
+      "verifiedScope": "Failed contact cannot close a handoff; missed-care outreach can remain unreachable with a retry recorded.",
+      "evidence": [
+        {
+          "file": "tests/fixtures/patient-coordination-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J10"
+          ],
+          "assertions": "Closing the concern with failed patient contact is rejected.",
+          "execution": "api-journeys"
+        },
+        {
+          "file": "tests/patient-coordination.test.mjs",
+          "test": "scheduling enforces booking evidence, cancellation and no-show reasons, opt-out and unreachable retries, and summary counts",
+          "assertions": "Rejects undocumented no-show; transitions a documented no-show to reschedule-outreach with unreachable status and nextAttemptAt, then asserts the resulting history transition.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "No actual reminder delivery, automated retry job or real patient contact is exercised."
+    },
+    {
+      "name": "monitoring gaps",
+      "status": "local-passed",
+      "verifiedScope": "Separate pause, disconnection and nonresponse states retain actual last report time and require an owner and next review.",
+      "evidence": [
+        {
+          "file": "tests/care-operations.test.mjs",
+          "test": "paused, disconnected and no-response monitoring preserve the last report instead of manufacturing freshness",
+          "assertions": "Separate pause, disconnection and nonresponse states retain actual last report time and require an owner and next review.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/fixtures/decisions-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J05"
+          ],
+          "assertions": "Missing baseline function yields insufficient-data.",
+          "execution": "api-journeys"
+        },
+        {
+          "file": "tests/fixtures/program-governance-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J27"
+          ],
+          "assertions": "A reviewed service record retains a missing payer/legal documentation item; this is not a missed clinical monitoring interval.",
+          "execution": "api-journeys"
+        }
+      ]
+    },
+    {
+      "name": "unsupported scope",
+      "status": "local-passed",
+      "verifiedScope": "Explicit out-of-scope assessment is retained; unsupported engine suitability cannot become evidence-reviewed without evidence.",
+      "evidence": [
+        {
+          "file": "tests/clinical-encounters.test.mjs",
+          "test": "assessment supports defer and out-of-scope routes and rejects conflicting findings",
+          "assertions": "Asserts out-of-scope assessment status and rejects contradictory findings.",
+          "execution": "full-suite"
+        },
+        {
+          "file": "tests/fixtures/decisions-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J07"
+          ],
+          "assertions": "Captures unsupported synthetic output suitability and rejects evidence-reviewed suitability with no evidence.",
+          "execution": "api-journeys"
+        }
+      ],
+      "remainingGap": "The supported clinical scope itself has not been independently validated."
+    },
+    {
+      "name": "evidence/model recall",
+      "status": "local-passed",
+      "verifiedScope": "Exact saved artifact references identify affected outputs and owned patient reviews; recalled artifacts cannot be used for new output or adoption.",
+      "evidence": [
+        {
+          "file": "tests/governance-connections.test.mjs",
+          "test": "recall projects one versioned task and review per patient, closes only disposed impacts, and preserves saved outputs",
+          "assertions": "Exact saved artifact references identify affected outputs and owned patient reviews; recalled artifacts cannot be used for new output or adoption.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/fixtures/program-governance-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J28"
+          ],
+          "assertions": "Evidence edits invalidate current release/readiness decisions, preserve the earlier proposed revision and allow evidence withdrawal.",
+          "execution": "api-journeys"
+        },
+        {
+          "file": "tests/program-governance.test.mjs",
+          "test": "evidence registry approves dated records, rejects unusable support, and flags dependent releases/readiness on withdrawal or expiry",
+          "assertions": "Covers local dependency flags for evidence withdrawal/expiry, not deployed model recall.",
+          "execution": "full-suite"
+        }
+      ]
+    },
+    {
+      "name": "prescribing authority",
+      "status": "Blocked",
+      "verifiedScope": "Only manual medication-lifecycle documentation and denial of unsupported transitions are exercised.",
+      "evidence": [],
+      "remainingGap": "Verified prescriber authority, clinical authorization and live prescribing/pharmacy services are absent. Shared-owner evaluation grants no prescribing authority.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/fixtures/treatment-continuity-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J31"
+          ],
+          "assertions": "Requires sequential manual milestones and distinguishes dispensing-reported from started-reported.",
+          "execution": "api-journeys"
+        },
+        {
+          "file": "tests/treatment-continuity.test.mjs",
+          "test": "lifecycle transitions require evidence, keep manual milestones local, and allow failed or not-started branches",
+          "assertions": "Rejects authorization-recorded without manual source/evidence; does not authenticate a prescriber.",
+          "execution": "full-suite"
+        }
+      ]
+    },
+    {
+      "name": "concurrent therapies",
+      "status": "local-passed",
+      "verifiedScope": "Concurrent professional interventions stay visible through explicit completion.",
+      "evidence": [
+        {
+          "file": "tests/fixtures/treatment-continuity-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J34"
+          ],
+          "assertions": "Retains two physical/occupational-therapy interventions, rejects removing one and asserts both remain after completion.",
+          "execution": "api-journeys"
+        }
+      ],
+      "remainingGap": "No drug-interaction analysis, cross-service scheduling or clinical compatibility validation is claimed."
+    },
+    {
+      "name": "interrupted documentation",
+      "status": "local-passed",
+      "verifiedScope": "Saved draft cancellation/retry and stale-source recovery survive API reload.",
+      "evidence": [
+        {
+          "file": "tests/fixtures/decisions-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J20"
+          ],
+          "assertions": "Persists draft, dispute, correction, cancel/retry and re-review after a newer observed record; unsafe signing and stale updates are rejected.",
+          "execution": "api-journeys"
+        }
+      ],
+      "remainingGap": "A browser crash, disconnected network, unsaved-form recovery and interactive resume were not tested."
+    },
+    {
+      "name": "remote visits",
+      "status": "local-passed",
+      "verifiedScope": "Location, channel, interruption, owned next contact and reconnection are recorded separately from completion.",
+      "evidence": [
+        {
+          "file": "tests/care-operations.test.mjs",
+          "test": "an interrupted remote assessment requires an owned recovery and reconnection before completion",
+          "assertions": "Location, channel, interruption, owned next contact and reconnection are recorded separately from completion.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/fixtures/encounters-scenarios.mjs",
+          "entrypoint": "runScenarios",
+          "journeys": [
+            "J02"
+          ],
+          "assertions": "Retains declined Video contact and telephone preference only.",
+          "execution": "api-journeys"
+        }
+      ]
+    },
+    {
+      "name": "changed preferences",
+      "status": "local-passed",
+      "verifiedScope": "Changed goal and preference weights invalidate reviewed work until re-reviewed; the new signature records revised values and retains the prior signed preference snapshot.",
+      "evidence": [
+        {
+          "file": "tests/clinical-decisions.test.mjs",
+          "test": "a changed patient goal and preference vector invalidate reviewed work and preserve the earlier signed choice",
+          "assertions": "Changed goal and preference weights invalidate reviewed work until re-reviewed; the new signature records revised values and retains the prior signed preference snapshot.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/clinical-decisions.test.mjs",
+          "test": "J06 preserves entered preferences and options and rejects missing or ambiguous evidence",
+          "assertions": "Asserts one initial preference vector and rejects zero weights; no later preference change.",
+          "execution": "full-suite"
+        },
+        {
+          "file": "tests/patient-digital-twin.test.mjs",
+          "test": "doctor preferences persist per patient without altering clinical inputs or other patients",
+          "assertions": "These are display preferences and explicitly do not alter clinical inputs.",
+          "execution": "full-suite"
+        }
+      ]
+    },
+    {
+      "name": "timezone-aware handovers",
+      "status": "local-passed",
+      "verifiedScope": "Absolute coverage windows have inclusive start/exclusive end, with explicit timezone, receiving owner and backup; transfers bind exact source versions and leave work open.",
+      "evidence": [
+        {
+          "file": "tests/care-operations.test.mjs",
+          "test": "accepted transfers bind current patient work and version while keeping the work open",
+          "assertions": "Absolute coverage windows have inclusive start/exclusive end, with explicit timezone, receiving owner and backup; transfers bind exact source versions and leave work open.",
+          "execution": "full-suite"
+        }
+      ],
+      "remainingGap": "Interactive browser acceptance and independent clinical/access/operational validation remain separate. The assertions describe the implemented local software scope.",
+      "adjacentEvidence": [
+        {
+          "file": "tests/patient-coordination.test.mjs",
+          "test": "overdue summary uses the reference clock rather than future appointment and retry timestamps",
+          "assertions": "Checks dueAt with a +02:00 offset against a reference clock.",
+          "execution": "full-suite"
+        },
+        {
+          "file": "tests/patient-coordination.test.mjs",
+          "test": "handoffs enforce evidence boundaries, retain duplicates, keep after-hours high priority discoverable, and prevent silent closure",
+          "assertions": "Checks a 19:05 UTC handoff, without a named handover timezone or DST boundary.",
+          "execution": "full-suite"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "production-identity": "Production authentication, clinician roles, patient relationships, proxy authority and consent require the deployed identity/access integration. The API harness substitutes the verified-session boundary; shared-owner evaluation does not prove clinical authority.",
+    "production-storage": "API evidence uses real route handlers, prepared SQL, SQLite and reloads, with the PostgreSQL adapter substituted. Live PostgreSQL and deployed migration behavior are not exercised.",
+    "clinical-validation": "Synthetic workflow data and manually recorded clinical decisions do not validate diagnosis, treatment suitability, prediction performance, clinical safety or real patient outcomes.",
+    "ehr-provider": "Live EHR launch, source mapping, inbound events, trusted adapter identity and provider acknowledgements require configured external services; J12/J19 remain externally blocked.",
+    "external-delivery": "Phone calls, messages, referrals, appointment bookings, pharmacy milestones and handoffs are manually reported records. Tests do not deliver them or prove receipt by an external service.",
+    "patient-access": "Real patient/proxy authentication, interpreter/translation quality, accessibility usability and authorized audiences require separate evidence.",
+    "prescribing-authority": "The medication lifecycle records manual authorization evidence. No prescriber privilege, prescription, pharmacy transmission or dispensing service is provisioned or validated.",
+    "governance-approval": "Local review/publication/approval states are documentation only. Clinical, regulatory, security, partner-rights, payer/legal, production release and deployment approvals remain external gates.",
+    "browser-qa": "No interactive browser acceptance run was completed. Cloud browser URL policy denied the local test server and prohibited alternate-path workarounds."
+  },
+  "outstandingWork": [
+    "Run interactive browser acceptance in an allowed hosted environment, including real controls, busy/error states, patient switches, reload and interrupted work.",
+    "Provision and verify production identity/role/consent/proxy boundaries, external EHR adapters/provider receipts and live database persistence before production integration acceptance.",
+    "Obtain independent clinical, prescribing, content-rights, security, payer/legal and release evidence as applicable; synthetic documentation decisions provide none of those approvals.",
+    "Resolve the unavailable saved Sites app project before publishing this demonstration update; preserve the separate review Site."
+  ],
+  "currentPullRequest": {
+    "number": 7,
+    "url": "https://github.com/RocketFarm/theranetrix-app/pull/7",
+    "status": "Draft",
+    "resumedCheckpointSha": "b4c5c258bfda60803725134f044494afee2ad6ee",
+    "mainModifiedByThisWork": false,
+    "note": "Root records the completion commit and exact cloud CI result in the PR body. Prior imported worker SHAs remain source provenance."
+  }
+}

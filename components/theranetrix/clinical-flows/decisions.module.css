@@ -1,0 +1,21 @@
+.panel{border:1px solid #c9d8df;border-radius:12px;background:#fff;color:#243f50;padding:1rem;display:grid;gap:1rem}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.form{border:1px solid #d7e3e9;border-radius:10px;padding:.9rem;display:grid;gap:.65rem}
+.form label{display:grid;gap:.35rem;font-weight:600;font-size:.95rem}
+.form input,.form textarea,.form select{border:1px solid #9eb3bf;border-radius:7px;padding:.55rem;font:inherit;min-height:42px}
+.form textarea{min-height:82px;resize:vertical}
+.actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.actions button,.form button{min-height:42px;border:1px solid #17655e;background:#17655e;color:#fff;border-radius:7px;padding:.55rem .75rem}
+.actions button:disabled,.form button:disabled{border-color:#9eb3bf;background:#edf2f5;color:#556979}
+.blocked{color:#8a2d2d;font-weight:600}
+.context{white-space:pre-wrap;overflow:auto;background:#f6fafc;border:1px solid #d7e3e9;border-radius:8px;padding:.6rem}
+.panel{min-width:0;overflow-wrap:anywhere}
+.panel label{display:grid;gap:.35rem}
+.panel input,.panel textarea,.panel select{max-width:100%;min-width:0;box-sizing:border-box}
+.form{min-width:0;margin:0}
+.form legend{font-weight:700;padding:0 .4rem}
+.form .check{display:flex;align-items:flex-start;gap:.5rem}
+.form .check input{min-height:0;margin-top:.2rem}
+.form fieldset:disabled,.form:disabled{opacity:.75}
+.context{max-height:28rem;max-width:100%;word-break:break-word}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}

@@ -1,0 +1,104 @@
+.launcher,.guide{
+  margin:0 0 1.25rem;
+  border:1px solid #d7e4dc;
+  border-radius:14px;
+  background:#fff;
+  color:#173a35;
+  overflow:hidden;
+  box-shadow:0 8px 24px #173a350c;
+}
+.launcher>summary{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 20px;
+  cursor:pointer;
+  min-height:64px;
+  list-style:none;
+  background:linear-gradient(180deg,#f4faf7,#eef6f2);
+}
+.launcher>summary::-webkit-details-marker{display:none}
+.launcher>summary::after{
+  content:'';
+  width:8px;height:8px;
+  margin-left:auto;
+  border-right:2px solid #2f6d5d;
+  border-bottom:2px solid #2f6d5d;
+  transform:rotate(45deg);
+  transition:transform .15s ease;
+}
+.launcher[open]>summary::after{transform:rotate(225deg);margin-top:6px}
+.launcherMark{
+  display:grid;
+  place-items:center;
+  width:42px;height:42px;
+  border-radius:12px;
+  background:#17655e;
+  color:#fff;
+  font-size:.95rem;
+  font-weight:700;
+  flex:none;
+}
+.launcher>summary strong{display:block;font-size:1.02rem;color:#173a35}
+.launcher>summary>div>span,.note{font-size:.8125rem;line-height:1.5;color:#5d726a}
+.body,.guide{padding:18px 20px 20px}
+.body>p{margin:0 0 1rem;line-height:1.55;color:#3f574e}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fields label{display:flex;flex-direction:column;gap:.4rem;font-weight:650;min-width:0;font-size:.8125rem;color:#2b4a41}
+.fields select,.fields input{
+  width:100%;min-width:0;min-height:44px;
+  border:1px solid #c5d5cc;border-radius:10px;
+  background:#fbfefc;color:#173a35;
+  padding:.7rem .85rem;font:inherit;font-weight:500;
+  box-sizing:border-box;
+}
+.selection{margin-top:1.1rem;padding:16px;border:1px solid #d7e4dc;border-radius:12px;background:#f7fbf8}
+.heading{display:flex;gap:.75rem 1.25rem;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
+.heading h2,.heading h3{margin:0;font-size:1.12rem;line-height:1.4;color:#173a35}
+.heading p{margin:.3rem 0 0;font-size:.875rem;color:#4d655c}
+.eyebrow{display:block;margin-bottom:.25rem;color:#17655e;font-size:.7rem;font-weight:700;letter-spacing:.08em}
+.status{display:inline-flex;align-items:center;padding:.3rem .65rem;background:#e5f4ee;border:1px solid #b7d9cb;border-radius:999px;font-size:.75rem;line-height:1.4;color:#17655e;font-weight:650;white-space:nowrap}
+.question{font-size:1rem;font-weight:600;line-height:1.5;margin:.7rem 0 0;color:#1d433b}
+.note{margin:.7rem 0 0}
+.primary{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:42px;padding:.65rem 1.05rem;
+  background:#17655e;border:1px solid #17655e;border-radius:10px;
+  color:white!important;font-weight:650;text-decoration:none!important;
+}
+.primary:hover{background:#114e48}
+.guide{
+  padding:16px 18px 14px;
+  background:linear-gradient(180deg,#16332e,#1b4039);
+  color:#eef7f3;
+  border-color:#16332e;
+}
+.guide .eyebrow{color:#9ed7c6}
+.guide .heading h2,.guide .heading p,.guide .question{color:#f4fbf8}
+.guide .status{background:#1f5349;border-color:#2d6d61;color:#d7f3ea}
+.guide a:not(.primary){color:#c8efe2;text-decoration:none;font-weight:600}
+.guide a:not(.primary):hover{text-decoration:underline;text-underline-offset:3px}
+.guide details>summary{cursor:pointer;min-height:40px;align-content:center;font-weight:650;line-height:1.4;color:#d5efe6}
+.guide .note{color:#b7d0c7}
+.stops{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.stops>a{
+  display:flex;gap:.45rem;align-items:center;
+  min-height:40px;padding:.45rem .7rem;
+  border:1px solid #3d6d63;border-radius:999px;background:#1a433c;color:#e7f6f0;
+}
+.stops>a[aria-current=step]{background:#17655e;border-color:#17655e;color:#fff}
+.stops>a>span{font-size:.75rem;font-weight:700;opacity:.8}
+.actions{display:flex;align-items:center;gap:.7rem 1rem;flex-wrap:wrap;margin-top:.9rem}
+.actions>a{min-height:40px;display:inline-flex;align-items:center}
+.selection button:disabled{
+  min-height:42px;padding:.65rem 1rem;border:1px solid #c5d5cc;border-radius:10px;
+  color:#5d726a;background:#edf4f0;cursor:not-allowed;
+}
+.launcher :focus-visible,.guide :focus-visible{outline:3px solid #7ec9b6;outline-offset:3px}
+@media(max-width:700px){
+  .fields{grid-template-columns:1fr}
+  .body,.guide{padding:14px}
+  .launcher>summary{padding:14px}
+  .heading{flex-direction:column}
+  .actions>a,.primary{width:100%;box-sizing:border-box}
+}

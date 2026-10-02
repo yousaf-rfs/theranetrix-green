@@ -1,0 +1,243 @@
+/* Patient record: readable decisions first, full clinical detail on demand. */
+.patient-redesign { color:#142d41; font-size:14px; }
+.patient-redesign .patient-record-head { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px 24px; background:#fff; border:1px solid #dfe7ed; border-radius:16px; padding:20px 24px 0; margin-bottom:20px; overflow:hidden; }
+.patient-redesign .patient-record-breadcrumb { grid-column:1/-1; display:flex; align-items:center; gap:10px; font-size:12px; color:#546979; }
+.patient-redesign .patient-record-breadcrumb .back-link { margin:0; font-size:12px; color:#147d73; }
+.patient-redesign .patient-heading { display:flex; align-items:center; gap:14px; min-width:0; }
+.patient-redesign .patient-title-line { display:flex; align-items:center; flex-wrap:wrap; gap:12px; }
+.patient-redesign .patient-title-line h1 { font-size:28px; line-height:1.25; letter-spacing:-.7px; margin:0; color:#142d41; }
+.patient-redesign .patient-heading p { display:flex; align-items:center; flex-wrap:wrap; gap:7px; font-size:12px; line-height:1.5; margin:6px 0 0; color:#546979; }
+.patient-redesign .patient-record-id { font-weight:600; color:#40596b; }
+.patient-redesign .patient-record-head .page-actions { flex-wrap:wrap; gap:8px; }
+.patient-redesign .patient-record-head .page-actions [data-slot=button] { height:36px; font-size:13px; }
+.patient-redesign .patient-record-meta { grid-column:1/-1; display:flex; align-items:center; flex-wrap:wrap; gap:12px 24px; padding:0 0 2px; color:#546979; font-size:12px; }
+.patient-redesign .patient-record-meta>span { display:inline-flex; align-items:center; gap:7px; }
+.patient-redesign .patient-record-meta strong { font-weight:500; color:#142d41; }
+.patient-redesign .patient-record-meta .patient-record-review-count { margin-left:auto; color:#a04350; font-weight:600; }
+.patient-redesign .patient-record-allergies { grid-column:1/-1; margin:0 -24px; padding:10px 24px; display:flex; align-items:baseline; flex-wrap:wrap; gap:7px; border-top:1px solid #e3ebed; background:#f5faf8; color:#315c55; font-size:12px; }
+.patient-redesign .patient-record-allergies svg { align-self:center; flex-shrink:0; }
+.patient-redesign .patient-record-allergies>span { overflow-wrap:anywhere; }
+.patient-redesign .patient-record-allergies small { margin-left:auto; font-size:12px; color:#546979; }
+.patient-redesign .patient-record-allergies.has-reactions { background:#fff5f3; border-color:#f3d5cc; color:#9f443b; }
+.patient-redesign .patient-record-allergies.is-unreviewed { background:#fff9ed; border-color:#f0e0c0; color:#8c6222; }
+.patient-redesign .patient-record-flow { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:0; border-bottom:1px solid #dfe7ed; margin:0 0 24px; }
+.patient-redesign .patient-flow-tabs { min-width:0; flex:0 1 auto; gap:4px; background:transparent; }
+.patient-redesign .patient-flow-tabs button { display:flex; gap:7px; padding:13px 14px!important; border-radius:0!important; font-size:13px; color:#546979; background:transparent; white-space:nowrap; }
+.patient-redesign .patient-flow-tabs button[data-state=active] { color:#147d73; background:#eaf5f2; box-shadow:inset 0 -2px #147d73; }
+.patient-redesign .patient-flow-tabs button[data-state=active]:after { background:#147d73; }
+.patient-redesign .patient-record-flow .patient-view-toolbar { display:flex; gap:16px; margin:0; padding-bottom:4px; }
+.patient-redesign .patient-view-toolbar select { max-width:170px; font-size:12px; }
+.patient-redesign .patient-view-toolbar .text-link { font-size:12px; white-space:nowrap; }
+.patient-redesign .patient-tabs>[data-slot=tabs-content] { margin-top:0; }
+.patient-redesign-visit { gap:20px; }
+.patient-redesign-visit .visit-dashboard-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.patient-redesign-visit .visit-dashboard-heading h2 { font-size:23px; letter-spacing:-.4px; line-height:1.25; margin:5px 0 0; }
+.patient-redesign-visit .visit-dashboard-heading .eyebrow { font-size:11px; font-weight:700; letter-spacing:1.25px; color:#546979; }
+.patient-redesign-visit .visit-dashboard-status { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.patient-redesign-visit .visit-workflow-nav { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; padding:7px; border:1px solid #dfe7ed; background:#edf2f5; border-radius:12px; }
+.patient-redesign-visit .visit-workflow-nav>a,.patient-redesign-visit .visit-workflow-nav>button { display:flex; align-items:center; gap:10px; border-radius:8px; padding:10px 14px; color:#546979; font-size:13px; font-weight:600; text-align:left; transition:background .15s; }
+.patient-redesign-visit .visit-workflow-nav>button:hover { background:#fff; color:#147d73; }
+.patient-redesign-visit .visit-workflow-nav>a.is-current { background:#fff; color:#147d73; box-shadow:0 2px 5px #142d4106; }
+.patient-redesign-visit .visit-workflow-nav span { display:grid; place-items:center; background:#dfe7ed; color:#546979; width:24px; height:24px; border-radius:50%; font-size:12px; flex-shrink:0; }
+.patient-redesign-visit .visit-workflow-nav .is-current span { background:#147d73; color:#fff; }
+.patient-redesign-visit .visit-workflow-nav svg { margin-left:auto; }
+.patient-redesign-visit .visit-concerns { border:1px solid #edd5cf; border-left:3px solid #c77965; border-radius:12px; background:#fff9f5; }
+.patient-redesign-visit .visit-concerns-heading { padding:14px 18px 0; gap:8px; color:#924b36; }
+.patient-redesign-visit .visit-concerns-heading h2 { font-size:13px; font-weight:700; }
+.patient-redesign-visit .visit-review-row { padding:12px 18px 16px; gap:24px; }
+.patient-redesign-visit .visit-review-row h3 { font-size:14px; color:#142d41; }
+.patient-redesign-visit .visit-review-row p { font-size:13px; line-height:1.6; color:#526579; max-width:900px; }
+.patient-redesign-visit .visit-review-row small { font-size:12px; color:#546979; }
+.patient-redesign-visit .visit-review-row button { background:#fff; font-size:12px; }
+.patient-redesign-visit .visit-grid { display:grid; grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr); gap:20px; }
+.patient-redesign-visit .visit-clinical,.patient-redesign-visit .visit-decision { gap:20px; display:flex; flex-direction:column; }
+.patient-redesign-visit .panel { border:1px solid #dfe7ed; border-radius:14px; box-shadow:0 2px 4px #142d4103; background:#fff; overflow:hidden; }
+.patient-redesign-visit .panel-head { padding:18px 20px; border-bottom:1px solid #edf1f4; margin:0 0 16px; }
+.patient-redesign-visit .panel-head h2 { font-size:16px; color:#142d41; font-weight:650; }
+.patient-redesign-visit .panel-head .text-link { font-size:12px; }
+.patient-redesign-visit .visit-metrics { gap:16px; padding:0 20px; }
+.patient-redesign-visit .visit-metrics>div { border-right:1px solid #e4ebf0; padding-right:8px; }
+.patient-redesign-visit .visit-metrics>div:last-child { border-right:0; padding-right:0; }
+.patient-redesign-visit .visit-metrics>div>span { font-size:12px; color:#546979; }
+.patient-redesign-visit .visit-metrics strong { font-size:32px; font-weight:650; letter-spacing:-1px; color:#142d41; line-height:1.3; }
+.patient-redesign-visit .visit-metrics strong:only-child { font-size:18px; letter-spacing:-.3px; }
+.patient-redesign-visit .visit-metrics>div>div>small { display:inline; font-size:12px; }
+.patient-redesign-visit .visit-metrics b { font-size:12px; font-weight:600; }
+.patient-redesign-visit .visit-metrics small { font-size:12px; }
+.patient-redesign-visit .visit-caption { padding:14px 20px; color:#546979; font-size:12px; margin:0; }
+.patient-redesign-visit .visit-source-note { border-top:1px solid #edf1f4; padding:11px 20px; font-size:12px; color:#546979; }
+.patient-redesign-visit details>summary { cursor:pointer; font-size:12px; font-weight:500; color:#516b7c; list-style-position:inside; }
+.patient-redesign-visit details>summary:hover { color:#147d73; }
+.patient-redesign-visit details>p { margin-top:8px; line-height:1.6; }
+.patient-redesign-visit .visit-source-note ul { margin:8px 0 0 16px; list-style:disc; line-height:1.6; }
+.patient-redesign-visit .visit-medication-cards { padding:0 20px; }
+.patient-redesign-visit .visit-medication-card { padding:0 0 16px; }
+.patient-redesign-visit .visit-medication-card+.visit-medication-card { padding-top:16px; border-top:1px solid #e5edf1; }
+.patient-redesign-visit .visit-medication-heading { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+.patient-redesign-visit .visit-medication-heading h3 { font-size:15px; font-weight:650; }
+.patient-redesign-visit .visit-medication-heading p { color:#546979; font-size:12px; margin:4px 0 0; line-height:1.5; }
+.patient-redesign-visit .visit-medication-response { display:grid; grid-template-columns:1.5fr 1fr; gap:16px; padding:13px 0; }
+.patient-redesign-visit .visit-medication-response span { color:#546979; font-size:12px; }
+.patient-redesign-visit .visit-medication-response p { font-size:13px; margin:4px 0 0; line-height:1.6; }
+.patient-redesign-visit .visit-medication-footer { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.patient-redesign-visit .visit-medication-footer details { font-size:12px; color:#546979; }
+.patient-redesign-visit .visit-medication-footer .text-link { font-size:12px; white-space:nowrap; }
+.patient-redesign-visit .visit-clinical-caution { display:flex; align-items:flex-start; gap:9px; padding:12px 16px; margin:0 20px 16px; border:1px solid #eedec4; background:#fffbf1; border-radius:9px; color:#8c652f; }
+.patient-redesign-visit .visit-clinical-caution svg { margin-top:2px; flex-shrink:0; }
+.patient-redesign-visit .visit-clinical-caution strong { display:block; font-size:12px; }
+.patient-redesign-visit .visit-clinical-caution p { font-size:12px; line-height:1.65; margin-top:3px; color:#765e3b; }
+.patient-redesign-visit .visit-treatment-action { padding:16px 20px; border-top:1px solid #edf1f4; }
+.patient-redesign-visit .visit-treatment-action button { width:100%; font-size:13px; justify-content:space-between; }
+.patient-redesign-visit .visit-body { padding:0 20px 20px; gap:12px; font-size:13px; }
+.patient-redesign-visit .visit-goal-card { background:#f6faf9; border-color:#d9e7e2; }
+.patient-redesign-visit .visit-goal-card .panel-head { border-color:#e0eae6; }
+.patient-redesign-visit .visit-patient-priority>svg { display:none; }
+.patient-redesign-visit .visit-patient-priority blockquote { border-left:3px solid #147d73; padding:1px 0 1px 13px; color:#244b48; font-size:17px; line-height:1.5; font-weight:500; }
+.patient-redesign-visit .visit-patient-priority>.badge { align-self:flex-start; }
+.patient-redesign-visit .visit-inline-details { font-size:13px; }
+.patient-redesign-visit .visit-inline-details p { white-space:pre-wrap; }
+.patient-redesign-visit .visit-feedback { padding-top:13px; }
+.patient-redesign-visit .visit-feedback p { font-size:13px; line-height:1.65; margin:7px 0; }
+.patient-redesign-visit .visit-feedback>small { font-size:12px; }
+.patient-redesign-visit .visit-feedback .text-link { font-size:12px; }
+.patient-redesign-visit .visit-plan { border-top:3px solid #147d73; }
+.patient-redesign-visit .visit-plan .panel-head { background:#fff; color:#142d41; }
+.patient-redesign-visit .visit-plan-text { font-size:13px; line-height:1.65; }
+.patient-redesign-visit .visit-followup { gap:7px; border-top:1px solid #e3ebee; padding:14px 0 0; }
+.patient-redesign-visit .visit-followup strong { color:#142d41; font-size:15px; }
+.patient-redesign-visit .visit-followup span { font-size:12px; }
+.patient-redesign-visit .visit-followup small { font-size:12px; }
+.patient-redesign-visit .visit-empty-plan { display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
+.patient-redesign-visit .visit-empty-icon { width:38px; height:38px; border-radius:10px; background:#eef5f4; color:#147d73; display:grid; place-items:center; }
+.patient-redesign-visit .visit-empty-plan h3 { font-size:15px; font-weight:600; }
+.patient-redesign-visit .visit-empty-plan p { font-size:13px; color:#546979; line-height:1.6; }
+.patient-redesign-visit .visit-empty-plan button { width:100%; margin-top:4px; justify-content:space-between; }
+.patient-redesign-visit .visit-open-work { border:1px solid #dfe7ed; border-radius:12px; background:#fff; padding:16px 20px; }
+.patient-redesign-visit .visit-open-work h3 { color:#546979; font-size:12px; font-weight:600; margin:0 0 12px; }
+.patient-redesign-visit .visit-open-work>a,.patient-redesign-visit .visit-open-work>button { display:flex; align-items:center; gap:11px; width:100%; text-align:left; padding:8px 0; }
+.patient-redesign-visit .visit-open-work strong { font-size:12px; font-weight:600; display:block; }
+.patient-redesign-visit .visit-open-work small { font-size:12px; display:block; color:#546979; margin-top:3px; }
+.patient-redesign-visit .visit-open-work svg { margin-left:auto; color:#546979; }
+.patient-redesign-visit .visit-open-work-dot { width:8px; height:8px; border-radius:50%; background:#147d73; flex-shrink:0; }
+.patient-redesign-visit .visit-open-work-dot.is-overdue { background:#c77c3f; }
+.patient-redesign-visit .visit-supporting { border:1px solid #dfe7ed; border-radius:12px; padding:0 20px; background:#fff; scroll-margin-top:24px; }
+.patient-redesign-visit .visit-supporting [data-slot=accordion-trigger] { padding:18px 0; font-size:14px; color:#142d41; }
+.patient-redesign-visit .visit-supporting [data-slot=accordion-trigger] small { font-size:12px; margin-top:5px; color:#546979; }
+.patient-redesign-visit .visit-supporting [data-slot=accordion-content] { padding:0 0 20px; }
+.patient-redesign-visit .visit-context-grid { gap:20px; font-size:13px; }
+.patient-redesign-visit .visit-context-grid h3 { font-weight:600; font-size:14px; }
+.patient-redesign-visit .visit-context-grid p { font-size:13px; line-height:1.65; color:#546979; }
+.patient-redesign-visit .visit-history-item { margin-top:14px; }
+.patient-redesign-visit .visit-history-item .badge { margin-left:4px; }
+.patient-redesign-visit #visit-observations,.patient-redesign-visit #visit-plan { scroll-margin-top:24px; }
+.patient-redesign .document-note { padding:20px 24px; }
+.patient-redesign .document-note p { font-size:14px; line-height:1.75; max-width:1000px; white-space:pre-wrap; }
+.patient-redesign .document-note>div { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.patient-redesign .document-note>small { margin-top:12px; }
+.patient-context-editor { display:flex; flex-direction:column; gap:16px; }
+.patient-context-editor .context-form-section { border:1px solid #dfe7ed; border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:14px; }
+.patient-context-editor .context-form-section h3 { color:#142d41; font-size:15px; margin:0; }
+.patient-context-editor .context-form-section>p { margin:-6px 0 0; color:#546979; font-size:12px; }
+.patient-context-editor .context-form-section.is-safety { background:#fffaf1; border-color:#eaddc1; }
+.patient-context-editor .context-form-section details { border-top:1px solid #e4ebef; padding-top:12px; }
+.patient-context-editor .context-form-section summary { font-weight:600; font-size:13px; color:#405c6b; cursor:pointer; }
+.patient-context-editor .context-form-section details>div { display:flex; flex-direction:column; gap:14px; padding-top:14px; }
+.patient-context-editor .form-actions { position:sticky; bottom:0; padding:16px 0 0; background:#fff; border-top:1px solid #dfe7ed; z-index:1; }
+@media(min-width:1600px){.patient-redesign-visit .visit-grid { grid-template-columns:minmax(0,1.8fr) minmax(350px,1fr); }}
+@media(max-width:1200px){.patient-redesign .patient-record-head { grid-template-columns:1fr; }.patient-redesign .patient-record-head .page-actions { justify-content:flex-start; }.patient-redesign .patient-record-flow { gap:6px; }.patient-redesign .patient-record-flow .patient-view-toolbar { padding:8px 0 12px; }.patient-redesign .patient-record-meta .patient-record-review-count { margin-left:0; }}
+@media(max-width:1000px){.patient-redesign-visit .visit-grid { grid-template-columns:minmax(0,1.4fr) minmax(270px,1fr); gap:16px; }.patient-redesign-visit .visit-clinical,.patient-redesign-visit .visit-decision { gap:16px; }.patient-redesign-visit .visit-metrics { gap:10px; padding:0 16px; }.patient-redesign-visit .visit-metrics strong { font-size:28px; }.patient-redesign-visit .visit-metrics b { font-size:12px; }}
+@media(max-width:800px){.patient-redesign-visit .visit-grid { grid-template-columns:1fr; }.patient-redesign-visit .visit-decision { display:grid; grid-template-columns:1fr 1fr; align-items:start; }.patient-redesign-visit .visit-open-work { grid-column:1/-1; }.patient-redesign-visit .visit-dashboard-heading { align-items:flex-start; }.patient-redesign-visit .visit-dashboard-status { flex-direction:column; align-items:flex-end; gap:8px; }.patient-redesign-visit .visit-workflow-nav>a,.patient-redesign-visit .visit-workflow-nav>button { padding:8px; gap:7px; font-size:12px; }.patient-redesign-visit .visit-workflow-nav svg { display:none; }}
+@media(max-width:560px){.patient-redesign .patient-record-head { padding:16px 16px 0; border-radius:12px; gap:14px; }.patient-redesign .patient-title-line h1 { font-size:24px; }.patient-redesign .patient-record-allergies { margin:0 -16px; padding:10px 16px; }.patient-redesign .patient-record-allergies small { width:100%; margin-left:23px; }.patient-redesign .patient-heading { align-items:flex-start; }.patient-redesign .patient-flow-tabs { flex-wrap:nowrap!important; overflow-x:auto; justify-content:flex-start; width:100%; }.patient-redesign .patient-flow-tabs button { padding:12px 10px!important; }.patient-redesign .patient-flow-tabs button svg { display:none; }.patient-redesign-visit .visit-decision { display:flex; }.patient-redesign-visit .visit-dashboard-heading h2 { font-size:21px; }.patient-redesign-visit .visit-dashboard-status .badge { max-width:160px; white-space:normal; text-align:right; }.patient-redesign-visit .visit-workflow-nav { gap:4px; padding:4px; }.patient-redesign-visit .visit-workflow-nav>a,.patient-redesign-visit .visit-workflow-nav>button { padding:8px 6px; font-size:12px; flex-wrap:wrap; gap:6px; }.patient-redesign-visit .visit-workflow-nav span { width:20px; height:20px; }.patient-redesign-visit .visit-review-row { align-items:flex-start; flex-direction:column; gap:12px; }.patient-redesign-visit .visit-context-grid { grid-template-columns:1fr; }.patient-redesign-visit .visit-medication-footer { flex-wrap:wrap; }.patient-redesign .patient-record-meta { gap:10px 16px; }}
+
+.patient-redesign-overview .complete-record-heading { display:flex; justify-content:space-between; align-items:center; gap:24px; margin-bottom:20px; }
+.patient-redesign-overview .complete-record-heading h2 { font-size:23px; color:#142d41; margin:5px 0; letter-spacing:-.4px; }
+.patient-redesign-overview .complete-record-heading p { font-size:13px; color:#546979; }
+.patient-redesign-overview .patient-section-nav { background:#fff; padding:8px; border:1px solid #dfe7ed; border-radius:10px; gap:6px; margin-bottom:20px; }
+.patient-redesign-overview .patient-section-nav a { color:#516b7c; font-size:12px; padding:8px 11px; border-radius:6px; }
+.patient-redesign-overview .patient-section-nav a:hover { color:#147d73; background:#edf7f3; }
+.patient-redesign-overview .record-disclosure { border:1px solid #dfe7ed; border-radius:12px; background:#fff; padding:18px 20px; margin:20px 0; }
+.patient-redesign-overview .record-disclosure>summary { font-size:15px; font-weight:600; color:#142d41; cursor:pointer; }
+.patient-redesign-overview .record-disclosure>summary span { display:block; color:#546979; font-size:12px; font-weight:400; margin:6px 0 0 18px; }
+.patient-redesign-overview .record-disclosure[open]>summary { margin-bottom:20px; }
+.patient-redesign-overview .complete-plan-followup { display:flex; align-items:center; gap:10px; padding:14px; background:#f4f8fa; border-radius:8px; font-size:14px; }
+.patient-redesign-overview .complete-plan-followup small { display:block; margin-top:5px; font-size:12px; color:#546979; }
+.patient-redesign-overview .activity-detail>summary { cursor:pointer; font-size:13px; color:#147d73; margin:10px 0; }
+.patient-redesign-overview .patient-summary-grid { gap:20px; }
+.patient-redesign-overview .patient-summary-grid .panel { border-radius:12px; border-color:#dfe7ed; }
+.patient-redesign-overview .summary-card-body p { font-size:13px; line-height:1.7; }
+.patient-redesign-overview .summary-card-body small { font-size:12px; }
+.patient-redesign .care-workbench { margin-top:24px; }
+
+.patient-care-operations .care-operations-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:20px; margin-bottom:16px; }
+.patient-care-operations .care-operations-heading h3 { font-size:17px; font-weight:650; color:#142d41; margin:0; }
+.patient-care-operations .care-operations-heading p { color:#546979; font-size:13px; line-height:1.6; margin:6px 0 0; }
+.patient-care-operations .care-operations-heading>span { background:#edf6f3; color:#147d73; padding:5px 10px; border-radius:6px; font-size:12px; white-space:nowrap; }
+.patient-care-operations .care-operations-summary { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid #dfe7ed; border-radius:10px; margin-bottom:20px; background:#f8fafb; }
+.patient-care-operations .care-operations-summary>div { padding:14px 16px; border-right:1px solid #dfe7ed; }
+.patient-care-operations .care-operations-summary>div:last-child { border:0; }
+.patient-care-operations .care-operations-summary span { display:block; color:#546979; font-size:12px; margin-bottom:6px; }
+.patient-care-operations .care-operations-summary strong { display:block; color:#142d41; font-size:14px; font-weight:600; text-transform:capitalize; }
+.patient-care-operations>details { border:1px solid #dfe7ed; border-radius:10px; padding:16px 18px; margin-top:10px; background:#fff; }
+.patient-care-operations>details>summary { color:#142d41; font-size:14px; font-weight:600; cursor:pointer; }
+.patient-care-operations>details>p { font-size:13px; line-height:1.65; margin:12px 0; color:#546979; }
+.patient-care-operations>details form { margin-top:18px; }
+@media(max-width:560px){.patient-care-operations .care-operations-heading { flex-direction:column; gap:10px; }.patient-care-operations .care-operations-summary>div { padding:12px 10px; }.patient-care-operations .care-operations-summary strong { font-size:13px; }}
+
+.patient-redesign-visit .visit-treatment-history>summary { padding:18px 0; font-size:14px; color:#142d41; display:flex; align-items:center; }
+.patient-redesign-visit .visit-treatment-history>summary:after { content:'+'; font-size:19px; margin-left:auto; color:#546979; }
+.patient-redesign-visit .visit-treatment-history[open]>summary:after { content:'−'; }
+.patient-redesign-visit .visit-treatment-history>summary small { display:block; font-size:12px; margin-top:5px; color:#546979; font-weight:400; }
+.patient-redesign-visit .visit-treatment-history-body { padding-bottom:20px; }
+
+/* Compact the decision surface so observations and the next plan stay above the fold. */
+.patient-redesign .patient-record-head { gap:10px 20px; padding:16px 20px 0; margin-bottom:16px; }
+.patient-redesign .patient-heading { gap:12px; }
+.patient-redesign .patient-back-control { width:26px; height:30px; display:grid; place-items:center; flex-shrink:0; color:#546979; margin-left:-5px; border-radius:6px; }
+.patient-redesign .patient-back-control:hover { background:#edf6f3; color:#147d73; }
+.patient-redesign .patient-heading .patient-title-line h1 { font-size:26px; }
+.patient-redesign .patient-record-meta { padding:0; }
+.patient-redesign .patient-record-allergies { margin:0 -20px; padding:9px 20px; }
+.patient-redesign .patient-record-flow { margin-bottom:18px; }
+.patient-redesign .patient-flow-tabs button { padding:10px 14px!important; }
+.patient-redesign-visit { gap:16px; }
+.patient-redesign-visit .visit-dashboard-heading { align-items:center; gap:18px; flex-wrap:wrap; }
+.patient-redesign-visit .visit-dashboard-title { flex:0 1 auto; min-width:235px; }
+.patient-redesign-visit .visit-dashboard-title h2 { font-size:20px; margin:0; line-height:1.25; }
+.patient-redesign-visit .visit-dashboard-meta { display:flex; flex-wrap:wrap; align-items:center; gap:5px 8px; margin-top:6px; color:#546979; font-size:12px; }
+.patient-redesign-visit .visit-dashboard-meta>.badge { font-size:11px; }
+.patient-redesign-visit .visit-workflow-nav { flex:1 1 470px; gap:2px; padding:4px; border-radius:9px; }
+.patient-redesign-visit .visit-workflow-nav>a,.patient-redesign-visit .visit-workflow-nav>button { padding:8px 9px; gap:7px; font-size:12px; }
+.patient-redesign-visit .visit-workflow-nav span { width:21px; height:21px; font-size:11px; }
+.patient-redesign-visit .visit-source-link { font-size:12px; white-space:nowrap; }
+.patient-redesign-visit .visit-concerns-heading { padding:11px 16px 3px; }
+.patient-redesign-visit .visit-review-row { padding:9px 16px 11px; gap:20px; align-items:flex-start; }
+.patient-redesign-visit .visit-review-row h3 { font-size:13px; line-height:1.45; }
+.patient-redesign-visit .visit-review-row p { font-size:13px; line-height:1.5; white-space:normal; margin:3px 0; }
+.patient-redesign-visit .visit-review-row small { display:block; font-size:12px; line-height:1.5; margin-top:4px; }
+.patient-redesign-visit .visit-review-row>button { height:32px; align-self:center; }
+.patient-redesign-visit .visit-review-row .visit-prior-action { white-space:pre-wrap; }
+.patient-redesign-visit .visit-feedback { padding-top:10px; }
+.patient-redesign-visit .visit-feedback>details>summary { font-size:12px; color:#546979; }
+.patient-redesign-visit .visit-feedback-actions { padding-top:8px; }
+.patient-redesign-visit .visit-goal-card .panel-head { padding:15px 20px; margin-bottom:13px; }
+.patient-redesign-visit .visit-goal-card .visit-body { padding-bottom:16px; gap:10px; }
+.patient-redesign-visit .visit-patient-priority blockquote { font-size:16px; line-height:1.5; }
+@media(min-width:1450px){.patient-redesign-visit .visit-dashboard-meta { max-width:315px; }.patient-redesign-visit .visit-dashboard-title { flex-basis:315px; }.patient-redesign-visit .visit-workflow-nav { flex-basis:510px; }}
+@media(max-width:1100px){.patient-redesign-visit .visit-dashboard-title { flex:1; }.patient-redesign-visit .visit-workflow-nav { order:3; flex-basis:100%; }.patient-redesign-visit .visit-source-link { margin-left:auto; }}
+@media(max-width:560px){.patient-redesign .patient-record-head { padding:14px 16px 0; }.patient-redesign .patient-record-allergies { margin:0 -16px; padding:9px 16px; }.patient-redesign .patient-back-control { display:none; }.patient-redesign .patient-heading .patient-title-line h1 { font-size:23px; }.patient-redesign-visit .visit-review-row { align-items:flex-start; gap:10px; }.patient-redesign-visit .visit-review-row>button { align-self:flex-start; }}
+
+/* Allergy strip: an inset callout with even padding, closable to a chip in the meta row. */
+.feedback-patient.patient-redesign .patient-record-allergies{margin:2px 0 14px;padding:8px 8px 8px 12px;display:flex;align-items:center;gap:8px;border:1px solid #f0e0c0;border-radius:8px;font-size:12.5px;line-height:1.4}
+.feedback-patient.patient-redesign .patient-record-allergies.has-reactions{border-color:#f3d5cc}
+.feedback-patient.patient-redesign .patient-record-allergies:not(.is-unreviewed):not(.has-reactions){border-color:#d5e8e2;background:#f5faf8;color:#315c55}
+.feedback-patient.patient-redesign .patient-record-allergies small{margin-left:auto}
+.patient-allergy-dismiss{display:grid;place-items:center;width:26px;height:26px;margin-left:4px;flex-shrink:0;border:0;border-radius:6px;background:transparent;color:inherit;opacity:.7;cursor:pointer}
+.patient-allergy-dismiss:hover{opacity:1;background:#0000000d}
+.patient-allergy-dismiss:focus-visible{outline:2px solid #087f75;outline-offset:1px;opacity:1}
+.patient-allergy-chip{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border:1px solid #d5e8e2;border-radius:999px;background:#f5faf8;color:#315c55;font:inherit;font-size:12px;font-weight:550;cursor:pointer}
+.patient-allergy-chip.is-unreviewed{border-color:#f0e0c0;background:#fff9ed;color:#8c6222}
+.patient-allergy-chip.has-reactions{border-color:#f3d5cc;background:#fff5f3;color:#9f443b}
+.patient-allergy-chip:focus-visible{outline:2px solid #087f75;outline-offset:2px}
+/* Keep the hide control on the strip's right edge, even when the text wraps on a phone. */
+.feedback-patient.patient-redesign .patient-record-allergies{position:relative;padding-right:40px}
+.feedback-patient.patient-redesign .patient-record-allergies .patient-allergy-dismiss{position:absolute;top:50%;right:6px;margin:0;transform:translateY(-50%)}

@@ -1,0 +1,554 @@
+@font-face {
+  font-family: 'Thera Plex'; font-style: normal; font-weight: 400 500;
+  font-display: swap; src: url('/fonts/plex-preview/regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Thera Plex'; font-style: normal; font-weight: 550 800;
+  font-display: swap; src: url('/fonts/plex-preview/semibold.ttf') format('truetype');
+}
+.preview {
+  --background: #f7f8f5; --foreground: #243931; --card: #fff;
+  --primary: #24634f; --primary-foreground: #fff; --ux-primary: #24634f;
+  --ux-ink: #243931; --ux-muted: #617067; --ux-line: #dfe5dd;
+  --muted-foreground: #617067; --border: #dfe5dd; --input: #dfe5dd;
+  --font-sans: 'Thera Plex', Arial, sans-serif;
+  font-family: var(--font-sans); color: #243931; background: #f7f8f5;
+}
+.preview :global(.skip-link) { top: 0; left: 16px; transform: translateY(-150%); }
+.preview :global(.skip-link:focus) { transform: translateY(0); }
+.preview :global(.redesign-shell) { background: #f7f8f5; color: #243931; min-height: calc(100svh - 32px); }
+.preview :global(input), .preview :global(button), .preview :global(select), .preview :global(textarea) { font-family: inherit; }
+.preview :global(.redesign-shell [data-slot=sidebar-container]) { top: 32px; height: calc(100svh - 32px); }
+.preview :global(.redesign-shell [data-slot=sidebar-inner]) { background: #eef1eb; color: #243931; border-right: 1px solid #dce3d9; }
+.preview :global(.redesign-shell .brand-header) { padding: 27px 20px 18px; }
+.preview :global(.redesign-shell .brand) { color: #233e32; font-size: 23px; letter-spacing: -.9px; gap: 9px; }
+.preview :global(.brand-light) { font-weight: 400; }
+.preview :global(.redesign-shell .brand-symbol) { background: #24634f; color: #fff; width: 29px; height: 33px; border-radius: 9px 9px 9px 2px; display: grid; place-items: center; }
+.preview :global(.brand-symbol svg) { width: 21px; height: 21px; stroke-width: 1.6; }
+.preview :global(.redesign-shell .workspace-name) { margin-top: 25px; padding-top: 19px; border-color: #d6dfd3; color: #344b3d; font-size: 12px; }
+.preview :global(.redesign-shell .workspace-name small) { color: #637260; font-size: 11px; }
+.preview :global(.redesign-shell .workspace-mark) { background: #e2e8dd; border: 0; color: #456445; border-radius: 7px; }
+.preview :global(.redesign-shell [data-slot=sidebar-group]) { padding: 10px 12px; }
+.preview :global(.redesign-shell .side-label) { color: #66745f !important; font-size: 10px; font-weight: 600; letter-spacing: .13em; }
+.preview :global(.redesign-shell .nav-link) { color: #4c5c4e; font-size: 13px !important; min-height: 42px; font-weight: 400; border-radius: 7px; }
+.preview :global(.redesign-shell .nav-link > svg) { color: #74816f; width: 17px !important; height: 17px !important; stroke-width: 1.6; }
+.preview :global(.redesign-shell .nav-link:hover) { background: #e2e9de !important; color: #243931; }
+.preview :global(.redesign-shell .nav-link[data-active=true]) { background: #24634f !important; color: #fff !important; box-shadow: none; font-weight: 600; }
+.preview :global(.redesign-shell .nav-link[data-active=true] > svg) { color: #fff !important; }
+.preview :global(.redesign-shell .nav-count) { background: #eaddce; color: #805730; border-radius: 4px; font-size: 11px; }
+.preview :global(.redesign-shell .secondary-nav) { margin-top: 15px; }
+.preview :global(.redesign-shell [data-slot=sidebar-content]) { padding-bottom: 0; margin-bottom: 0; }
+.preview :global(.redesign-shell .sidebar-note) { color: #50654f; padding: 10px 4px 15px; font-size: 11px; }
+.preview :global(.redesign-shell .sidebar-note small), .preview :global(.redesign-shell .side-profile small) { color: #6a7967; font-size: 11px; }
+.preview :global(.redesign-shell .sidebar-note > svg) { color: #62795a; }
+.preview :global(.redesign-shell .side-profile) { color: #2b4536; border-color: #d4dfd0; padding: 15px 0 0; }
+.preview :global(.redesign-shell .side-profile > svg) { color: #647b5f; }
+.preview :global(.redesign-shell .profile-avatar) { border: 1px solid #b9c8b1; background: #dce5d5; color: #345535; font-size: 11px; }
+.preview :global(.redesign-shell .topbar) { top: 32px; height: 56px; min-height: 56px; padding: 0 32px; background: #ffffffeb; border-color: #e0e6dc; backdrop-filter: blur(12px); }
+.preview :global(.redesign-shell .breadcrumbs) { font-size: 12px; color: #6a756b; }
+.preview :global(.redesign-shell .breadcrumbs > span:last-of-type) { color: #334d3e; font-weight: 600; }
+.preview :global(.redesign-shell .top-tools) { gap: 13px; }
+.preview :global(.redesign-shell .top-avatar) { background: #e7ece1; border: 1px solid #d7dfcf; color: #42573c; }
+.preview :global(.redesign-shell .search-trigger) { background: #f2f5ef; color: #61705d; border: 0; min-width: 34px; }
+.preview :global(.redesign-shell .prototype-feedback-trigger) { border: 0; color: #63735f; font-weight: 400; }
+.preview :global(.redesign-shell .main-content) { padding: 24px 32px 28px; max-width: 1680px; width: 100%; }
+.preview :global(.redesign-shell .page-title) { margin: 0 0 12px; align-items: center; }
+.preview :global(.redesign-shell .page-title h1) { font-size: 32px; font-weight: 600; letter-spacing: -1px; line-height: 1.14; color: #263d31; }
+.preview :global(.redesign-shell .page-title p) { margin-top: 7px; font-size: 14px; color: #687466; }
+.preview :global(.redesign-shell [data-slot=button]) { border-radius: 6px; min-height: 38px; font-weight: 600; box-shadow: none; padding: 8px 13px; }
+.preview :global(.redesign-shell [data-slot=button][data-variant=default]) { background: #24634f; color: #fff; box-shadow: 0 1px 2px #173c2520; }
+.preview :global(.redesign-shell [data-slot=button][data-variant=default]:hover) { background: #1b513f; }
+.preview :global(.redesign-shell [data-slot=button][data-variant=outline]) { background: #fff; color: #425642; border-color: #d6dfd2; }
+.preview :global(.redesign-shell .overview-preparation) { padding: 0; margin: 0 0 8px; min-height: 20px; display: flex; gap: 12px; align-items: center; color: #6c7767; font-size: 12px; }
+.preview :global(.redesign-shell .overview-preparation > span) { display: flex; align-items: center; gap: 9px; }
+.preview :global(.redesign-shell .overview-preparation strong) { color: #4a5d45; font-weight: 600; margin-right: 4px; }
+.preview :global(.redesign-shell .overview-preparation > a) { color: #7d5c35; font-weight: 600; white-space: nowrap; min-height: 26px; }
+.preview :global(.redesign-shell .triage-summary) { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 0; margin: 0 0 17px; border: 1px solid #dce3d7; border-radius: 9px; overflow: hidden; background: #fff; }
+.preview :global(.redesign-shell .triage-summary-card) { position: relative; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto; align-items: center; gap: 5px; min-height: 65px; padding: 9px 17px; border: 0; border-right: 1px solid #e4e9df; border-radius: 0; background: transparent; color: #61705b; box-shadow: none; }
+.preview :global(.redesign-shell .triage-summary-card:last-child) { border-right: 0; grid-column: auto; }
+.preview :global(.redesign-shell .triage-summary-card > svg) { display: block; grid-column: 2; grid-row: 1; width: 15px; height: 15px; color: #72846b; stroke-width: 1.6; }
+.preview :global(.redesign-shell .triage-stat-label) { grid-column: 1; grid-row: 1; font-size: 12px; font-weight: 400; color: #34473c; line-height: 1.25; }
+.preview :global(.redesign-shell .triage-summary-card > strong) { grid-column: 1; grid-row: 2; font-size: 27px; font-weight: 600; line-height: 1; margin: 0; color: #2f4437; letter-spacing: -.7px; }
+.preview :global(.redesign-shell .triage-summary-card[aria-pressed=true]) { background: #eaf1e4; box-shadow: inset 0 -3px #2a684e; }
+.preview :global(.redesign-shell .triage-summary-card:hover) { background: #fff; box-shadow: 0 4px 8px #24393112, 0 10px 22px #24393116; }
+.preview :global(.redesign-shell .triage-board) { border: 1px solid #dce3d7; border-radius: 9px; background: #fff; box-shadow: 0 2px 4px #344e2f03; overflow: clip; }
+.preview :global(.redesign-shell .triage-board-heading) { padding: 12px 20px 8px; gap: 15px; align-items: center; }
+.preview :global(.redesign-shell .triage-board-heading h2) { font-size: 18px; letter-spacing: -.3px; color: #2c4234; gap: 9px; }
+.preview :global(.redesign-shell .triage-board-heading h2 > span) { background: #edf1e7; color: #58714e; padding: 1px 6px; font-size: 11px; border-radius: 4px; }
+.preview :global(.redesign-shell .triage-board-heading p) { color: #6a7863; font-size: 12px; margin-top: 2px; }
+.preview :global(.redesign-shell .dashboard-view-controls) { gap: 8px; }
+.preview :global(.redesign-shell .dashboard-view-controls .picker) { width: 146px; min-height: 34px; }
+.preview :global(.redesign-shell .dashboard-view-controls [data-slot=button]) { min-height: 34px; height: 34px; font-size: 12px; }
+.preview :global(.redesign-shell .triage-filters) { padding: 0 20px 14px; display: flex; gap: 8px; flex-wrap: nowrap; border-color: #e1e7db; }
+.preview :global(.redesign-shell .triage-filters .input-search) { flex: 1 1 200px; min-width: 140px; }
+.preview :global(.redesign-shell .triage-filters .picker) { flex: 0 1 165px; max-width: 180px; min-width: 130px; }
+.preview :global(.redesign-shell .triage-filters [data-slot=input]), .preview :global(.redesign-shell [data-slot=select-trigger]) { min-height: 35px; height: 35px; font-size: 12px; border: 1px solid #dfe5d9; border-radius: 5px; background: #fcfdfb; box-shadow: none; }
+.preview :global(.redesign-shell .triage-column-head), .preview :global(.redesign-shell .triage-patient-row) { display: grid; grid-template-columns: minmax(175px,1.18fr) repeat(var(--triage-columns),minmax(128px,1fr)) 113px; gap: 17px; padding: 16px 20px; align-items: start; }
+.preview :global(.redesign-shell .triage-column-head) { padding-block: 10px; font-size: 10px; color: #697a61; font-weight: 600; letter-spacing: .055em; text-transform: uppercase; background: #f4f6f0; border-color: #e0e6da; }
+.preview :global(.redesign-shell .triage-patient) { border-color: #e4e9df; }
+.preview :global(.redesign-shell .triage-patient-row:hover) { background: #fafcf7; }
+.preview :global(.redesign-shell .triage-patient-identity) { display: block; grid-column: auto; padding: 0; min-height: 0; }
+.preview :global(.redesign-shell .triage-patient .person) { gap: 9px; align-items: flex-start; flex-direction: row; }
+.preview :global(.redesign-shell .triage-patient .person strong) { color: #2e4436; font-size: 14px; line-height: 1.35; font-weight: 600; }
+.preview :global(.redesign-shell .triage-patient .person small) { color: #65725f; font-size: 12px; line-height: 1.35; margin-top: 3px; }
+.preview :global(.redesign-shell .triage-patient .patient-avatar) { width: 30px; height: 32px; border-radius: 7px; font-size: 10px; border: 1px solid #5c76501c; }
+.preview :global(.redesign-shell .overview-patient-meta) { margin: 8px 0 5px 39px; gap: 3px 7px; font-size: 11px; line-height: 1.45; color: #6b7865; }
+.preview :global(.redesign-shell .overview-patient-meta > span + span::before) { margin-right: 5px; color: #819078; }
+.preview :global(.redesign-shell .overview-preparation-status) { margin: 0 0 0 39px; font-size: 11px; line-height: 1.35; color: #66755f; }
+.preview :global(.redesign-shell .triage-mobile-label) { display: none; }
+.preview :global(.redesign-shell .triage-medication-preview) { gap: 4px; }
+.preview :global(.redesign-shell .triage-medication-preview > strong) { font-size: 13px; color: #304536; }
+.preview :global(.redesign-shell .triage-medication-preview > span) { font-size: 12px; color: #66745e; }
+.preview :global(.redesign-shell .triage-medication-preview .triage-side-effect) { color: #975047; font-size: 11px; }
+.preview :global(.redesign-shell .overview-direct-action), .preview :global(.redesign-shell .recommendation-trigger) { color: #2b674c; font-size: 11px; font-weight: 600; min-height: 26px; padding-block: 3px; }
+.preview :global(.redesign-shell .triage-outcomes) { gap: 5px 8px; }
+.preview :global(.redesign-shell .triage-outcomes > div > span) { font-size: 11px; color: #66765f; }
+.preview :global(.redesign-shell .triage-outcomes strong) { color: #2f4737; font-size: 21px; font-weight: 600; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.preview :global(.redesign-shell .triage-outcomes strong small) { color: #788470; font-size: 10px; }
+.preview :global(.redesign-shell .triage-pain-change), .preview :global(.redesign-shell .triage-observation-date) { font-size: 11px; color: #63725c; line-height: 1.4; }
+.preview :global(.redesign-shell .triage-pain-change.text-rose) { color: #994c43; }
+.preview :global(.redesign-shell .triage-pain-change.text-teal) { color: #27664b; }
+.preview :global(.redesign-shell .triage-next-step) { gap: 5px; }
+.preview :global(.redesign-shell .triage-next-step > strong) { color: #354b3a; font-size: 12px; font-weight: 400; line-height: 1.45; }
+.preview :global(.redesign-shell .triage-priority) { gap: 5px; margin: 0; }
+.preview :global(.redesign-shell .triage-priority .badge) { padding: 2px 5px; font-size: 10px; border-radius: 3px; line-height: 1.5; }
+.preview :global(.redesign-shell .badge.rose) { background: #f7e9e5; color: #984f45; }
+.preview :global(.redesign-shell .badge.amber) { background: #f7efdf; color: #85622d; }
+.preview :global(.redesign-shell .badge.teal) { background: #eaf2e5; color: #3c6b3e; }
+.preview :global(.redesign-shell .triage-priority > span:not(.badge)) { font-size: 10px; color: #6d7967; }
+.preview :global(.redesign-shell .triage-row-actions) { position: static; width: auto; gap: 5px; align-self: center; }
+.preview :global(.redesign-shell .triage-row-actions [data-slot=button]) { background: #fff; color: #2c654c; border: 1px solid #c5d6c0; box-shadow: none; min-height: 34px; height: auto; font-size: 11px; padding: 7px 9px; }
+.preview :global(.redesign-shell .triage-row-actions [data-slot=button]:hover) { background: #eaf2e4; }
+.preview :global(.redesign-shell .triage-expand) { min-height: 30px; color: #6d7b65; font-size: 11px; }
+.preview :global(.redesign-shell .triage-patient.is-expanded .triage-patient-row) { background: #f1f6ec; }
+.preview :global(.redesign-shell .triage-expanded) { background: #f8faf5; border-color: #d8e2d0; }
+.preview :global(.redesign-shell .panel-bottom) { padding: 12px 20px; background: #fbfcf9; color: #6b7862; font-size: 11px; border-radius: 0; }
+.preview :global(.redesign-shell .sample-journeys) { border-color: #dfe6d9; border-radius: 7px; background: transparent; margin-top: 20px; }
+.preview :global(.redesign-shell .workspace-footer) { padding: 0 32px 24px; font-size: 11px; color: #77836f; }
+.preview :global(.redesign-shell :is(button,a,input,select,summary):focus-visible) { outline: 2px solid #367255; outline-offset: 3px; }
+@media (min-width: 1440px) {
+  .preview :global(.redesign-shell .main-content) { padding: 24px 42px 30px; }
+  .preview :global(.redesign-shell .topbar) { padding-inline: 42px; }
+  .preview :global(.redesign-shell .triage-column-head), .preview :global(.redesign-shell .triage-patient-row) { grid-template-columns: minmax(220px,1.28fr) repeat(var(--triage-columns),minmax(150px,1fr)) 125px; gap: 24px; padding-inline: 24px; }
+}
+@media (max-width: 1150px) {
+  .preview :global(.redesign-shell .main-content) { padding: 25px 24px; }
+  .preview :global(.redesign-shell .triage-column-head) { display: none; }
+  .preview :global(.redesign-shell .triage-patient-row) { grid-template-columns: repeat(var(--triage-columns),minmax(0,1fr)); position: relative; gap: 16px; padding: 18px 20px; }
+  .preview :global(.redesign-shell .triage-patient-identity) { grid-column: 1/-1; padding-right: 145px; }
+  .preview :global(.redesign-shell .overview-patient-meta) { margin-block: 5px; }
+  .preview :global(.redesign-shell .triage-row-actions) { position: absolute; top: 18px; right: 20px; width: 125px; }
+  .preview :global(.redesign-shell .triage-mobile-label) { display: block; font-size: 10px; color: #6c7b64; padding-top: 12px; margin-bottom: 9px; border-top: 1px solid #e1e8da; }
+  .preview :global(.redesign-shell .triage-summary-card) { padding-inline: 12px; }
+  .preview :global(.redesign-shell .triage-summary-card > svg) { display: none; }
+  .preview :global(.redesign-shell .triage-stat-label) { grid-column: 1/-1; }
+  .preview :global(.redesign-shell .triage-filters .picker) { min-width: 115px; flex-basis: 125px; }
+  .preview :global(.redesign-shell .triage-detail-grid) { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .preview :global(.redesign-shell .topbar) { padding: 0 16px; height: 50px; min-height: 50px; }
+  .preview :global(.redesign-shell .top-tools) { gap: 8px; }
+  .preview :global(.redesign-shell .main-content) { padding: 22px 16px 110px; }
+  .preview :global(.redesign-shell .page-title) { gap: 15px; margin-bottom: 15px; align-items: flex-start; }
+  .preview :global(.redesign-shell .page-title h1) { font-size: 30px; }
+  .preview :global(.redesign-shell .page-title p) { font-size: 13px; line-height: 1.5; margin-top: 5px; }
+  .preview :global(.redesign-shell .page-title .page-actions) { gap: 8px; }
+  .preview :global(.redesign-shell .overview-preparation) { margin-bottom: 14px; align-items: center; font-size: 11px; }
+  .preview :global(.redesign-shell .overview-preparation > span) { display: block; font-size: 11px; }
+  .preview :global(.redesign-shell .overview-preparation strong) { display: block; font-size: 11px; }
+  .preview :global(.redesign-shell .overview-preparation > span > svg) { display: none; }
+  .preview :global(.redesign-shell .overview-preparation > a) { min-height: 44px; }
+  .preview :global(.redesign-shell .triage-summary) { display: flex; overflow-x: auto; margin-bottom: 20px; border-radius: 7px; }
+  .preview :global(.redesign-shell .triage-summary-card) { flex: 0 0 116px; min-height: 77px; padding: 12px; gap: 6px; }
+  .preview :global(.redesign-shell .triage-summary-card > strong) { font-size: 24px; }
+  .preview :global(.redesign-shell .triage-stat-label) { font-size: 11px; }
+  .preview :global(.redesign-shell .triage-board-heading) { padding: 15px 14px 10px; flex-wrap: wrap; flex-direction: row; align-items: flex-start; gap: 12px; }
+  .preview :global(.redesign-shell .triage-board-heading h2) { font-size: 17px; }
+  .preview :global(.redesign-shell .dashboard-view-controls) { width: 100%; }
+  .preview :global(.redesign-shell .dashboard-view-controls .picker) { flex: 1; width: auto; }
+  .preview :global(.redesign-shell .triage-filters) { padding: 0 14px 13px; flex-wrap: wrap; }
+  .preview :global(.redesign-shell .triage-filters .input-search) { flex-basis: 100%; }
+  .preview :global(.redesign-shell .triage-filters .picker) { flex: 1; max-width: none; }
+  .preview :global(.redesign-shell [data-slot=input]) { font-size: 16px; }
+  .preview :global(.redesign-shell .triage-patient-row) { grid-template-columns: repeat(2,minmax(0,1fr)); padding: 16px 14px; gap: 12px; }
+  .preview :global(.redesign-shell .triage-patient-identity) { padding-right: 0; }
+  .preview :global(.redesign-shell .triage-patient .person) { flex-direction: row; }
+  .preview :global(.redesign-shell .overview-patient-meta) { font-size: 11px; }
+  .preview :global(.redesign-shell .triage-row-actions) { position: static; grid-column: 1/-1; display: flex; flex-direction: row; width: 100%; justify-content: space-between; }
+  .preview :global(.redesign-shell .triage-row-actions [data-slot=button]) { min-height: 42px; flex: 1; font-size: 12px; }
+  .preview :global(.redesign-shell .triage-expand) { min-height: 42px; padding: 8px 12px; }
+  .preview :global(.redesign-shell .triage-preview-plan) { grid-column: 1/-1; }
+  .preview :global(.redesign-shell .overview-direct-action), .preview :global(.redesign-shell .recommendation-trigger) { min-height: 36px; font-size: 12px; }
+  .preview :global(.redesign-shell .triage-context) { grid-template-columns: 1fr; }
+  .preview :global(.redesign-shell .panel-bottom) { padding-inline: 14px; gap: 10px; }
+  .preview :global(.redesign-shell .workspace-footer) { padding: 0 16px 100px; }
+}
+@media (prefers-reduced-motion: reduce) { .preview * { transition: none !important; animation: none !important; } }
+
+/* Two-tone summary icons; main-menu icons use a single colour without tiles. */
+.preview :global(.redesign-shell .nav-link > svg) {
+  width: 29px !important; height: 29px !important;
+  padding: 4px; background: transparent;
+  stroke: currentColor; stroke-width: 1.7; fill: none;
+  flex-shrink: 0;
+}
+.preview :global(.redesign-shell .nav-link) { gap: 10px; }
+.preview :global(.redesign-shell .triage-summary-card > svg) {
+  --icon-ink: #286f68;
+  --icon-fill: #a9ddd0;
+  stroke: var(--icon-ink); stroke-width: 1.7;
+  display: block; width: 38px; height: 38px; padding: 8px;
+  grid-column: 2; grid-row: 1 / span 2; align-self: center;
+  background: transparent;
+}
+.preview :global(.redesign-shell .triage-summary-card .triage-stat-label) { grid-column: 1; }
+.preview :global(.redesign-shell .triage-summary-card > .lucide-users) {
+  --icon-ink: #3c6da0; --icon-fill: #b1d1f3;
+}
+.preview :global(.redesign-shell .triage-summary-card > .lucide-circle-alert) {
+  --icon-ink: #a65362; --icon-fill: #edbdc6;
+}
+.preview :global(.redesign-shell .triage-summary-card > .lucide-pill) {
+  --icon-ink: #956824; --icon-fill: #f1ce89;
+}
+.preview :global(.redesign-shell .triage-summary-card > .lucide-message-circle) {
+  --icon-ink: #77579b; --icon-fill: #d4bcef;
+}
+.preview :global(.redesign-shell .triage-summary-card > .lucide-heart-pulse) {
+  --icon-ink: #347852; --icon-fill: #addcb7;
+}
+/* Closed areas receive a fill; internal marks and open strokes stay clear. */
+.preview :global(.triage-summary-card > .lucide-users circle),
+.preview :global(.triage-summary-card > .lucide-heart-pulse path:first-child),
+.preview :global(.triage-summary-card > .lucide-circle-alert circle),
+.preview :global(.triage-summary-card > .lucide-pill path:first-child),
+.preview :global(.triage-summary-card > .lucide-message-circle path) {
+  fill: var(--icon-fill);
+}
+.preview :global(.redesign-shell .workspace-mark) { background: transparent; color: #286f68; }
+.preview :global(.workspace-mark .lucide-stethoscope circle) { fill: #e9bf72; stroke: #78612e; }
+@media (max-width: 767px) {
+  .preview :global(.redesign-shell .triage-summary-card) { flex-basis: 150px; }
+  .preview :global(.redesign-shell .triage-summary-card > svg) { width: 32px; height: 32px; padding: 6px; }
+}
+
+/* Keep summary text consistent across categories and selected states. */
+.preview :global(.redesign-shell .triage-summary .triage-summary-card > strong) { color: #2f4437; }
+.preview :global(.redesign-shell .triage-summary .triage-summary-card .triage-stat-label) { color: #34473c; }
+
+/* Patient worklist study: four information columns and a separate action column. */
+.preview :global(.redesign-shell .triage-column-head) { display: none; }
+.preview :global(.redesign-shell .triage-list) { padding: 0 16px 16px; background: #f5f7f2; }
+.preview :global(.redesign-shell .triage-patient) { margin-top: 12px; border: 1px solid #dce3d7; border-radius: 8px; background: #fff; overflow: hidden; }
+.preview :global(.redesign-shell .triage-patient-row) {
+  display: grid; position: relative;
+  grid-template-columns: minmax(0,1.12fr) repeat(var(--triage-columns), minmax(0,1fr)) 145px;
+  grid-template-rows: auto; align-items: stretch;
+  gap: 0; padding: 0; background: #fff;
+}
+.preview :global(.redesign-shell .triage-patient-row:hover) { background: #fff; }
+.preview :global(.redesign-shell .triage-patient-identity) {
+  grid-column: 1; grid-row: 1; display: block;
+  padding: 20px 18px; min-height: 0; border: 0; background: #fcfdfb;
+}
+.preview :global(.redesign-shell .triage-patient .patient-avatar) { width: 36px; height: 38px; font-size: 11px; }
+.preview :global(.redesign-shell .triage-patient .person) { gap: 11px; }
+.preview :global(.redesign-shell .triage-patient .person strong) { font-size: 15px; }
+.preview :global(.redesign-shell .triage-patient .person small) { font-size: 12px; color: #4e6052; }
+.preview :global(.redesign-shell .overview-patient-meta) { margin: 14px 0 9px; display: grid; grid-template-columns: max-content 1fr; gap: 4px 7px; font-size: 11px; color: #576759; }
+.preview :global(.redesign-shell .overview-preparation-status) { margin: 0; font-size: 11px; color: #576759; }
+.preview :global(.redesign-shell .triage-patient-identity > .triage-priority) { grid-column: 1 / -1; margin-top: 8px; }
+.preview :global(.redesign-shell .triage-row-actions) {
+  position: static; grid-column: -2 / -1; grid-row: 1; width: auto;
+  display: flex; flex-direction: column; align-items: stretch; align-self: stretch; justify-content: center; gap: 6px;
+  padding: 20px 12px; border-left: 1px solid #e7ebe3;
+}
+.preview :global(.redesign-shell .triage-row-actions [data-slot=button]) { min-height: 32px; font-size: 12px; }
+.preview :global(.redesign-shell .triage-expand) { min-height: 26px; align-self: center; font-size: 11px; }
+.preview :global(.redesign-shell .triage-preview) { grid-row: 1; padding: 20px 18px; min-width: 0; border-left: 1px solid #e7ebe3; }
+.preview :global(.redesign-shell .triage-preview + .triage-preview) { border-left: 1px solid #e7ebe3; }
+.preview :global(.redesign-shell .triage-preview-plan) { grid-column: auto; grid-row: 1; }
+.preview :global(.redesign-shell .triage-mobile-label) {
+  display: block; padding: 0; margin: 0 0 12px; border: 0;
+  color: #526451; font-size: 10px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+}
+.preview :global(.redesign-shell .triage-medication-preview) { gap: 7px; }
+.preview :global(.redesign-shell .triage-medication-preview > strong) { font-size: 14px; }
+.preview :global(.redesign-shell .triage-medication-preview > span) { color: #4d6052; }
+.preview :global(.redesign-shell .triage-medication-preview .triage-side-effect) { color: #975047; }
+.preview :global(.redesign-shell .triage-outcomes) { gap: 9px 12px; }
+.preview :global(.redesign-shell .triage-outcomes > div) { padding: 0 8px 0 0; }
+.preview :global(.redesign-shell .triage-outcomes > div + div) { border-left: 1px solid #e3e8df; padding-left: 12px; }
+.preview :global(.redesign-shell .triage-outcomes > div > span) { color: #4e6052; font-size: 12px; }
+.preview :global(.redesign-shell .triage-outcomes strong) { font-size: 24px; margin-top: 3px; }
+.preview :global(.redesign-shell .triage-outcomes strong small) { font-size: 11px; color: #697968; }
+.preview :global(.redesign-shell .triage-pain-change),
+.preview :global(.redesign-shell .triage-observation-date) { font-size: 11px; }
+.preview :global(.redesign-shell .triage-next-step) { gap: 8px; }
+.preview :global(.redesign-shell .triage-next-step > strong) { font-size: 13px; line-height: 1.5; color: #304536; }
+.preview :global(.redesign-shell .triage-priority .badge) { font-size: 11px; padding: 2px 6px; }
+.preview :global(.redesign-shell .triage-priority > span:not(.badge)) { font-size: 11px; }
+.preview :global(.redesign-shell .overview-direct-action),
+.preview :global(.redesign-shell .recommendation-trigger) { font-size: 12px; }
+.preview :global(.redesign-shell .triage-expanded) { border-top: 1px solid #dce3d7; }
+.preview :global(.redesign-shell .overview-patient-meta > span + span::before) { content: none; }
+@media (min-width: 768px) and (max-width: 1100px) {
+  .preview :global(.redesign-shell .triage-patient-row) { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .preview :global(.redesign-shell .triage-patient-identity) { grid-column: 1; grid-row: 1; }
+  .preview :global(.redesign-shell .triage-preview-medications) { grid-column: 2; grid-row: 1; }
+  .preview :global(.redesign-shell .triage-preview-outcomes) { grid-column: 1; grid-row: 2; border-left: 0; border-top: 1px solid #e7ebe3; }
+  .preview :global(.redesign-shell .triage-preview-plan) { grid-column: 2; grid-row: 2; border-top: 1px solid #e7ebe3; }
+  .preview :global(.redesign-shell .triage-row-actions) { grid-column: 1 / -1; grid-row: 3; flex-direction: row; border-left: 0; border-top: 1px solid #e7ebe3; padding: 12px 18px; }
+}
+@media (max-width: 767px) {
+  .preview :global(.redesign-shell .triage-list) { padding: 0 10px 10px; }
+  .preview :global(.redesign-shell .triage-patient-row) { grid-template-columns: 1fr; }
+  .preview :global(.redesign-shell .triage-patient-identity) { grid-column: 1; grid-row: auto; padding: 16px; }
+  .preview :global(.redesign-shell .overview-patient-meta),
+  .preview :global(.redesign-shell .overview-preparation-status) { margin-left: 47px; }
+  .preview :global(.redesign-shell .triage-preview) { grid-column: 1; grid-row: auto; padding: 16px; border-left: 0; border-top: 1px solid #e7ebe3; }
+  .preview :global(.redesign-shell .triage-preview + .triage-preview) { border-left: 0; }
+  .preview :global(.redesign-shell .triage-mobile-label) { margin-bottom: 10px; }
+  .preview :global(.redesign-shell .triage-row-actions) { grid-column: 1; grid-row: auto; display: flex; flex-direction: row; width: auto; padding: 12px 16px; border: 0; border-top: 1px solid #e7ebe3; gap: 12px; }
+  .preview :global(.redesign-shell .triage-row-actions [data-slot=button]),
+  .preview :global(.redesign-shell .triage-expand) { min-height: 42px; }
+}
+
+@media (min-width: 1101px) and (max-width: 1350px) {
+  .preview :global(.redesign-shell .triage-preview),
+  .preview :global(.redesign-shell .triage-patient-identity) { padding: 18px 12px; }
+  .preview :global(.redesign-shell .triage-outcomes) { column-gap: 5px; }
+  .preview :global(.redesign-shell .triage-outcomes > div) { padding-right: 0; }
+  .preview :global(.redesign-shell .triage-outcomes > div + div) { padding-left: 5px; }
+}
+
+/* Keep birthdate and age together, with the record number on its own line. */
+.preview :global(.redesign-shell .overview-patient-meta > span:nth-child(1)) { grid-column: 1; grid-row: 1; }
+.preview :global(.redesign-shell .overview-patient-meta > span:nth-child(3)) { grid-column: 2; grid-row: 1; white-space: nowrap; }
+.preview :global(.redesign-shell .overview-patient-meta > span:nth-child(3)::before) { content: '·'; margin-right: 7px; color: #687868; }
+.preview :global(.redesign-shell .overview-patient-meta > span:nth-child(2)) { grid-column: 1 / -1; grid-row: 2; }
+
+/* Latest values on a shared 0–10 scale, without implying a historical trend. */
+.preview :global(.redesign-shell .triage-outcomes) { display: flex; flex-direction: column; gap: 8px; }
+.preview :global(.redesign-shell .triage-outcomes > div),
+.preview :global(.redesign-shell .triage-outcomes > div + div) {
+  display: grid; grid-template-columns: 1fr auto; align-items: baseline;
+  gap: 4px 8px; padding: 0; border: 0;
+}
+.preview :global(.redesign-shell .triage-outcomes strong) { font-size: 18px; margin: 0; line-height: 1; }
+.preview :global(.redesign-shell .triage-outcomes .report-score-track) {
+  grid-column: 1 / -1; display: block; height: 6px; width: 100%;
+  background: #edf0e9; border-radius: 2px; overflow: hidden;
+}
+.preview :global(.report-score-track > span) { display: block; height: 100%; border-radius: inherit; background: #32765b; }
+.preview :global(.report-score-pain > span) { background: #ad7a3d; }
+.preview :global(.report-score-sleep > span) { background: #4c7c98; }
+.preview :global(.redesign-shell .triage-outcomes .report-score-direction) { grid-column: 1 / -1; color: #647363; font-size: 10px; line-height: 1.3; }
+.preview :global(.redesign-shell .triage-outcomes .triage-pain-change) { margin-top: 4px; padding-top: 8px; border-top: 1px solid #e7ebe3; }
+
+@media (min-width: 1101px) {
+  .preview :global(.redesign-shell .triage-patient-row:has(.triage-preview-medications):has(.triage-preview-outcomes):has(.triage-preview-plan)) {
+    grid-template-columns: minmax(0,.92fr) minmax(0,.86fr) minmax(0,1.35fr) minmax(0,1fr) 180px;
+  }
+}
+
+/* Keep the first patient card clear of the filter panel above it. */
+.preview :global(.redesign-shell .triage-list) { padding-top: 16px; }
+.preview :global(.redesign-shell .triage-patient:first-of-type) { margin-top: 0; }
+@media (max-width: 767px) {
+  .preview :global(.redesign-shell .triage-list) { padding-top: 12px; }
+}
+
+/* Separate summary cards, retaining the existing selected-filter state. */
+.preview :global(.redesign-shell .triage-summary) {
+  gap: 12px; border: 0; border-radius: 0; background: transparent;
+  overflow: visible; margin-bottom: 22px;
+}
+.preview :global(.redesign-shell .triage-summary-card) {
+  min-height: 100px; padding: 17px 18px; gap: 8px;
+  border: 1px solid #dce3d7; border-radius: 9px; background: #fff;
+  box-shadow: 0 2px 4px #24393108, 0 5px 12px #24393108;
+}
+.preview :global(.redesign-shell .triage-summary-card:last-child) { border-right: 1px solid #dce3d7; }
+.preview :global(.redesign-shell .triage-summary-card[aria-pressed=true]) {
+  background: #eaf1e4; border-color: #acc4b1;
+  box-shadow: inset 0 -3px #2a684e, 0 2px 4px #24393108, 0 5px 12px #24393108;
+}
+.preview :global(.redesign-shell .triage-summary-card:hover) { background: #fff; box-shadow: 0 4px 8px #24393112, 0 10px 22px #24393116; }
+.preview :global(.redesign-shell .triage-summary-card[aria-pressed=true]:hover) { background: #eaf1e4; box-shadow: inset 0 -3px #2a684e, 0 4px 8px #24393112, 0 10px 22px #24393116; }
+@media (max-width: 767px) {
+  .preview :global(.redesign-shell .triage-summary) { overflow-x: auto; gap: 10px; padding: 3px 1px 12px; margin-bottom: 10px; }
+  .preview :global(.redesign-shell .triage-summary-card) { min-height: 96px; padding: 15px 12px; }
+}
+
+/* Larger single-colour green summary icons. */
+.preview :global(.redesign-shell .triage-summary .triage-summary-card > svg) {
+  --icon-ink: #24634f;
+  --icon-fill: none;
+  width: 42px; height: 42px; padding: 4px;
+}
+@media (max-width: 767px) {
+  .preview :global(.redesign-shell .triage-summary .triage-summary-card > svg) { width: 36px; height: 36px; padding: 3px; }
+}
+
+.preview :global(.redesign-shell .nav-link[href="/review-queue"] .nav-count) { background: #ad4b16; color: #fff; }
+
+/* More readable patient details in the home-page study. */
+.preview :global(.redesign-shell .triage-patient .person small) { color: #111713; font-size: 13px; }
+.preview :global(.redesign-shell .overview-patient-meta),
+.preview :global(.redesign-shell .overview-preparation-status) { color: #111713; font-size: 12px; line-height: 1.5; }
+
+/* Match medication and report readability to the patient details. */
+.preview :global(.redesign-shell .triage-preview-medications .triage-mobile-label),
+.preview :global(.redesign-shell .triage-preview-outcomes .triage-mobile-label) { color: #111713; font-size: 11px; }
+.preview :global(.redesign-shell .triage-medication-preview > strong) { color: #111713; font-size: 15px; }
+.preview :global(.redesign-shell .triage-medication-preview > span:not(.triage-side-effect)) { color: #111713; font-size: 13px; line-height: 1.5; }
+.preview :global(.redesign-shell .triage-medication-preview .triage-side-effect) { font-size: 12px; line-height: 1.5; }
+.preview :global(.redesign-shell .triage-medication-preview .overview-direct-action) { font-size: 13px; }
+.preview :global(.redesign-shell .triage-outcomes > div > .report-score-label) { color: #111713; font-size: 13px; }
+.preview :global(.redesign-shell .triage-outcomes strong) { color: #111713; }
+.preview :global(.redesign-shell .triage-outcomes strong small) { color: #111713; font-size: 12px; }
+.preview :global(.redesign-shell .triage-outcomes .report-score-direction) { color: #111713; font-size: 12px; line-height: 1.5; }
+.preview :global(.redesign-shell .triage-outcomes .triage-pain-change:not(.text-rose):not(.text-teal)),
+.preview :global(.redesign-shell .triage-outcomes .triage-observation-date) { color: #111713; }
+.preview :global(.redesign-shell .triage-outcomes .triage-pain-change),
+.preview :global(.redesign-shell .triage-outcomes .triage-observation-date) { font-size: 12px; line-height: 1.5; }
+
+/* Initials inherit a deeper shade of each avatar's own background hue. */
+.preview :global(.redesign-shell .triage-patient .patient-avatar) {
+  color: #78542b;
+  color: oklch(from var(--patient-avatar-color) 0.42 calc(c * 2) h);
+}
+
+
+/* Circular patient initials with a slightly larger label. */
+.preview :global(.redesign-shell .triage-patient .patient-avatar) {
+  width: 38px; height: 38px; border-radius: 50%; font-size: 13px;
+}
+
+/* Reserve green for the selected summary filter. */
+.preview :global(.redesign-shell .triage-summary .triage-summary-card:not([aria-pressed=true])) {
+  background: #fff; border-color: #e2e2e2;
+  box-shadow: 0 2px 4px #00000008, 0 5px 12px #00000008;
+}
+.preview :global(.redesign-shell .triage-summary .triage-summary-card:not([aria-pressed=true]) > svg) { --icon-ink: #666666; }
+.preview :global(.redesign-shell .triage-summary .triage-summary-card:not([aria-pressed=true]) > strong) { color: #333333; }
+.preview :global(.redesign-shell .triage-summary .triage-summary-card:not([aria-pressed=true]) .triage-stat-label) { color: #4b4b4b; }
+.preview :global(.redesign-shell .triage-summary .triage-summary-card:not([aria-pressed=true]):hover) {
+  background: #fff; box-shadow: 0 4px 8px #00000012, 0 10px 22px #00000016;
+}
+
+/* Keep the report summary and calendar date together when space allows. */
+.preview :global(.redesign-shell .triage-outcomes > .report-summary-footer) {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 6px 12px; margin-top: 4px; padding: 8px 0 0;
+  border: 0; border-top: 1px solid #e7ebe3;
+}
+.preview :global(.redesign-shell .triage-outcomes .report-summary-footer .triage-pain-change) { margin: 0; padding: 0; border: 0; }
+.preview :global(.redesign-shell .triage-outcomes .report-summary-footer .triage-observation-date) {
+  display: inline-flex; align-items: center; justify-content: flex-end;
+  gap: 5px; margin-left: auto; text-align: right; white-space: nowrap;
+}
+.preview :global(.report-summary-footer .triage-observation-date svg) { flex-shrink: 0; }
+
+/* Make the available-report status easy to spot. */
+.preview :global(.redesign-shell .overview-preparation-status.has-report > svg) {
+  width: 16px; height: 16px; padding: 3px; flex-shrink: 0;
+  border-radius: 50%; background: #24634f; color: #fff; stroke: #fff; stroke-width: 2.5;
+}
+
+/* A cooler blue treatment for the patient initials. */
+.preview :global(.redesign-shell .triage-patient .patient-avatar) {
+  background: #e8effa !important;
+  color: #345a87;
+  border-color: #d4dfef;
+}
+
+/* Circular review-queue count in deep plum. */
+.preview :global(.redesign-shell .nav-link[href="/review-queue"] .nav-count) {
+  display: inline-grid; place-items: center; flex-shrink: 0;
+  width: 24px; height: 24px; min-width: 24px; padding: 0;
+  border-radius: 50%; background: #79516e; color: #fff; line-height: 1;
+}
+
+/* Match Review focus typography to Latest report. */
+.preview :global(.redesign-shell .triage-preview-plan .triage-mobile-label) { color: #111713; font-size: 11px; }
+.preview :global(.redesign-shell .triage-next-step > strong) { color: #111713; font-size: 13px; font-weight: 400; line-height: 1.5; }
+.preview :global(.redesign-shell .triage-preview-plan .triage-priority > span:not(.badge)) { color: #111713; font-size: 12px; line-height: 1.5; }
+
+/* Optional colour studies, isolated from the current home preview. */
+.forest {
+  --study-accent: #17583e; --study-hover: #10432e; --study-selected: #e4eedf;
+  --study-sidebar: #efefe4; --study-canvas: #f8f7f2; --study-ink: #273c2c;
+  --study-muted: #586451; --study-line: #d9dfd1; --study-nav-hover: #e0e6d7;
+  --study-avatar: #e0eadd; --study-avatar-ink: #385834; --study-count: #8b5d35;
+}
+.preview.forest {
+  --background: var(--study-canvas); --foreground: var(--study-ink);
+  --primary: var(--study-accent); --ux-primary: var(--study-accent);
+  --ux-ink: var(--study-ink); --ux-muted: var(--study-muted);
+  --border: var(--study-line); --input: var(--study-line); --ux-line: var(--study-line);
+  background: var(--study-canvas); color: var(--study-ink);
+}
+.preview.forest :global(.redesign-shell) { background: var(--study-canvas); color: var(--study-ink); }
+.preview.forest :global(.redesign-shell [data-slot=sidebar-inner]) { background: var(--study-sidebar); border-color: var(--study-line); color: var(--study-ink); }
+.preview.forest :global(.redesign-shell .brand),
+.preview.forest :global(.redesign-shell .workspace-name),
+.preview.forest :global(.redesign-shell .side-profile),
+.preview.forest :global(.redesign-shell .page-title h1),
+.preview.forest :global(.redesign-shell .triage-board-heading h2),
+.preview.forest :global(.redesign-shell .triage-patient .person strong) { color: var(--study-ink); }
+.preview.forest :global(.redesign-shell .brand-symbol),
+.preview.forest :global(.redesign-shell .nav-link[data-active=true]) { background: var(--study-accent) !important; color: #fff !important; }
+.preview.forest :global(.redesign-shell .nav-link:not([data-active=true])),
+.preview.forest :global(.redesign-shell .nav-link:not([data-active=true]) > svg),
+.preview.forest :global(.redesign-shell .sidebar-note),
+.preview.forest :global(.redesign-shell .sidebar-note small),
+.preview.forest :global(.redesign-shell .side-profile small),
+.preview.forest :global(.redesign-shell .workspace-name small) { color: var(--study-muted); }
+.preview.forest :global(.redesign-shell .side-label) { color: var(--study-muted) !important; }
+.preview.forest :global(.redesign-shell .nav-link:not([data-active=true]):hover) { background: var(--study-nav-hover) !important; }
+.preview.forest :global(.redesign-shell .workspace-name),
+.preview.forest :global(.redesign-shell .side-profile) { border-color: var(--study-line); }
+.preview.forest :global(.redesign-shell .nav-link[href="/review-queue"] .nav-count) { background: var(--study-count); }
+.preview.forest :global(.redesign-shell .breadcrumbs > span:last-of-type),
+.preview.forest :global(.redesign-shell .workspace-mark),
+.preview.forest :global(.redesign-shell .sidebar-note > svg),
+.preview.forest :global(.redesign-shell .side-profile > svg) { color: var(--study-accent); }
+.preview.forest :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true]) {
+  background: var(--study-selected); border-color: var(--study-accent);
+  box-shadow: inset 0 -3px var(--study-accent), 0 2px 4px #00000008, 0 5px 12px #00000008;
+}
+.preview.forest :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true]:hover) {
+  box-shadow: inset 0 -3px var(--study-accent), 0 4px 8px #00000012, 0 10px 22px #00000016;
+}
+.preview.forest :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true] > svg) { --icon-ink: var(--study-accent); }
+.preview.forest :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true] > strong),
+.preview.forest :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true] .triage-stat-label) { color: var(--study-ink); }
+.preview.forest :global(.redesign-shell [data-slot=button][data-variant=default]) { background: var(--study-accent); }
+.preview.forest :global(.redesign-shell [data-slot=button][data-variant=default]:hover) { background: var(--study-hover); }
+.preview.forest :global(.redesign-shell [data-slot=button][data-variant=outline]) { color: var(--study-ink); border-color: var(--study-line); }
+.preview.forest :global(.redesign-shell .overview-direct-action),
+.preview.forest :global(.redesign-shell .recommendation-trigger) { color: var(--study-accent); }
+.preview.forest :global(.redesign-shell .triage-row-actions [data-slot=button]) { background: #fff; color: var(--study-accent); border-color: var(--study-line); }
+.preview.forest :global(.redesign-shell .triage-row-actions [data-slot=button]:hover) { background: var(--study-selected); }
+.preview.forest :global(.redesign-shell .triage-list),
+.preview.forest :global(.redesign-shell .triage-patient-identity) { background: var(--study-canvas); }
+.preview.forest :global(.redesign-shell .triage-board),
+.preview.forest :global(.redesign-shell .triage-patient),
+.preview.forest :global(.redesign-shell .triage-preview),
+.preview.forest :global(.redesign-shell .triage-row-actions) { border-color: var(--study-line); }
+.preview.forest :global(.redesign-shell .triage-patient .patient-avatar) { background: var(--study-avatar) !important; color: var(--study-avatar-ink); border-color: var(--study-line); }
+.preview.forest :global(.redesign-shell .triage-board-heading h2 > span),
+.preview.forest :global(.redesign-shell .profile-avatar),
+.preview.forest :global(.redesign-shell .top-avatar) { background: var(--study-selected); color: var(--study-accent); }
+.preview.forest :global(.redesign-shell :is(button,a,input,select,summary):focus-visible) { outline-color: var(--study-accent); }
+.preview.forest :global(.workspace-advisor-dock .advisor-dock-fab),
+.preview.forest :global(.workspace-advisor-dock .advisor-dock-head) { background: var(--study-accent); color: #fff; }
+:global(body):has(.forest) :global(.fb-btn-main:not(.fb-active)) { background: #17583e !important; color: #fff !important; }
+:global(body):has(.midnight) :global(.fb-btn-main:not(.fb-active)) { background: #31558e !important; color: #fff !important; }
+
+/* Keep patient details on white in both colour variations. */
+.preview.forest :global(.redesign-shell .triage-patient-identity) { background: #fff; }
+
+/* Forest's study controls follow its softer workspace palette. */

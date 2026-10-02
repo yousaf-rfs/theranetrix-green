@@ -1,0 +1,186 @@
+/* One visual system for the September clinician-feedback revision. */
+:root { --background:#f4f6f8; --foreground:#17313f; --primary:#087f75; --primary-foreground:#fff; --ux-ink:#17313f; --ux-muted:#546979; --ux-line:#dce4e9; --ux-primary:#087f75; --radius:.5rem; }
+body { color:#17313f; font-size:14px; line-height:1.5; }
+.redesign-shell .main-content { padding:24px 28px 40px; max-width:1760px; }
+.redesign-shell .topbar { position:sticky; top:0; height:56px; min-height:56px; z-index:45; padding:0 28px; background:#fff; }
+.redesign-shell .top-tools { gap:16px; }
+.redesign-shell .brand-header { padding:24px 18px 16px; }
+.redesign-shell .brand { font-size:21px; gap:9px; }
+.redesign-shell .workspace-name { margin-top:24px; padding-top:22px; font-size:12px; }
+.redesign-shell .side-label { font-size:10px; letter-spacing:.1em; padding:0 10px; }
+.redesign-shell .nav-link { min-height:42px; font-size:13px; border-radius:6px; }
+.redesign-shell .secondary-nav { margin-top:24px; }
+.redesign-shell .sidebar-note { padding:16px 12px; font-size:12px; }
+.redesign-shell .side-profile { padding:16px 4px; font-size:12px; }
+.redesign-shell .search-trigger { min-height:34px; border:0; border-radius:6px; background:#f4f6f8; font-size:12px; }
+.redesign-shell .page-title { margin-bottom:24px; }
+.redesign-shell .page-title h1 { font-size:28px; font-weight:650; letter-spacing:-.7px; }
+.redesign-shell .page-title p { font-size:14px; max-width:65ch; color:#546979; }
+.redesign-shell .panel { box-shadow:none; border-radius:8px; border-color:#dce4e9; }
+.redesign-shell .panel-head h2 { font-size:16px; line-height:1.4; }
+.redesign-shell [data-slot=button] { min-height:38px; border-radius:6px; font-size:13px; }
+.redesign-shell [data-slot=input],.redesign-shell [data-slot=select-trigger] { border-radius:6px; }
+.redesign-shell .badge { border-radius:4px; font-size:11px; padding:3px 7px; }
+.redesign-shell .text-link { color:#08766d; }
+.redesign-shell .panel-bottom { background:#fafbfc; border-radius:0 0 8px 8px; }
+.prototype-feedback-trigger { display:inline-flex; align-items:center; gap:7px; min-height:34px; padding:6px 10px; font-size:12px; font-weight:600; color:#3f5967; border:1px solid #dce4e9; border-radius:6px; }
+.prototype-feedback-trigger:hover { background:#edf5f3; color:#08766d; }
+.feedback-classification { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.feedback-classification select { min-height:40px; width:100%; padding:8px 10px; border:1px solid #cbd8df; border-radius:6px; background:#fff; }
+.feedback-history { border-top:1px solid #dce4e9; padding-top:16px; font-size:13px; }
+.feedback-history summary { cursor:pointer; font-weight:600; }
+.feedback-history article { padding:16px 0; border-bottom:1px solid #e6ebee; }
+.feedback-history article>div { display:flex; gap:12px; align-items:center; }
+.feedback-history article p { margin:8px 0; white-space:pre-wrap; }
+.feedback-history article small { color:#546979; }
+.feedback-history>button { margin-top:16px; }
+.acronym-help { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; vertical-align:middle; border-radius:50%; color:#607b88; background:transparent; }
+.acronym-help:hover { background:#e4f1ed; color:#08766d; }
+.acronym-popover { z-index:150; width:310px; font-size:13px; line-height:1.6; }
+.acronym-popover strong { font-size:14px; }
+.acronym-popover p { margin-top:8px; color:#496170; }
+/* <Term>: the term itself opens its glossary definition (hover title, tap/click/Enter popover). */
+button.glossary-term { display:inline; margin:0; padding:0; border:0; background:none; font:inherit; color:inherit; letter-spacing:inherit; text-transform:inherit; text-align:inherit; text-decoration:underline dotted; text-decoration-thickness:1px; text-underline-offset:.2em; cursor:help; }
+button.glossary-term:hover, button.glossary-term[data-state=open] { text-decoration-style:solid; }
+
+/* Navigation comes first. Identifiers and note actions stay with the record. */
+.feedback-patient { --chart-anchor-offset:250px; }
+.feedback-patient [id] { scroll-margin-top:var(--chart-anchor-offset); }
+.feedback-patient .patient-tabs { overflow:visible; }
+.feedback-patient .patient-chart-header { position:sticky; top:56px; z-index:35; background:#f4f6f8; margin:-24px -28px 20px; padding:0 28px; border-bottom:1px solid #dce4e9; box-shadow:0 3px 6px #17313f06; }
+.feedback-patient .patient-record-flow { display:flex; align-items:center; flex-wrap:nowrap; gap:16px; margin:0 -28px; padding:0 28px; min-height:48px; border:0; background:#174b51; }
+.feedback-patient .patient-flow-tabs { display:flex; flex:1; flex-wrap:nowrap!important; min-width:0; width:auto; gap:6px; background:transparent; padding:0; }
+.feedback-patient .patient-flow-tabs button { display:inline-flex; gap:7px; min-height:48px; padding:12px 14px!important; border:0; border-radius:0!important; background:transparent; color:#d3e5e5; font-size:13px; white-space:nowrap; font-weight:500; }
+.feedback-patient .patient-flow-tabs button:hover { background:#ffffff0e; color:#fff; }
+.feedback-patient .patient-flow-tabs button[data-state=active] { color:#fff; background:#ffffff15; box-shadow:inset 0 -3px #80d5bf; font-weight:650; }
+.feedback-patient .patient-flow-tabs button[data-state=active]:after { display:none; }
+.feedback-patient .patient-record-flow .patient-view-toolbar { display:flex; flex-wrap:nowrap; margin:0; padding:0; gap:16px; }
+.feedback-patient .patient-view-toolbar [data-slot=select-trigger] { border:0; padding:7px 0; min-height:34px; width:auto; background:transparent; color:#e4efef; font-size:12px; box-shadow:none; }
+.feedback-patient .patient-view-toolbar .text-link { color:#e4efef; font-size:12px; white-space:nowrap; }
+.feedback-patient .patient-record-head { grid-template-columns:minmax(0,1fr) auto; gap:10px 20px; border:0; border-radius:0; margin:0; padding:18px 0 12px; background:transparent; overflow:visible; }
+.feedback-patient .patient-heading { gap:12px; }
+.feedback-patient .patient-heading .patient-title-line h1 { font-size:26px; line-height:1.2; font-weight:650; letter-spacing:-.6px; }
+.feedback-patient .patient-title-line { gap:8px 12px; }
+.feedback-patient .patient-avatar.large { width:44px; height:44px; border-radius:50%; font-size:16px; }
+.feedback-patient .patient-heading p { margin-top:5px; font-size:12px; color:#546979; gap:6px; }
+.feedback-patient .patient-dob-control { display:inline-flex; align-items:baseline; gap:6px; padding:3px 7px; border-radius:4px; border:1px solid #dce4e9; background:#fff; font-size:12px; color:#546979; }
+.feedback-patient .patient-dob-control strong { color:#17313f; font-weight:500; }
+.feedback-patient .patient-record-id { font-weight:400; color:#546979; }
+/* One-line identity pin: shown where the full chart header scrolls away (900px and below here; the Treatment tab also up to 1250px, in redesign-treatment.css). */
+.feedback-patient .patient-identity-pin { display:none; }
+.feedback-patient .patient-record-head .page-actions { gap:8px; flex-wrap:nowrap; }
+.feedback-patient .patient-record-head .page-actions [data-slot=button] { min-height:36px; height:36px; padding:8px 11px; font-size:12px; }
+.feedback-patient .patient-record-head .page-actions [data-slot=select-trigger] { min-height:36px; height:36px; font-size:12px; max-width:160px; }
+.feedback-patient .patient-record-meta { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:8px 18px; padding:0 0 0 83px; font-size:12px; color:#546979; }
+.feedback-patient .patient-record-meta .text-link { font-size:12px; }
+.feedback-patient .patient-record-meta strong { color:#17313f; }
+.feedback-patient .patient-record-meta .patient-record-review-count { color:#a2394b; margin-left:auto; }
+.feedback-patient .patient-record-allergies { grid-column:1/-1; display:flex; flex-wrap:wrap; align-items:center; gap:7px; border:0; border-top:1px solid #e5e6dd; border-radius:0; background:transparent; margin:0; padding:9px 0 0; font-size:12px; color:#536b66; }
+.feedback-patient .patient-record-allergies.is-unreviewed { color:#885d21; }
+.feedback-patient .patient-record-allergies.has-reactions { color:#a2394b; }
+.feedback-patient .patient-record-allergies>span { font-weight:500; }
+.feedback-patient .patient-record-allergies small { margin-left:auto; font-size:11px; color:#607580; }
+.feedback-patient .patient-record-allergies .text-link { font-size:12px; margin-left:4px; }
+.visit-document-control { position:relative; }
+.visit-document-control>small { position:absolute; top:42px; right:0; width:250px; border:1px solid #e0c8c9; background:#fff; padding:12px; color:#a2394b; border-radius:6px; font-size:12px; z-index:40; }
+.feedback-patient .patient-back-control { margin:0; width:24px; }
+.feedback-patient .patient-tabs>[data-slot=tabs-content] { margin-top:0; }
+.feedback-patient .care-workbench { margin-top:24px; }
+
+@media(max-width:1250px) {
+  .feedback-patient .patient-record-head { grid-template-columns:1fr; }
+  .feedback-patient .patient-record-head .page-actions { grid-column:1/-1; justify-content:flex-start; flex-wrap:wrap; }
+  .feedback-patient .patient-record-meta { padding-left:0; }
+  .feedback-patient .patient-view-toolbar>.text-link { display:none; }
+  .feedback-patient .patient-record-flow { gap:10px; }
+  .feedback-patient .patient-flow-tabs button { padding:12px 10px!important; }
+  .feedback-patient .patient-chart-header { top:56px; }
+  .feedback-patient { --chart-anchor-offset:315px; }
+}
+@media(max-width:900px) {
+  .redesign-shell .main-content { padding:20px; }
+  .redesign-shell .topbar { padding:0 20px; }
+  .redesign-shell .top-tools { gap:10px; }
+  .feedback-patient .patient-chart-header { margin:-20px -20px 0; padding:0 20px; position:relative; top:auto; }
+  /* The pin sits invisibly over the header's last 34px (-42px also takes back the tabs' 8px gap), so it adds no height.
+     It becomes visible once the header has scrolled up under it (patient.tsx). */
+  .feedback-patient .patient-identity-pin { position:sticky; top:56px; z-index:36; display:flex; flex:none; align-items:center; gap:10px; height:34px; margin:-42px -20px 20px; padding:0 20px; overflow:hidden; white-space:nowrap; font-size:12px; color:#546979; background:#fff; border-bottom:1px solid #dce4e9; box-shadow:0 3px 6px #17313f0d; visibility:hidden; pointer-events:none; }
+  .feedback-patient .patient-identity-pin.is-pinned { visibility:visible; }
+  .feedback-patient .patient-identity-pin>* { flex:none; }
+  .feedback-patient .patient-identity-pin>strong { flex:0 1 auto; min-width:48px; overflow:hidden; text-overflow:ellipsis; color:#17313f; font-size:13px; font-weight:650; }
+  .feedback-patient .patient-identity-pin small { font-size:inherit; }
+  .feedback-patient .patient-identity-pin-allergy { display:inline-flex; align-items:center; gap:4px; }
+  /* A free-text reactions list takes the remaining width and truncates; the name and identifiers keep theirs. */
+  .feedback-patient .patient-identity-pin-allergy.has-reactions { flex:1 1 0; min-width:120px; }
+  .feedback-patient .patient-identity-pin-allergy svg { flex:none; }
+  .feedback-patient .patient-identity-pin-allergy>span { min-width:0; overflow:hidden; text-overflow:ellipsis; font-weight:500; }
+  .feedback-patient .patient-identity-pin-allergy.is-unreviewed { color:#885d21; }
+  .feedback-patient .patient-identity-pin-allergy.has-reactions { color:#a2394b; }
+  .feedback-patient .patient-record-flow { margin:0 -20px; padding:0 16px; flex-wrap:wrap; gap:0; }
+  .feedback-patient .patient-record-flow .patient-view-toolbar { width:100%; flex-direction:row; align-items:center; justify-content:space-between; }
+  .feedback-patient .patient-view-toolbar .picker { width:auto; }
+  .feedback-patient .patient-view-toolbar>.text-link { display:inline-flex; }
+  .feedback-patient .patient-flow-tabs { width:100%; flex:1 0 100%; overflow-x:auto; }
+  .feedback-patient .patient-record-head { padding-top:16px; }
+  .feedback-patient .patient-record-meta .patient-previsit-link { margin-left:0; }
+  .feedback-patient { --chart-anchor-offset:106px; }
+}
+
+/* Leave the treatment decision controls clear of the floating Advisor. */
+.feedback-patient .feedback-advisor-dock { bottom:var(--advisor-bottom,20px); }
+.feedback-patient .advisor-dock-panel { height:min(650px,calc(100dvh - var(--advisor-bottom,20px) - 120px)); }
+@media(min-width:601px) and (max-width:1250px) {
+  .treatment-feedback .treatment-twin-feed .treatment-feed-measures { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:560px) {
+  .redesign-shell .main-content { padding:16px; }
+  .redesign-shell .topbar { padding:0 16px; }
+  .prototype-feedback-trigger { border:0; padding:6px; }
+  .prototype-feedback-trigger span { display:none; }
+  .feedback-patient .patient-chart-header { margin:-16px -16px 0; padding:0 16px; }
+  /* Phones: the icon labels the allergy status, and a recorded DOB or MRN shows its value alone so the line fits. */
+  .feedback-patient .patient-identity-pin { margin:-42px -16px 20px; padding:0 16px; gap:8px; font-size:11px; }
+  .feedback-patient .patient-identity-pin>strong { font-size:12px; }
+  .feedback-patient .patient-identity-pin>span:not(.is-missing)>small,.feedback-patient .patient-identity-pin-allergy>small { display:none; }
+  .feedback-patient .patient-identity-pin-allergy.has-reactions { min-width:96px; }
+  .feedback-patient .patient-record-flow { margin:0 -16px; padding:0 8px; }
+  .feedback-patient .patient-flow-tabs { gap:0; }
+  .feedback-patient .patient-flow-tabs button { font-size:12px; padding:12px 9px!important; }
+  .feedback-patient .patient-flow-tabs button svg { display:none; }
+  .feedback-patient .patient-title-line { gap:8px; }
+  .feedback-patient .patient-heading .patient-title-line h1 { font-size:24px; }
+  .feedback-patient .patient-dob-control { font-size:11px; }
+  .feedback-patient .patient-record-allergies small { width:auto; margin-left:auto; }
+  .feedback-patient .patient-record-meta { gap:8px 12px; }
+  .feedback-patient .patient-record-flow .patient-view-toolbar { padding:2px 6px 6px; }
+}
+
+/* Undo and reset controls */
+.workspace-undo-trigger{gap:6px}
+.workspace-control-dialog{max-width:460px!important}
+.workspace-control-change{display:grid;gap:3px;padding:10px 12px;border:1px solid #dce4e9;border-radius:8px;background:#f7fafb;font-size:13px}
+.workspace-control-change span{color:#546979;font-size:12px}
+.workspace-control-note{margin:0;font-size:13px;line-height:1.5;color:#546979}
+.showcase-actions{display:flex;flex-wrap:wrap;gap:10px}
+
+/* Feedback pins (public/feedback-pin). Bottom-left of the page content, clear of the sidebar
+   links and the Robo Advisor (bottom-right). On Treatment it sits above the sticky decision bar.
+   On phones the button shrinks to its icon; the full label stays as its accessible name.
+   A position the reviewer dragged it to is written inline and wins. */
+.fb-dock:not([style*="top"]){right:auto!important;left:16px!important;bottom:16px!important}
+@media(min-width:768px){
+  body:has(.thera-sidebar) .fb-dock:not([style*="top"]){left:232px!important}
+  body:has(#treatment-decision:not([hidden] *)) .fb-dock:not([style*="top"]){bottom:176px!important}
+}
+@media(max-width:767px){
+  .fb-dock .fb-btn-main:not(.fb-active){width:44px;padding:0!important;justify-content:center;font-size:0!important}
+  .fb-dock .fb-btn-main:not(.fb-active)::before{content:"\1F4AC";font-size:18px}
+}
+/* feedback-pin draws navy text on the accent; on TheraNetrix teal that fails contrast, so use white. */
+.fb-btn-main:not(.fb-active),.fb-composer .fb-btn-save:not(:disabled){color:#fff!important}
+/* Phones: the header never outgrows the screen. Undo shrinks to its icon (the label stays
+   in aria-label) and a long page or patient name truncates instead of pushing the tools out. */
+.redesign-shell .breadcrumbs{min-width:0;overflow:hidden}
+.redesign-shell .breadcrumbs>span,.redesign-shell .breadcrumbs>b{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.redesign-shell .top-tools{flex-shrink:0}
+@media(max-width:767px){.workspace-undo-label{display:none}.workspace-undo-trigger{padding-inline:9px}}

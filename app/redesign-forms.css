@@ -1,0 +1,215 @@
+/* Focused editing, clinical review, and workflow navigation. */
+.care-entry-dialog[data-slot="dialog-content"] {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: calc(100% - 40px);
+  max-height: min(90dvh, 960px);
+  overflow: hidden;
+  border: 1px solid #dfe7ed;
+  border-radius: 18px;
+  padding: 0;
+  background: #f4f7fa;
+  color: #142d41;
+  box-shadow: 0 24px 80px #142d4126;
+}
+.care-entry-dialog.entry-dialog { max-width: 680px !important; }
+.care-entry-dialog.medication-dialog { max-width: 840px !important; }
+.care-entry-dialog > [data-slot="dialog-header"] {
+  flex: 0 0 auto;
+  padding: 24px 54px 22px 26px;
+  border-bottom: 1px solid #dfe7ed;
+  background: #fff;
+  text-align: left;
+}
+.care-entry-dialog [data-slot="dialog-title"] { font-size: 21px; line-height: 1.35; color: #142d41; }
+.care-entry-dialog [data-slot="dialog-description"] { max-width: 64ch; font-size: 14px; line-height: 1.6; color:#546979; }
+.care-entry-dialog > .care-form,
+.care-entry-dialog > .medication-review-content { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 20px 26px 0; margin: 0; }
+.care-entry-dialog > .medication-review-content { padding-bottom: 20px; }
+.care-entry-dialog > .medication-review-content:has(.care-form) { padding-bottom: 0; }
+.care-form { color: #142d41; min-width: 0; }
+.care-form > fieldset { gap: 18px; min-width: 0; }
+.care-form .care-form-key { margin: 0; font-size: 12px; color:#546979; }
+.care-form-section { border: 1px solid #dfe7ed; border-radius: 12px; background: #fff; min-width: 0; }
+.care-form-section-heading { padding: 17px 18px 0; }
+.care-form-section-heading h3 { margin: 0; font-size: 17px; font-weight: 650; line-height: 1.4; color: #142d41; }
+.care-form-section-heading p { margin: 5px 0 0; color:#546979; font-size: 13px; line-height: 1.5; }
+.care-form-fields { display: flex; flex-direction: column; gap: 16px; padding: 17px 18px 18px; }
+.care-form label { font-size: 14px; line-height: 1.4; font-weight: 550; color: #344f63; gap: 7px; min-width: 0; }
+.care-form :is(input, textarea, .picker) { font-size: 14px; font-weight: 400; background: #fff; border-color: #d3dee6; color: #142d41; min-width: 0; }
+.care-form :is(input, .picker) { min-height: 42px; }
+.care-form textarea { line-height: 1.65; resize: vertical; }
+.care-form :is(input,textarea):read-only { background: #f4f7fa; }
+.care-form .form-two { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+.care-required { color: #147d73; font-weight: 700; }
+.care-optional { color:#546979; font-size: 12px; font-weight: 400; }
+.care-form .care-form-actions { position: sticky; bottom: 0; z-index: 2; margin-top: 2px; padding: 16px 0; background: #fff; border-top: 1px solid #dfe7ed; gap: 10px; }
+.care-entry-dialog .care-form-actions { margin-inline: -26px; padding-inline: 26px; box-shadow: 0 -8px 16px #142d4105; }
+.care-form-actions button { min-height: 40px; }
+.care-form-error { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; border: 1px solid #edc3c9; border-radius: 10px; padding: 14px 16px; background: #fff4f5; color: #973a4a; font-size: 14px; line-height: 1.6; margin: 0 0 18px; }
+.care-optional-section { border: 1px solid #dfe7ed; border-radius: 12px; padding: 0 18px; background: #fff; }
+.care-optional-section > summary { cursor: pointer; padding: 16px 0; color: #344f63; font-size: 14px; font-weight: 600; }
+.care-optional-section > summary span { margin-left: 9px; color:#546979; font-size: 12px; font-weight: 400; }
+.care-optional-section > .form-two { padding-bottom: 18px; }
+.care-effects-field { padding: 14px; border: 1px solid #ecd1d5; border-radius: 9px; background: #fff6f7; }
+.care-form .response-confirmation { padding: 14px; border: 1px solid #e6d5ab; border-radius: 9px; background: #fffbf0; }
+.care-form .subtle-notice { margin: 0; border-radius: 9px; padding: 13px 16px; font-size: 13px; line-height: 1.6; }
+.care-form.compact-plan-form .care-form-section { border: 0; background: transparent; }
+.care-form.compact-plan-form .care-form-section-heading { padding: 0; }
+.care-form.compact-plan-form .care-form-fields { padding: 12px 0 0; }
+.care-medication-summary { gap: 10px; }
+.care-medication-summary .medication-name { gap: 9px; }
+.care-medication-summary .medication-name > strong { font-size: 16px; color: #142d41; }
+.care-medication-summary .care-medication-regimen { color: #344f63; font-size: 14px; margin: 0; }
+.care-medication-response { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 3px 0; }
+.care-medication-response > div { border: 1px solid #e5ecf1; border-radius: 8px; padding: 10px 12px; background: #f8fafc; min-width: 0; }
+.care-medication-response > div:has(.text-rose) { background: #fff5f6; border-color: #f0d3d8; }
+.care-medication-response > div > span { font-size: 11px; font-weight: 650; color:#546979; text-transform: uppercase; letter-spacing: .06em; }
+.care-medication-response > div > p { margin: 5px 0 0; font-size: 14px; line-height: 1.55; overflow-wrap: anywhere; }
+.care-medication-summary > .care-record-source { margin: 0; font-size: 12px; }
+.care-medication-stopped { border-left: 3px solid #aebcc8; padding-left: 10px; }
+.medication-dialog .medication-review-item { background: #fff; border-radius: 12px; }
+.medication-dialog .medication-review-toolbar { margin-bottom: 20px; flex-wrap: wrap; }
+.care-synopsis { min-width: 0; }
+.care-synopsis .synopsis-body { padding: 20px; font-size: 14px; line-height: 1.65; }
+.care-synopsis .synopsis-body h3 { font-size: 17px; line-height: 1.55; color: #142d41; }
+.care-synopsis .synopsis-body small { font-size: 12px; line-height: 1.6; color:#546979; }
+.care-synopsis .synopsis-body p { margin: 7px 0 12px; }
+.care-synopsis .synopsis-body > button { margin-top: 8px; }
+.care-synopsis .synopsis-safety { padding: 14px 18px; margin-bottom: 16px; border-radius: 10px; font-size: 14px; line-height: 1.6; }
+.care-synopsis .synopsis-safety > span { flex-basis: 100%; font-size: 12px; }
+.care-review-summary { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 24px; }
+.care-review-summary .care-patient-goal { border-left: 1px solid #dfe7ed; padding-left: 24px; }
+.care-review-summary .care-patient-goal p { font-size: 15px; color: #344f63; margin-bottom: 0; }
+.care-synopsis .synopsis-concerns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 18px; }
+.care-synopsis .synopsis-concerns article { margin: 0; border: 1px solid #eadcbb; border-left: 3px solid #b58a40; background: #fffbf1; padding: 16px; }
+.care-synopsis .synopsis-concerns article > div { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.care-synopsis .care-review-empty { font-size: 13px; color:#546979; border-top: 1px solid #e8eef3; margin-top: 18px; padding-top: 14px; }
+.care-review-nav { display: flex; flex-wrap: wrap; gap: 8px; padding: 18px 0 8px; }
+.care-review-nav a { padding: 8px 12px; border: 1px solid #dfe7ed; border-radius: 8px; background: #fff; color: #496074; font-size: 13px; font-weight: 550; text-decoration: none; }
+.care-review-nav a:hover { color: #147d73; border-color: #91bfb9; background: #eff8f6; }
+.care-review-group { scroll-margin-top: 28px; margin-top: 24px; min-width: 0; }
+.care-review-group > header { margin-bottom: 14px; }
+.care-review-group > header > h2 { font-size: 18px; font-weight: 650; line-height: 1.45; color: #142d41; margin: 0; }
+.care-review-group > header > p { font-size: 13px; color:#546979; margin: 4px 0 0; }
+.care-review-group .synopsis-grid { margin: 0; align-items: start; gap: 16px; }
+.care-review-group-engines .synopsis-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.care-review-group-evidence .synopsis-grid,.care-review-group-documentation .synopsis-grid { grid-template-columns: 1fr; }
+.care-review-group .panel-head { padding: 18px 20px 14px; }
+.care-review-group .panel-head h2 { font-size: 15px; line-height: 1.45; }
+.care-review-group .synopsis-body > div + div { margin-top: 14px; }
+.care-review-group .synopsis-body > details { border: 1px solid #dfe7ed; border-radius: 8px; padding: 0 12px; background: #f8fafc; margin: 14px 0 10px; }
+.care-review-group .synopsis-body > details > summary { min-height: 42px; font-size: 13px; }
+.care-synopsis .synopsis-metrics { gap: 10px; }
+.care-synopsis .synopsis-metrics > div { background: #f4f7fa; border-radius: 9px; padding: 12px 10px; min-width: 0; }
+.care-synopsis .synopsis-metrics > div > span { font-size: 12px; }
+.care-synopsis .synopsis-metrics > div > strong { font-size: 22px; margin: 5px 0; }
+.care-review-plan { margin-top: 26px; scroll-margin-top: 28px; }
+.care-plan-text { white-space: pre-wrap; }
+.care-plan-followup { display: flex; flex-wrap: wrap; gap: 18px 38px; padding: 16px 18px; border: 1px solid #dfe7ed; border-radius: 10px; margin: 18px 0; background: #f4f7fa; }
+.care-plan-followup > div { display: flex; flex-direction: column; gap: 4px; }
+.care-plan-followup span { font-size: 12px; color:#546979; }
+.care-plan-followup strong { font-size: 14px; color: #142d41; }
+.care-nav-label { display: block; color:#546979; font-size: 11px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; font-weight: 650; }
+.care-workbench.panel { margin-top: 26px; overflow: visible; }
+.care-workbench .care-workbench-body { display: grid; grid-template-columns: 235px minmax(0,1fr); gap: 26px; padding: 22px; align-items: start; }
+.care-workbench-nav { padding: 0 18px 0 0; border-right: 1px solid #dfe7ed; position: sticky; top: 22px; max-height: calc(100dvh - 44px); overflow-y: auto; }
+.care-workbench-nav > .care-nav-label { margin: 0 0 12px 11px; }
+.care-workbench-nav > button { display: flex; align-items: flex-start; gap: 10px; width: 100%; border: 1px solid transparent; border-radius: 10px; background: transparent; color: #496074; padding: 12px 10px; margin-bottom: 6px; text-align: left; cursor: pointer; }
+.care-workbench-nav > button:hover { background: #f4f7fa; }
+.care-workbench-nav > button[aria-pressed="true"] { background: #edf7f5; border-color: #d1e8e3; color: #126e66; }
+.care-nav-number { font-size: 11px; line-height: 20px; color:#546979; font-weight: 600; flex: 0 0 18px; }
+.care-workbench-nav button[aria-pressed="true"] .care-nav-number { color: #147d73; }
+.care-workbench-nav strong { display: block; font-size: 13px; line-height: 1.5; font-weight: 600; }
+.care-workbench-nav small { display: block; font-size: 12px; line-height: 1.55; color:#546979; margin-top: 4px; }
+.care-workbench-main { min-width: 0; }
+.care-workbench-stage-heading { padding: 0 0 14px; }
+.care-workbench-stage-heading h3 { font-size: 20px; color: #142d41; line-height: 1.4; font-weight: 650; margin: 8px 0 5px; }
+.care-workbench-stage-heading p { color:#546979; font-size: 14px; line-height: 1.6; }
+.care-workbench .care-workbench-mobile-picker { display: none; }
+.care-workbench-main > [data-workflow-domain] { min-width: 0; }
+.care-workbench-continuity { border-top: 1px solid #dfe7ed; margin-top: 26px; padding-top: 14px; }
+.care-workbench-launcher { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; padding: 0 22px 22px; }
+.care-workbench-launcher > button { display: flex; align-items: center; justify-content: space-between; text-align: left; gap: 12px; min-height: 46px; padding: 11px 14px; border: 1px solid #dfe7ed; border-radius: 9px; background: #f8fafc; color: #344f63; font-size: 13px; line-height: 1.5; font-weight: 550; cursor: pointer; }
+.care-workbench-launcher > button:hover { background: #edf7f5; border-color: #aad0c9; color: #126e66; }
+.care-workbench-launcher > button > span { color: #147d73; font-size: 17px; }
+.care-record-history { border: 1px solid #dfe7ed; border-radius: 10px; padding: 0 16px; margin-top: 14px; background: #f8fafc; }
+.care-record-history > summary { cursor: pointer; font-size: 13px; color: #496074; padding: 13px 0; font-weight: 600; }
+.care-record-history > summary > span { display: inline-flex; border-radius: 5px; padding: 1px 6px; background: #e7eef4; margin-left: 6px; font-size: 11px; }
+.care-record-history > ol { list-style: none; margin: 0 0 14px 5px; padding: 0 0 0 19px; border-left: 2px solid #dbe5ec; }
+.care-record-history > ol > li { position: relative; padding: 0 0 17px; }
+.care-record-history > ol > li:last-child { padding-bottom: 0; }
+.care-record-history > ol > li::before { content: ''; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #90aba9; top: 6px; left: -24px; border: 2px solid #f8fafc; box-sizing: content-box; }
+.care-record-history article { margin: 0; padding: 0; border: 0; }
+.care-record-history article > header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 5px 12px; }
+.care-record-history header strong { font-size: 13px; color: #344f63; }
+.care-record-history header :is(time,span) { font-size: 12px; color:#546979; }
+.care-record-history article > p { margin: 6px 0; font-size: 13px; line-height: 1.65; color: #496074; white-space: pre-wrap; }
+.care-record-history article > small { color:#546979; font-size: 12px; line-height: 1.6; }
+.care-evidence-view .synopsis-body { padding: 20px; font-size: 14px; line-height: 1.65; }
+.care-evidence-notice { background: #fffbf1; border: 1px solid #eadcbb; border-radius: 10px; padding: 15px 17px; margin-bottom: 20px; }
+.care-evidence-notice p { margin-bottom: 0; color: #746345; }
+.care-evidence-treatments { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.care-evidence-treatment { min-width: 0; border: 1px solid #dfe7ed; border-radius: 10px; padding: 18px; }
+.care-evidence-treatment > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.care-evidence-treatment > header > h3 { font-size: 17px; margin: 0; color: #142d41; }
+.care-evidence-treatment > p { color:#546979; font-size: 13px; }
+.care-evidence-treatment dl { grid-template-columns: 1.3fr 1fr; gap: 0 !important; margin-bottom: 0; }
+.care-evidence-treatment :is(dt,dd) { padding: 10px 0; border-top: 1px solid #e8eef3; font-size: 12px; line-height: 1.55; }
+.care-evidence-treatment dt { color:#546979; padding-right: 12px; font-weight: 500; }
+.care-evidence-treatment dd { color: #344f63; }
+.care-evidence-source-layout { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); gap: 18px; align-items: start; }
+.care-evidence-sources article + article { margin-top: 16px; padding-top: 16px; border-top: 1px solid #dfe7ed; }
+.care-evidence-sources article > strong { color: #344f63; font-size: 14px; }
+.care-evidence-sources article > p { font-size: 14px; }
+.care-evidence-sources article > small { color:#546979; font-size: 12px; }
+.care-evidence-gaps { display: grid; gap: 12px; padding-left: 18px; margin: 0; color:#546979; }
+.care-workbench button:focus-visible,
+.care-review-nav a:focus-visible,
+.care-record-history summary:focus-visible,
+.care-optional-section summary:focus-visible { outline: 3px solid #91c9c2; outline-offset: 3px; }
+@media(max-width:1250px) {
+  .care-review-group-engines .synopsis-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .care-workbench .care-workbench-body { grid-template-columns: 205px minmax(0,1fr); gap: 20px; }
+  .care-workbench-nav small { display: none; }
+}
+@media(max-width:900px) {
+  .care-evidence-treatments,.care-evidence-source-layout { grid-template-columns: 1fr; }
+  .care-review-group .synopsis-grid { grid-template-columns: 1fr; }
+  .care-synopsis .synopsis-concerns { grid-template-columns: 1fr; }
+  .care-workbench .care-workbench-body { display: block; }
+  .care-workbench-nav { display: none; }
+  .care-workbench .care-workbench-mobile-picker { display: flex; margin-bottom: 20px; max-width: none; }
+  .care-workbench-launcher { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:600px) {
+  .care-entry-dialog[data-slot="dialog-content"] { width: calc(100% - 20px); max-height: 94dvh; border-radius: 13px; }
+  .care-entry-dialog > [data-slot="dialog-header"] { padding: 20px 46px 18px 18px; }
+  .care-entry-dialog [data-slot="dialog-title"] { font-size: 19px; }
+  .care-entry-dialog > .care-form,.care-entry-dialog > .medication-review-content { padding: 18px 16px 0; }
+  .care-entry-dialog > .medication-review-content { padding-bottom: 16px; }
+  .care-entry-dialog .care-form-actions { margin-inline: -16px; padding-inline: 16px; }
+  .care-form .form-two { grid-template-columns: 1fr; }
+  .care-form-section-heading { padding: 16px 14px 0; }
+  .care-form-fields { padding: 14px; }
+  .care-medication-response { grid-template-columns: 1fr; }
+  .care-review-summary { grid-template-columns: 1fr; gap: 14px; }
+  .care-review-summary .care-patient-goal { border-left: 0; border-top: 1px solid #dfe7ed; padding: 14px 0 0; }
+  .care-review-nav { gap: 6px; }
+  .care-review-nav a { font-size: 12px; padding: 8px 10px; }
+  .care-workbench-launcher { grid-template-columns: 1fr; padding: 0 16px 16px; }
+  .care-workbench .care-workbench-body { padding: 18px 16px; }
+}
+
+/* Medication review cards: one consistent card with padding on every side. */
+.medication-dialog .feedback-medication-review .medication-review-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;margin:0 0 12px;padding:16px 18px;border:1px solid #dce4e9;border-radius:10px;background:#fff}
+.medication-dialog .feedback-medication-review .medication-review-item:last-child{border-bottom:1px solid #dce4e9}
+.medication-dialog .feedback-medication-review .medication-review-item>.medication-history{grid-column:1/-1;margin-top:4px;font-size:13px;color:#546979}
+.medication-dialog .feedback-medication-review .medication-review-item>.medication-history summary{cursor:pointer}
+.medication-dialog .feedback-medication-review .medication-summary{gap:6px}
+.medication-dialog .feedback-medication-review .medication-summary small{margin-top:0;font-size:12px}
+.medication-dialog .feedback-medication-review .care-medication-response{margin:4px 0}
+.medication-dialog .feedback-medication-review .medication-category{margin-top:20px}
+.medication-dialog .feedback-medication-review .medication-category-heading{margin-bottom:10px}
+.medication-dialog:focus{outline:none}

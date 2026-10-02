@@ -1,0 +1,28 @@
+.panel{border:1px solid #c9d8df;border-radius:12px;padding:1rem 1.1rem;background:#fff;color:#243f50;display:grid;gap:.8rem}
+.heading{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
+.heading h2{margin:0;font-size:1.05rem;line-height:1.5}
+.badge{display:inline-block;padding:.25rem .5rem;border-radius:6px;font-size:.78rem;font-weight:700;border:1px solid #c5d5de;background:#edf3f6;color:#3b5363}
+.blocked{display:block;padding:.65rem .75rem;border:1px solid #dfb9b9;border-radius:8px;background:#fff3f3;color:#6e2d2d}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem .9rem}
+.muted{margin:0;color:#526575;font-size:.9rem;line-height:1.55}
+.list{margin:0;padding-left:1.1rem}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+
+.subsection{display:grid;gap:.8rem;border-top:1px solid #d9e3e9;padding-top:1rem;min-width:0}
+.subsection h3{font-size:1rem;margin:0}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;align-items:end}
+.form label,.field{display:grid;gap:.4rem;font-size:.88rem;font-weight:600;min-width:0}
+.form input,.form textarea,.form select,.field select{width:100%;min-width:0;padding:.6rem .65rem;border:1px solid #bccdd7;border-radius:7px;font:inherit;color:#203d50;background:#fff;box-sizing:border-box}
+.form textarea{min-height:5rem;resize:vertical}
+.form button{justify-self:start;padding:.6rem .85rem;border-radius:7px;border:1px solid #1b526a;background:#18536b;color:#fff;font-weight:650;cursor:pointer}
+.form button:disabled{opacity:.5;cursor:not-allowed}
+.form .checkbox{display:flex;align-items:center;font-weight:500}
+.checkbox input{width:auto}
+.notice{margin:0;padding:.7rem;border:1px solid #99cabc;border-radius:7px;background:#edf8f3;color:#204b3c}
+.empty{margin:0;color:#536a77;font-size:.9rem}
+.tableScroll{overflow-x:auto;max-width:100%}
+.tableScroll table{width:100%;border-collapse:collapse;font-size:.86rem;text-align:left}
+.tableScroll th,.tableScroll td{padding:.5rem;border-bottom:1px solid #e0e7ec}
+.tableScroll caption{text-align:left;font-weight:700;padding-bottom:.5rem}
+.report{white-space:pre-wrap;overflow-wrap:anywhere;margin:.3rem 0 .7rem}
+@media(max-width:700px){.form{grid-template-columns:1fr}.tableScroll th,.tableScroll td{padding:.4rem}}

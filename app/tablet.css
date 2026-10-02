@@ -1,0 +1,24 @@
+/* Touch screens (iPad, other tablets, phones): raise small controls to at least 44px touch
+   targets. Mouse and trackpad pointers are "fine", so desktop keeps its compact sizes.
+   Loaded last so these rules win over the same selectors in earlier sheets. */
+@media (pointer:coarse){
+  /* PST category tabs and filter tools */
+  .treatment-feedback .pst-category-tabs button{min-height:44px;padding-inline:14px}
+  .treatment-feedback .pst-filter-tools button,.treatment-feedback .engine-check-label{min-height:44px}
+  /* Slider weights: the whole slider row takes the touch, and the thumb is easier to see and grab. */
+  .redesign-shell [data-slot=slider][data-orientation=horizontal]{min-height:44px}
+  .redesign-shell [data-slot=slider-thumb]{width:24px;height:24px}
+  /* Advisor dock close and nudge dismiss */
+  .advisor-dock-head button,.feedback-advisor-dock .advisor-dock-head button,.advisor-nudge-dismiss{min-width:44px;min-height:44px;display:grid;place-items:center}
+  /* Allergy strip hide control: a larger target, kept apart from the strip text so a tap meant for the text does not hide it. */
+  .feedback-patient.patient-redesign .patient-record-allergies{padding-right:60px;min-height:52px}
+  .feedback-patient.patient-redesign .patient-record-allergies .patient-allergy-dismiss{width:44px;height:44px;right:4px}
+  /* Chips and chip-like filters */
+  .patient-allergy-chip{min-height:44px;padding-inline:12px}
+  .checkin-chips button,.redesigned-companion .checkin-chips button,.medq-answer button,.medq-chips button{min-height:44px}
+  .patient-redesign-overview .record-activity-filters button{min-height:44px}
+  /* Term definitions and info buttons: widen the hit area without moving the text around them. */
+  .acronym-help,button.glossary-term{position:relative}
+  .acronym-help::after{content:"";position:absolute;inset:-8px}
+  button.glossary-term::after{content:"";position:absolute;inset:-12px -2px}
+}

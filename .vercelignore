@@ -1,0 +1,9 @@
+.git
+.openai
+.sites-runtime
+.wrangler
+dist
+node_modules
+.env*
+work
+outputs
