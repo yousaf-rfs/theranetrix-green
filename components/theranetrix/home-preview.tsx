@@ -59,7 +59,7 @@ export function HomePreview({data}: {data: Workspace}) {
         <div className="forest-mobile-navigation"><SidebarTrigger aria-label="Toggle navigation"/><span>TheraNetrix</span></div>
         <main className="main-content" id="main-content"><ClinicianOverview ctx={ctx}/></main>
         <WorkspaceAdvisorDock ctx={ctx} page="overview"/>
-        <footer className="workspace-footer"><span>Design preview · Sample patients · Changes are not saved</span></footer>
+        <footer className="workspace-footer" style={{justifyContent: 'flex-start', gap: 16, flexWrap: 'wrap'}}><span>Design preview · Sample patients · Changes are not saved</span><form action="/__preview/logout" method="post"><button type="submit" className="text-link">Lock preview</button></form></footer>
       </div>
       <Toaster position="top-right" richColors closeButton/>
     </SidebarProvider>

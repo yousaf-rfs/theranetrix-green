@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {readFile, stat} from 'node:fs/promises';
+import {readFile, stat, readdir} from 'node:fs/promises';
 
 const root = new URL('../frontend/', import.meta.url);
 const html = await readFile(new URL('out/index.html', root), 'utf8');
@@ -13,3 +13,13 @@ for (const asset of ['favicon.svg', 'design-preview/care-conversation.png', 'fon
   assert.ok((await stat(new URL('out/' + asset, root))).size > 0, `Missing design asset: ${asset}`);
 }
 console.log('Static home verified: 11 patients, design assets included, no backend routes or feedback loader.');
+
+const output = new URL('../.vercel/output/', import.meta.url);
+const config = JSON.parse(await readFile(new URL('config.json', output), 'utf8'));
+assert.deepEqual(config.routes, [{src: '/(.*)', dest: '/preview'}]);
+assert.deepEqual((await readdir(output)).sort(), ['config.json', 'functions']);
+assert.deepEqual(await readdir(new URL('functions/', output)), ['preview.func']);
+const packaged = await readFile(new URL('functions/preview.func/site/index.html', output), 'utf8');
+assert.equal(packaged, html);
+assert.match(await readFile(new URL('functions/preview.func/handler.mjs', output), 'utf8'), /process\.env\.PREVIEW_PASSWORD/);
+console.log('Deployment verified: no public static files; one password-gated function contains the entire preview.');

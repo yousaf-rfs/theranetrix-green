@@ -10,7 +10,7 @@
     "dev": "next dev frontend --webpack",
     "build": "next build frontend --webpack",
     "build:sites": "bash scripts/build-verified.sh",
-    "start": "node scripts/serve-home-preview.mjs",
+    "start": "node --env-file-if-exists=.env.local scripts/serve-home-preview.mjs",
     "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
@@ -20,9 +20,10 @@
     "test:ui:invites": "node tests/invites.browser.mjs",
     "test:ui:all-screens": "node tests/clinician-all-screens.browser.mjs",
     "test:ui:accessibility": "THERANETRIX_CHECK_ACCESSIBILITY=1 node tests/clinician-all-screens.browser.mjs",
-    "test:preview": "npm run build && node scripts/verify-home-export.mjs",
+    "test:preview": "npm run build && node scripts/verify-home-export.mjs && node --test tests/preview-access.test.mjs",
     "prebuild": "node scripts/copy-home-assets.mjs",
-    "predev": "node scripts/copy-home-assets.mjs"
+    "predev": "node scripts/copy-home-assets.mjs",
+    "postbuild": "node scripts/package-protected-preview.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
