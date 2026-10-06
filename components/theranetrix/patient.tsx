@@ -20,7 +20,7 @@ import {RecommendationDetails} from './recommendation-details';
 import {visitObservations,visitMetrics} from '@/lib/visit-observations';
 import {PatientIdentityDialog,birthDateLabel,birthDateShort,dobText} from './patient-identity';
 import {VisitDocument} from './visit-document';
-import {PatientOverview} from './patient-overview';
+import {PatientOverview,PatientSectionNavigation} from './patient-overview';
 import {EngineBoard,AdvisorDock} from './engine-workspace';
 import {ClinicalContextDialog} from './patient-context';
 import {EncounterReview} from './encounter-review';
@@ -70,7 +70,7 @@ function useHiddenAllergyStrip(patientId:string):[boolean,(hidden:boolean)=>void
     hiddenAllergyListeners.forEach(listener=>listener());
   }];
 }
-export function PatientDetail({patient:p,ctx}:{patient:Patient;ctx:Context}){
+export function PatientDetail({patient:p,ctx,onPatientChange}:{patient:Patient;ctx:Context;onPatientChange?:(patientId:string,tab:string)=>void}){
   const requestedTab=useLocationParameter('tab'),hash=useLocationHash();
   const tab=requestedTab&&['overview','visit','full','engines','twin','pst','shadow','advisor','evidence','trace','treatment','outcomes','pathway','messages','notes'].includes(requestedTab)?requestedTab:'visit';
   const recordTab=['pst','shadow','engines','treatment'].includes(tab)?'treatment':tab==='advisor'?'visit':tab;
@@ -80,7 +80,7 @@ export function PatientDetail({patient:p,ctx}:{patient:Patient;ctx:Context}){
     let anchor:string;
     try{anchor=decodeURIComponent(hash.slice(1));}catch{return;}
     const frame=requestAnimationFrame(()=>{
-      const target=document.getElementById(anchor);
+      const target=Array.from(document.querySelectorAll<HTMLElement>('#'+CSS.escape(anchor))).find(element=>!element.closest('[hidden]'));
       if(!target)return;
       for(let disclosure=target.closest('details');disclosure;disclosure=disclosure.parentElement?.closest('details')??null)disclosure.open=true;
       if(!target.getClientRects().length)return;
@@ -104,21 +104,31 @@ export function PatientDetail({patient:p,ctx}:{patient:Patient;ctx:Context}){
   // 90px is the 56px top bar plus the 34px pin in feedback-foundation.css.
   const chartHeader=useRef<HTMLDivElement>(null),[identityPinned,setIdentityPinned]=useState(false);
   useEffect(()=>{const header=chartHeader.current;if(!header||typeof IntersectionObserver==='undefined')return;const observer=new IntersectionObserver(([entry])=>setIdentityPinned(!entry.isIntersecting&&entry.boundingClientRect.top<90),{rootMargin:'-90px 0px 0px 0px'});observer.observe(header);return ()=>observer.disconnect();},[]);
+  const jumpToSection=(id:string)=>{
+    const target=document.querySelector<HTMLElement>('.patient-overview #'+id);
+    if(!target)return;
+    if(target instanceof HTMLDetailsElement)target.open=true;
+    target.scrollIntoView({block:'start'});
+    target.setAttribute('tabindex','-1');
+    target.focus({preventScroll:true});
+  };
+  const recordNavigation=(<div className="patient-record-flow"><TabsList variant="line" className="patient-flow-tabs" aria-label="Patient record sections">{onPatientChange&&<TabsTrigger value="full"><FileText size={16}/>Overview</TabsTrigger>}<TabsTrigger value="visit"><ClipboardList size={16}/>This visit</TabsTrigger><TabsTrigger value="treatment"><Layers size={16}/>Treatment</TabsTrigger><TabsTrigger value="twin"><Activity size={16}/>Digital Twin</TabsTrigger><TabsTrigger value="messages"><MessageSquare size={16}/>Messages</TabsTrigger><TabsTrigger value="notes"><FileText size={16}/>Notes</TabsTrigger></TabsList>{onPatientChange&&recordTab==='full'&&<PatientSectionNavigation onNavigate={jumpToSection}/>}<div className="patient-view-toolbar"><Picker label="Additional record views" value={['outcomes','pathway','overview',...(!onPatientChange?['full']:[]),'evidence','trace'].includes(recordTab)?recordTab:'more'} onChange={t=>{if(t!=='more')changeTab(t);}} options={[{value:'more',label:'More views'},{value:'outcomes',label:'Observation history'},{value:'pathway',label:'Care pathway'},{value:'overview',label:'Complete synopsis'},...(!onPatientChange?[{value:'full',label:'Complete record'}]:[]),{value:'evidence',label:'Evidence readiness'},{value:'trace',label:'Decision trace'}]}/><PatientExportControls key={p.id} patient={p} workspace={ctx.data} busy={ctx.busy}/></div></div>);
   return <div className={"patient-encounter-shell patient-redesign feedback-patient"+(recordTab==='visit'?' patient-profile-focus':'')}>
-  <Tabs value={recordTab} onValueChange={changeTab} className="patient-tabs"><div className="patient-chart-header" ref={chartHeader}><div className="patient-record-flow"><TabsList variant="line" className="patient-flow-tabs" aria-label="Patient record sections"><TabsTrigger value="visit"><ClipboardList size={16}/>This visit</TabsTrigger><TabsTrigger value="treatment"><Layers size={16}/>Treatment</TabsTrigger><TabsTrigger value="twin"><Activity size={16}/>Digital Twin</TabsTrigger><TabsTrigger value="messages"><MessageSquare size={16}/>Messages</TabsTrigger><TabsTrigger value="notes"><FileText size={16}/>Notes</TabsTrigger></TabsList><div className="patient-view-toolbar"><Picker label="Additional record views" value={['outcomes','pathway','overview','full','evidence','trace'].includes(recordTab)?recordTab:'more'} onChange={t=>{if(t!=='more')changeTab(t);}} options={[{value:'more',label:'More views'},{value:'outcomes',label:'Observation history'},{value:'pathway',label:'Care pathway'},{value:'overview',label:'Complete synopsis'},{value:'full',label:'Complete record'},{value:'evidence',label:'Evidence readiness'},{value:'trace',label:'Decision trace'}]}/><PatientExportControls key={p.id} patient={p} workspace={ctx.data} busy={ctx.busy}/></div></div>
+  <Tabs value={recordTab} onValueChange={changeTab} className="patient-tabs"><div className="patient-chart-header" ref={chartHeader}>{!onPatientChange&&recordNavigation}
   <div className="patient-record-head">
     <div className="patient-heading"><Link className="patient-back-control" href="/" aria-label="Return to care overview"><ArrowLeft size={17}/></Link><Avatar patient={p} size="large"/><div><div className="patient-title-line"><h1>{p.name}</h1><Status value={p.status}/><button type="button" className="patient-dob-control" aria-haspopup="dialog" onClick={()=>setIdentityOpen(true)}>DOB <strong>{birthDateLabel(p.dateOfBirth)}</strong></button><button type="button" className="patient-dob-control" aria-haspopup="dialog" onClick={()=>setIdentityOpen(true)}>MRN <strong>{p.medicalRecordNumber??'not recorded'}</strong></button></div><p><span className="patient-record-id">Workspace ID {p.id}</span><span>·</span>{p.age} years<span>·</span>{p.pronouns}<span>·</span>{p.clinician}</p></div></div>
-    <div className="page-actions"><Picker label="Switch patient" className="patient-switch" value={p.id} onChange={id=>{window.location.href='/patients/'+encodeURIComponent(id)+'?tab='+encodeURIComponent(tab);}} options={ctx.data.patients.map(patient=>({value:patient.id,label:patient.name+' · '+dobText(patient.dateOfBirth)}))}/><Button variant="outline" onClick={()=>ctx.open('task',p)}><CalendarDays size={16}/>Schedule</Button><VisitDocument patient={p} workspace={ctx.data}/><Button variant={recordTab==='visit'?'outline':'default'} onClick={()=>ctx.open('note',p)}><Plus size={16}/>Add note</Button></div>
+    <div className="page-actions"><Picker label="Switch patient" className="patient-switch" value={p.id} onChange={id=>{if(onPatientChange)onPatientChange(id,tab);else window.location.href='/patients/'+encodeURIComponent(id)+'?tab='+encodeURIComponent(tab);}} options={ctx.data.patients.map(patient=>({value:patient.id,label:patient.name+' · '+dobText(patient.dateOfBirth)}))}/><Button variant="outline" onClick={()=>ctx.open('task',p)}><CalendarDays size={16}/>Schedule</Button><VisitDocument patient={p} workspace={ctx.data}/><Button variant={recordTab==='visit'?'outline':'default'} onClick={()=>ctx.open('note',p)}><Plus size={16}/>Add note</Button></div>
     <div className="patient-record-meta"><span><HeartPulse size={15}/><strong>{p.condition}</strong></span>{allergyHidden&&<button type="button" className={'patient-allergy-chip '+allergyState} aria-label={'Allergies: '+allergyText+'. Show allergy strip'} onClick={()=>setAllergyHidden(false)}>{context?.allergyStatus==='Reactions reported'?<ShieldAlert size={14}/>:<ShieldCheck size={14}/>}Allergies: {allergyText}</button>}<span>Last report <strong>{p.dates.length?formatDate(p.dates.at(-1)!):'Not recorded'}</strong></span><span>Next visit <strong>{p.nextVisit?formatDate(p.nextVisit):'Not scheduled'}</strong></span><button className="text-link patient-previsit-link" onClick={async()=>{try{await navigator.clipboard.writeText(window.location.origin+'/patient-companion?patient='+encodeURIComponent(p.id));setLinkStatus('Pre-visit link copied');}catch{setLinkStatus('Could not copy. Open patient preparation to copy its address.');}}}>Copy pre-visit link</button><Link className="text-link" href={'/patient-companion?patient='+encodeURIComponent(p.id)}>Patient preparation</Link>{linkStatus&&<span role="status">{linkStatus}</span>}{openReviews>0&&<span className="patient-record-review-count">{openReviews} open review{openReviews===1?'':'s'}</span>}</div>
     {allergyHidden?null:<div className={'patient-record-allergies '+allergyState} aria-label="Patient allergies">{context?.allergyStatus==='Reactions reported'?<ShieldAlert size={16}/>:<ShieldCheck size={16}/>}<strong>Allergies</strong><span>{allergyText}</span><button className="text-link" onClick={()=>setContextOpen(true)}>Review</button>{context&&<small>Recorded {formatDate(context.date)}</small>}<button type="button" className="patient-allergy-dismiss" aria-label="Hide allergy strip" onClick={()=>setAllergyHidden(true)}><X size={15}/></button></div>}
   </div>
   </div>
+  {onPatientChange&&recordNavigation}
   <div className={'patient-identity-pin'+(identityPinned?' is-pinned':'')} aria-hidden="true"><strong>{p.name}</strong><span className={p.dateOfBirth?undefined:'is-missing'}><small>DOB</small> {p.dateOfBirth?birthDateShort(p.dateOfBirth):'not recorded'}</span><span className={p.medicalRecordNumber?undefined:'is-missing'}><small>MRN</small> {p.medicalRecordNumber??'not recorded'}</span><span className={'patient-identity-pin-allergy '+allergyState}>{context?.allergyStatus==='Reactions reported'?<ShieldAlert size={13}/>:<ShieldCheck size={13}/>}<small>Allergies:</small> <span>{allergyText||'Reactions reported'}</span></span></div>
     <TabsContent value="overview"><PatientSynopsis key={p.id} p={p} ctx={ctx} changeTab={changeTab}/></TabsContent>
     <TabsContent value="visit" forceMount hidden={recordTab!=='visit'}><EncounterReview key={p.id} p={p} ctx={ctx} changeTab={changeTab}/></TabsContent>
         <TabsContent value="evidence"><PatientEvidenceView p={p} ctx={ctx}/></TabsContent>
     <TabsContent value="trace"><OutputTraceView p={p} ctx={ctx}/></TabsContent>
-        <TabsContent value="full"><PatientOverview key={p.id} p={p} ctx={ctx} changeTab={changeTab}/></TabsContent>
+        <TabsContent value="full"><PatientOverview key={p.id} p={p} ctx={ctx} changeTab={changeTab} streamlined={!!onPatientChange}/></TabsContent>
     <TabsContent value="twin">{featureEnabled(ctx.data,'digitalTwin')?<EngineBoard key={p.id+'twin'} p={p} ctx={ctx} initialTab="twin" embedded/>:<Off name="Digital Twin"/>}</TabsContent>
     <TabsContent value="treatment" forceMount hidden={recordTab!=='treatment'}><EngineBoard key={p.id+'treatment'} p={p} ctx={ctx} initialTab="treatment" embedded/></TabsContent>
     <TabsContent value="outcomes">{featureEnabled(ctx.data,'assessments')?<Outcomes p={p} selfReports={patientSelfReports(ctx.data,p.id)}/>:<Off name="Assessments"/>}</TabsContent>

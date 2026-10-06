@@ -1,0 +1,8 @@
+.logo, .compact {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  flex-shrink: 0;
+}
+.compact { width: 150px; }

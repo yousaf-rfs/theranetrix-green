@@ -478,10 +478,10 @@
 
 /* Optional colour studies, isolated from the current home preview. */
 .forest {
-  --study-accent: #17583e; --study-hover: #10432e; --study-selected: #e4eedf;
-  --study-sidebar: #efefe4; --study-canvas: #f8f7f2; --study-ink: #273c2c;
-  --study-muted: #586451; --study-line: #d9dfd1; --study-nav-hover: #e0e6d7;
-  --study-avatar: #e0eadd; --study-avatar-ink: #385834; --study-count: #8b5d35;
+  --study-accent: var(--brand-teal); --study-hover: var(--brand-teal-hover); --study-selected: var(--brand-soft);
+  --study-sidebar: #fff; --study-canvas: var(--brand-paper); --study-ink: var(--brand-ink);
+  --study-muted: var(--brand-muted); --study-line: var(--brand-line); --study-nav-hover: var(--brand-soft);
+  --study-avatar: var(--brand-soft); --study-avatar-ink: var(--brand-teal); --study-count: var(--brand-teal);
 }
 .preview.forest {
   --background: var(--study-canvas); --foreground: var(--study-ink);

@@ -1,0 +1,175 @@
+/* Scoped to the standalone patient record; the home and other designs keep their layout. */
+.page.page.page {
+  color: var(--brand-ink); --record-surface: #fff; --record-shadow: 0 4px 20px #12517e08;
+  --primary: var(--brand-teal); --primary-foreground: #fff; --ring: var(--brand-turquoise);
+}
+.page.page.page :global(.feedback-patient) { --chart-anchor-offset: 80px; padding-bottom: 88px; }
+.page.page.page :global(.patient-tabs) { gap: 24px; }
+.page.page.page :global(.patient-chart-header) {
+  position: relative; top: auto; margin: 0; padding: 0; border: 0; border-radius: 20px;
+  background: var(--record-surface); box-shadow: var(--record-shadow);
+}
+.page.page.page :global(.patient-record-head) {
+  display: grid; grid-template-columns: minmax(0,1fr); gap: 16px;
+  padding: 24px 24px 16px; margin: 0; background: transparent; border: 0;
+}
+.page.page.page :global(.patient-heading) { min-width: 0; gap: 16px; align-items: center; }
+.page.page.page :global(.patient-heading .patient-title-line) { gap: 8px 12px; }
+.page.page.page :global(.patient-heading .patient-title-line h1) { font-size: 28px; font-weight: 600; letter-spacing: -.7px; color: var(--brand-ink); }
+.page.page.page :global(.patient-heading p) { font-size: 13px; color: var(--brand-muted); gap: 8px; }
+.page.page.page :global(.patient-avatar.large) { width: 54px; height: 54px; font-size: 18px; border: 0; flex-shrink: 0; background: hsl(var(--patient-avatar-hue) 52% 42%) !important; color: #fff; }
+.page.page.page :global(.patient-back-control) { display: none; }
+.page.page.page :global(.patient-dob-control) { min-height: 32px; padding: 4px 9px; border: 0; background: var(--brand-paper); border-radius: 6px; color: var(--brand-muted); font-size: 12px; }
+.page.page.page :global(.patient-dob-control strong) { color: var(--brand-ink); }
+.page.page.page :global(.patient-record-head .page-actions) { justify-content: flex-start; flex-wrap: wrap; gap: 8px; }
+.page.page.page :global(.patient-record-head .page-actions [data-slot=button]),
+.page.page.page :global(.patient-record-head .page-actions [data-slot=select-trigger]) { height: 40px; min-height: 40px; border-radius: 9px; font-size: 13px; }
+.page.page.page :global(.patient-record-head .page-actions .patient-switch) { margin-right: auto; }
+.page.page.page :global(.patient-record-head .page-actions .patient-switch [data-slot=select-trigger]) { max-width: none; }
+.page.page.page :global(.patient-record-meta) { padding: 0; gap: 10px 20px; font-size: 13px; color: var(--brand-muted); }
+.page.page.page :global(.patient-record-meta strong) { color: var(--brand-ink); }
+.page.page.page :global(.patient-record-allergies) { border-radius: 9px; padding: 10px 12px; margin: 0; font-size: 13px; }
+.page.page.page :global(.patient-allergy-dismiss) { width: 32px; min-height: 32px; }
+.page.page.page :global(.patient-record-flow) {
+  margin: 0; padding: 8px 16px; border-top: 1px solid var(--brand-line); background: #fff;
+  border-radius: 0 0 20px 20px; flex-wrap: wrap; gap: 8px 16px;
+}
+.page.page.page :global(.patient-flow-tabs) { flex: 1 1 600px; width: auto; min-width: 0; gap: 4px; overflow-x: auto; justify-content: flex-start; }
+.page.page.page :global(.patient-flow-tabs button) { flex: 0 0 auto; min-height: 42px; padding: 10px 12px !important; border-radius: 9px !important; color: var(--brand-muted); background: transparent; font-size: 13px; }
+.page.page.page :global(.patient-flow-tabs button:hover) { color: var(--brand-teal); background: var(--brand-paper); }
+.page.page.page :global(.patient-flow-tabs button[data-state=active]) { background: var(--brand-teal); color: #fff; box-shadow: 0 2px 6px #0b666614; }
+.page.page.page :global(.patient-record-flow .patient-view-toolbar) { width: auto; gap: 12px; padding: 0; }
+.page.page.page :global(.patient-view-toolbar > .text-link) { display: inline-flex; color: var(--brand-teal); min-height: 40px; }
+.page.page.page :global(.patient-view-toolbar [data-slot=select-trigger]) { min-height: 40px; height: 40px; padding: 8px 10px; border: 1px solid var(--brand-line); color: var(--brand-ink); font-size: 12px; background: #fff; }
+.page.page.page :global(.patient-identity-pin) { display: none; }
+.page.page.page :global(.patient-overview) { display: flex; flex-direction: column; gap: 20px; }
+.page.page.page :global(.complete-record-heading) { margin: 0; gap: 16px; }
+.page.page.page :global(.complete-record-heading .eyebrow) { display: none; }
+.page.page.page :global(.complete-record-heading h2) { margin: 0 0 4px; font-size: 22px; color: var(--brand-ink); letter-spacing: -.4px; }
+.page.page.page :global(.complete-record-heading p) { color: var(--brand-muted); font-size: 14px; }
+.page.page.page :global(.complete-record-heading .text-link) { min-height: 40px; flex-shrink: 0; }
+.page.page.page :global(.patient-section-nav) {
+  position: sticky; top: 8px; z-index: 30; display: flex; flex-wrap: nowrap; overflow-x: auto;
+  padding: 6px; margin: 0; gap: 4px; background: #fff; border: 1px solid var(--brand-line);
+  border-radius: 12px; box-shadow: 0 4px 16px #12517e09;
+}
+.page.page.page :global(.patient-section-nav a) { min-height: 40px; padding: 8px 12px; flex: 0 0 auto; background: transparent; color: var(--brand-muted); border-radius: 8px; font-size: 13px; }
+.page.page.page :global(.patient-section-nav a:hover),
+.page.page.page :global(.patient-section-nav a:focus-visible) { background: var(--brand-soft); color: var(--brand-teal); }
+.page.page.page :global(.patient-briefing) { border: 0; border-radius: 18px; box-shadow: var(--record-shadow); background: #fff; }
+.page.page.page :global(.briefing-heading) { padding: 18px 22px; border-color: var(--brand-line); }
+.page.page.page :global(.briefing-heading .eyebrow) { display: none; }
+.page.page.page :global(.briefing-heading h2) { font-size: 18px; font-weight: 600; color: var(--brand-ink); }
+.page.page.page :global(.briefing-grid) { grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); }
+.page.page.page :global(.briefing-reviews) { padding: 6px 22px; }
+.page.page.page :global(.record-review-item) { border-bottom: 1px solid var(--brand-line); }
+.page.page.page :global(.record-review-item:last-child) { border-bottom: 0; }
+.page.page.page :global(.record-review-item > summary) { display: flex; gap: 10px; align-items: flex-start; padding: 16px 0; list-style: none; cursor: pointer; color: var(--brand-ink); font-size: 14px; font-weight: 600; line-height: 1.5; }
+.page.page.page :global(.record-review-item > summary::-webkit-details-marker) { display: none; }
+.page.page.page :global(.record-review-item > summary .badge) { flex-shrink: 0; margin-top: 1px; }
+.page.page.page :global(.record-review-chevron) { margin-left: auto; color: var(--brand-teal); font-size: 20px; line-height: 1; transition: transform 160ms ease; }
+.page.page.page :global(.record-review-item[open] .record-review-chevron) { transform: rotate(45deg); }
+.page.page.page :global(.record-review-content) { padding: 0 0 18px; }
+.page.page.page :global(.record-review-content p) { font-size: 14px; line-height: 1.65; color: var(--brand-muted); }
+.page.page.page :global(.briefing-next) { background: var(--brand-paper); padding: 20px 22px; border-color: var(--brand-line); }
+.page.page.page :global(.briefing-next h3) { color: var(--brand-ink); font-size: 16px; }
+.page.page.page :global(.briefing-next p) { font-size: 14px; line-height: 1.65; color: var(--brand-muted); }
+.page.page.page :global(.briefing-label) { color: var(--brand-teal); font-size: 11px; letter-spacing: .08em; }
+.page.page.page :global(.record-referral > summary) { cursor: pointer; color: var(--brand-teal); font-size: 13px; font-weight: 600; padding-block: 4px; }
+.page.page.page :global(.record-referral[open] > summary) { margin-bottom: 16px; }
+.page.page.page :global(.record-disclosure) { margin: 0; padding: 18px 22px; background: #fff; border: 0; border-radius: 14px; box-shadow: var(--record-shadow); }
+.page.page.page :global(.record-disclosure > summary) { min-height: 28px; font-size: 14px; color: var(--brand-ink); }
+.page.page.page :global(.record-disclosure > summary span) { font-size: 12px; color: var(--brand-muted); }
+.page.page.page :global(.patient-summary-grid) { grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); gap: 20px; }
+.page.page.page :global(.panel) { border: 0; border-radius: 16px; background: #fff; box-shadow: var(--record-shadow); }
+.page.page.page :global(.panel-head) { padding: 20px 22px 16px; gap: 12px; }
+.page.page.page :global(.panel-head h2) { font-size: 17px; color: var(--brand-ink); font-weight: 600; }
+.page.page.page :global(.panel-head p), .page.page.page :global(.summary-card-body p) { font-size: 14px; line-height: 1.65; color: var(--brand-muted); }
+.page.page.page :global(.summary-outcome-strip .outcome) { background: var(--brand-paper); border: 0; border-radius: 12px; }
+.page.page.page :global(.complete-plan-followup) { background: var(--brand-soft); color: var(--brand-teal); }
+.page.page.page :global(.summary-goals blockquote) { font-size: 18px; line-height: 1.55; color: var(--brand-ink); }
+.page.page.page :global(.patient-safety-strip) { background: var(--brand-paper); border: 0; }
+.page.page.page :global(.record-activities-toggle) { min-height: 44px; margin-top: 10px; }
+.page.page.page :global(:is(button,a,summary):focus-visible) { outline: 3px solid var(--brand-turquoise); outline-offset: 3px; }
+.page.page.page :global(.care-workbench) { background: #fff; border-color: var(--brand-line); border-radius: 16px; }
+@media (max-width: 1100px) {
+  .page.page.page :global(.briefing-grid), .page.page.page :global(.patient-summary-grid) { grid-template-columns: minmax(0,1fr); }
+  .page.page.page :global(.briefing-next) { border-left: 0; border-top: 1px solid var(--brand-line); }
+}
+@media (max-width: 600px) {
+  .page.page.page :global(.patient-record-head) { padding: 18px 16px 14px; }
+  .page.page.page :global(.patient-heading) { align-items: flex-start; gap: 12px; }
+  .page.page.page :global(.patient-heading .patient-title-line h1) { font-size: 24px; }
+  .page.page.page :global(.patient-avatar.large) { width: 44px; height: 44px; font-size: 15px; }
+  .page.page.page :global(.patient-record-meta) { gap: 10px; font-size: 12px; }
+  .page.page.page :global(.patient-record-meta .patient-record-review-count) { margin-left: 0; }
+  .page.page.page :global(.patient-record-head .page-actions .patient-switch) { width: 100%; margin: 0; }
+  .page.page.page :global(.patient-record-head .page-actions [data-slot=select-trigger]) { width: 100%; }
+  .page.page.page :global(.patient-record-allergies small) { margin-left: 0; }
+  .page.page.page :global(.patient-record-flow) { padding: 8px; margin: 0; }
+  .page.page.page :global(.patient-flow-tabs button svg) { display: inline-block; }
+  .page.page.page :global(.patient-record-flow .patient-view-toolbar) { justify-content: space-between; width: 100%; padding: 0 4px; }
+  .page.page.page :global(.patient-flow-tabs button), .page.page.page :global([data-slot=button]) { min-height: 44px; }
+  .page.page.page :global(.complete-record-heading) { align-items: flex-start; }
+  .page.page.page :global(.complete-record-heading h2) { font-size: 20px; }
+  .page.page.page :global(.complete-record-heading p) { font-size: 13px; }
+  .page.page.page :global(.patient-section-nav) { top: 4px; }
+  .page.page.page :global(.briefing-heading), .page.page.page :global(.briefing-next), .page.page.page :global(.record-disclosure) { padding: 16px; }
+  .page.page.page :global(.briefing-reviews) { padding: 0 16px; }
+  .page.page.page :global(.record-review-item > summary) { flex-wrap: wrap; gap: 6px; }
+  .page.page.page :global(.record-review-item > summary > span:nth-child(2)) { flex: 1 1 200px; }
+  .page.page.page :global(.panel-head) { padding: 18px 16px 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page.page.page :global(*), .page.page.page :global(*)::before, .page.page.page :global(*)::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+.page.page.page :global(.record-report-snapshot) { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--brand-line); }
+.page.page.page :global(.record-report-snapshot > div:first-child) { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.page.page.page :global(.record-report-snapshot h3) { font-size: 14px; }
+.page.page.page :global(.record-report-snapshot > div:first-child > span) { font-size: 12px; color: var(--brand-muted); }
+.page.page.page :global(.record-report-scores) { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.page.page.page :global(.record-report-scores > div) { display: flex; flex-direction: column; gap: 6px; }
+.page.page.page :global(.record-report-scores .report-score-label) { font-size: 13px; color: var(--brand-muted); }
+.page.page.page :global(.record-report-scores strong) { font-size: 26px; color: var(--brand-ink); line-height: 1.2; }
+.page.page.page :global(.record-report-scores strong small) { font-size: 12px; font-weight: 400; margin-left: 2px; }
+.page.page.page :global(.record-report-scores .report-score-track) { display: block; height: 8px; background: var(--brand-track); mask-image: repeating-linear-gradient(to right,#000 0,#000 calc(10% - 2px),transparent calc(10% - 2px),transparent 10%); }
+.page.page.page :global(.record-report-scores .report-score-track > span) { display: block; height: 100%; border-radius: 0; background: var(--brand-teal); }
+.page.page.page :global(.record-report-scores .report-score-pain > span) { background: var(--brand-turquoise); }
+.page.page.page :global(.record-report-scores .report-score-sleep > span) { background: var(--brand-blue); }
+.page.page.page :global(.record-report-scores .report-score-direction) { color: var(--brand-muted); font-size: 11px; }
+/* Questions remain in the advisor, without a floating prompt covering the record. */
+.page.page.page :global(.advisor-nudge) { display: none; }
+.page.page.page :global(.patient-allergy-dismiss) { position: static; margin-left: 8px; flex-shrink: 0; transform: none; display: inline-flex; align-items: center; justify-content: center; }
+@media (max-width: 600px) {
+  .page.page.page :global(.patient-record-head .page-actions) { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+  .page.page.page :global(.patient-record-head .page-actions > .patient-switch) { grid-column: 1 / -1; max-width: none; width: 100%; }
+  .page.page.page :global(.patient-record-head .page-actions [data-slot=button]) { width: 100%; min-width: 0; min-height: 44px; height: auto; padding: 8px !important; font-size: 12px; gap: 5px; }
+}
+
+/* One sticky row holds both chart tabs and overview section shortcuts. */
+.page.page.page :global(.patient-tabs > .patient-record-flow) {
+  position: sticky; top: 8px; z-index: 40; align-self: stretch;
+  display: flex; flex-wrap: nowrap; align-items: center; gap: 12px;
+  padding: 8px; margin: 0; min-width: 0; max-width: 100%;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  border: 1px solid var(--brand-line); border-radius: 12px;
+  box-shadow: 0 4px 16px #12517e0c;
+  scrollbar-width: thin; scrollbar-color: var(--brand-track) transparent;
+}
+.page.page.page :global(.patient-tabs > .patient-record-flow .patient-flow-tabs) {
+  flex: 0 0 auto; width: auto; overflow: visible;
+}
+.page.page.page :global(.patient-record-flow .patient-section-nav) {
+  position: static; flex: 0 0 auto; overflow: visible; gap: 2px;
+  padding: 0 0 0 12px; margin: 0; min-width: 0;
+  border: 0; border-left: 1px solid var(--brand-line); border-radius: 0; box-shadow: none;
+}
+.page.page.page :global(.patient-record-flow .patient-section-nav a) { padding-inline: 10px; white-space: nowrap; }
+.page.page.page :global(.patient-tabs > .patient-record-flow .patient-view-toolbar) {
+  width: auto; flex: 0 0 auto; margin-left: auto; padding: 0 4px 0 12px;
+  border-left: 1px solid var(--brand-line);
+}
+@media (max-width: 600px) {
+  .page.page.page :global(.patient-tabs > .patient-record-flow) { top: 4px; }
+  .page.page.page :global(.patient-record-flow .patient-section-nav a) { min-height: 44px; }
+}

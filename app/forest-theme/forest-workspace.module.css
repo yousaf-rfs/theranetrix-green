@@ -1,10 +1,23 @@
+/* The logo supplies the three accent colors; pale tints keep the workspace calm. */
+:global(body):has(.workspace) {
+  --brand-teal: #0b6666;
+  --brand-turquoise: #24a3af;
+  --brand-blue: #12517e;
+  --brand-teal-hover: #084f50;
+  --brand-ink: #193c49;
+  --brand-muted: #526b74;
+  --brand-paper: #f3f8f9;
+  --brand-soft: #e2f2f3;
+  --brand-line: #d6e5e8;
+  --brand-track: #dae8ec;
+}
 /* Forest is a separate layout study. All rules require this route wrapper. */
 .workspace {
-  --forest-ink: #173b2d;
-  --forest-dark: #143c2d;
-  --forest-paper: #f5f6f0;
-  --forest-line: #e1e7de;
-  --forest-shadow: 0 3px 8px #46503904, 0 12px 28px #4650390a;
+  --forest-ink: var(--brand-ink);
+  --forest-dark: var(--brand-teal-hover);
+  --forest-paper: var(--brand-paper);
+  --forest-line: var(--brand-line);
+  --forest-shadow: 0 3px 8px #12517e04, 0 12px 28px #12517e0a;
 }
 .workspace.workspace :global(.redesign-shell) { background: var(--forest-paper); }
 .workspace.workspace :global(.redesign-shell [data-slot=sidebar-gap]) { width: 252px; }
@@ -13,45 +26,45 @@
   border: 0; padding: 0;
 }
 .workspace.workspace :global(.redesign-shell [data-slot=sidebar-inner]) {
-  background: #fff; border: 1px solid #e7eadf; border-radius: 24px;
-  box-shadow: 0 10px 32px #4650390c; overflow: hidden; color: #334b39;
+  background: #fff; border: 1px solid var(--brand-line); border-radius: 24px;
+  box-shadow: 0 10px 32px #12517e0c; overflow: hidden; color: var(--brand-ink);
 }
 .workspace.workspace :global(.redesign-shell .brand-header) { padding: 25px 20px 18px; }
-.workspace.workspace :global(.redesign-shell .brand) { color: #2d513b; font-size: 23px; }
-.workspace.workspace :global(.redesign-shell .brand-symbol) { background: #e4edda !important; color: #173b2d !important; border-radius: 10px; }
-.workspace.workspace :global(.redesign-shell .workspace-name) { margin-top: 22px; padding-top: 18px; color: #3e5542; border-color: #e6e9df; }
+.workspace.workspace :global(.redesign-shell .brand) { color: var(--brand-teal); font-size: 23px; }
+.workspace.workspace :global(.redesign-shell .brand-symbol) { background: var(--brand-soft) !important; color: var(--brand-ink) !important; border-radius: 10px; }
+.workspace.workspace :global(.redesign-shell .workspace-name) { margin-top: 22px; padding-top: 18px; color: var(--brand-ink); border-color: var(--brand-line); }
 .workspace.workspace :global(.redesign-shell .workspace-name small),
 .workspace.workspace :global(.redesign-shell .side-profile small),
-.workspace.workspace :global(.redesign-shell .sidebar-note small) { color: #63715f; }
-.workspace.workspace :global(.redesign-shell .workspace-mark) { color: #69835c; }
+.workspace.workspace :global(.redesign-shell .sidebar-note small) { color: var(--brand-muted); }
+.workspace.workspace :global(.redesign-shell .workspace-mark) { color: var(--brand-muted); }
 .workspace.workspace :global(.redesign-shell [data-slot=sidebar-group]) { padding: 8px 12px; }
-.workspace.workspace :global(.redesign-shell .side-label) { color: #6a7664 !important; letter-spacing: .12em; }
+.workspace.workspace :global(.redesign-shell .side-label) { color: var(--brand-muted) !important; letter-spacing: .12em; }
 .workspace.workspace :global(.redesign-shell .nav-link:not([data-active=true])),
-.workspace.workspace :global(.redesign-shell .nav-link:not([data-active=true]) > svg) { color: #4b5e49; }
+.workspace.workspace :global(.redesign-shell .nav-link:not([data-active=true]) > svg) { color: var(--brand-muted); }
 .workspace.workspace :global(.redesign-shell .nav-link) { min-height: 42px; border-radius: 12px; padding-inline: 12px; }
-.workspace.workspace :global(.redesign-shell .nav-link:not([data-active=true]):hover) { background: #f0f3e9 !important; color: #2c513b; }
-.workspace.workspace :global(.redesign-shell .nav-link[data-active=true]) { background: #2c6147 !important; color: #fff !important; box-shadow: 0 3px 8px #2c614714; }
+.workspace.workspace :global(.redesign-shell .nav-link:not([data-active=true]):hover) { background: var(--brand-soft) !important; color: var(--brand-teal); }
+.workspace.workspace :global(.redesign-shell .nav-link[data-active=true]) { background: var(--brand-teal) !important; color: #fff !important; box-shadow: 0 3px 8px #12517e14; }
 .workspace.workspace :global(.redesign-shell .nav-link[data-active=true] > svg) { color: #fff !important; }
 .workspace.workspace :global(.redesign-shell .secondary-nav) { margin-top: 8px; }
 .workspace.workspace :global(.redesign-shell .sidebar-note),
 .workspace.workspace :global(.redesign-shell .sidebar-note > svg),
 .workspace.workspace :global(.redesign-shell .side-profile),
-.workspace.workspace :global(.redesign-shell .side-profile > svg) { color: #50644a; }
-.workspace.workspace :global(.redesign-shell .side-profile) { border-color: #e6e9df; padding-top: 14px; }
+.workspace.workspace :global(.redesign-shell .side-profile > svg) { color: var(--brand-muted); }
+.workspace.workspace :global(.redesign-shell .side-profile) { border-color: var(--brand-line); padding-top: 14px; }
 .workspace.workspace :global(.redesign-shell [data-slot=sidebar-footer]) { padding: 0 18px 18px; }
 .workspace.workspace :global(.redesign-shell .sidebar-note) { padding-bottom: 12px; }
 .workspace.workspace :global(.redesign-shell .topbar) {
   margin: 20px 32px 0; padding: 0 22px; top: 44px; height: 54px; min-height: 54px;
   border: 1px solid #ffffffd9; border-radius: 17px; background: #ffffffed;
-  box-shadow: 0 5px 20px #203c2809;
+  box-shadow: 0 5px 20px #12517e09;
 }
 .workspace.workspace :global(.redesign-shell .main-content) { padding: 26px 32px 40px; }
 .workspace.workspace :global(.redesign-shell .page-title) {
   position: relative; isolation: isolate; overflow: hidden;
   padding: 30px 32px; min-height: 188px; margin-bottom: 18px; border-radius: 22px;
-  background: #fff; color: #254d39; align-items: center; gap: 20px;
-  border: 1px solid #e4e9df;
-  box-shadow: 0 8px 24px #5c60450a;
+  background: #fff; color: var(--brand-teal); align-items: center; gap: 20px;
+  border: 1px solid var(--brand-line);
+  box-shadow: 0 8px 24px #12517e0a;
 }
 .workspace.workspace :global(.redesign-shell .page-title)::before {
   content: ''; position: absolute; z-index: -1; pointer-events: none;
@@ -65,51 +78,51 @@
 }
 .workspace.workspace :global(.redesign-shell .page-title > div:first-child)::before {
   content: 'THERANETRIX  /  CARE, TOGETHER'; display: block;
-  color: #627353; font-size: 10px; font-weight: 600; letter-spacing: .15em;
+  color: var(--brand-muted); font-size: 10px; font-weight: 600; letter-spacing: .15em;
   line-height: 1.5; margin-bottom: 13px;
 }
-.workspace.workspace :global(.redesign-shell .page-title h1) { font-family: Georgia, 'Times New Roman', serif; font-size: 42px; font-weight: 400; line-height: 1.1; letter-spacing: -1.1px; color: #254d39; }
-.workspace.workspace :global(.redesign-shell .page-title p) { font-size: 14px; line-height: 1.5; color: #52624e; margin-top: 10px; }
+.workspace.workspace :global(.redesign-shell .page-title h1) { font-family: Georgia, 'Times New Roman', serif; font-size: 42px; font-weight: 400; line-height: 1.1; letter-spacing: -1.1px; color: var(--brand-teal); }
+.workspace.workspace :global(.redesign-shell .page-title p) { font-size: 14px; line-height: 1.5; color: var(--brand-muted); margin-top: 10px; }
 .workspace.workspace :global(.redesign-shell .page-title .page-actions) { gap: 10px; }
 .workspace.workspace :global(.redesign-shell .page-title [data-slot=button]) { border-radius: 12px; min-height: 44px; padding-inline: 16px; }
-.workspace.workspace :global(.redesign-shell .page-title [data-variant=default]) { background: #2c6147; color: #fff; border: 1px solid #2c6147; }
-.workspace.workspace :global(.redesign-shell .page-title [data-variant=default]:hover) { background: #224d38; }
-.workspace.workspace :global(.redesign-shell .page-title [data-variant=outline]) { color: #2c513d; background: #fff; border: 1px solid #c9d2bf; }
-.workspace.workspace :global(.redesign-shell .page-title [data-variant=outline]:hover) { background: #edf1e6; }
-.workspace.workspace :global(.redesign-shell .overview-preparation) { padding: 0 2px; margin: 0 0 18px; font-size: 12px; }
+.workspace.workspace :global(.redesign-shell .page-title [data-variant=default]) { background: var(--brand-teal); color: #fff; border: 1px solid var(--brand-teal); }
+.workspace.workspace :global(.redesign-shell .page-title [data-variant=default]:hover) { background: var(--brand-teal-hover); }
+.workspace.workspace :global(.redesign-shell .page-title [data-variant=outline]) { color: var(--brand-teal); background: #fff; border: 1px solid var(--brand-line); }
+.workspace.workspace :global(.redesign-shell .page-title [data-variant=outline]:hover) { background: var(--brand-soft); }
+.workspace.workspace :global(.redesign-shell .overview-preparation) { display: none; }
 .workspace.workspace :global(.redesign-shell .triage-summary) { gap: 14px; margin-bottom: 32px; }
 .workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card) {
-  min-height: 128px; padding: 19px 20px; border-radius: 18px; border: 1px solid #e4e9df;
+  min-height: 128px; padding: 19px 20px; border-radius: 18px; border: 1px solid var(--brand-line);
   grid-template-rows: auto 1fr; gap: 15px 8px; box-shadow: var(--forest-shadow);
   transition: box-shadow 180ms ease, background-color 180ms ease;
 }
 .workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card > svg) { width: 30px; height: 30px; padding: 1px; grid-row: 1; align-self: start; }
 .workspace.workspace :global(.redesign-shell .triage-summary .triage-stat-label) { font-size: 12px; line-height: 1.4; align-self: center; }
 .workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card > strong) { font-size: 34px; font-weight: 600; }
-.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true]) { background: #e8efdf; border-color: #b9cbaa; box-shadow: inset 0 -3px 0 #78936a, var(--forest-shadow); }
+.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true]) { background: var(--brand-soft); border-color: var(--brand-line); box-shadow: inset 0 -3px 0 var(--brand-teal), var(--forest-shadow); }
 .workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true] > strong),
-.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true] .triage-stat-label) { color: #284a34; }
-.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true] > svg) { --icon-ink: #54754a; }
-.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card:not([aria-pressed=true]):hover) { box-shadow: 0 8px 12px #193b290a, 0 18px 30px #193b291c; background: #fff; }
-.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true]:hover) { background: #e8efdf; box-shadow: inset 0 -3px 0 #78936a, 0 10px 24px #46503914; }
+.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true] .triage-stat-label) { color: var(--brand-ink); }
+.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true] > svg) { --icon-ink: var(--brand-teal); }
+.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card:not([aria-pressed=true]):hover) { box-shadow: 0 8px 12px #12517e0a, 0 18px 30px #12517e1c; background: #fff; }
+.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card[aria-pressed=true]:hover) { background: var(--brand-soft); box-shadow: inset 0 -3px 0 var(--brand-teal), 0 10px 24px #12517e14; }
 .workspace.workspace :global(.redesign-shell .triage-board) { background: transparent; border: 0; box-shadow: none; overflow: visible; }
 .workspace.workspace :global(.redesign-shell .triage-board-heading) { padding: 0 0 18px; }
 .workspace.workspace :global(.redesign-shell .triage-board-heading h2) { font-size: 23px; letter-spacing: -.5px; }
 .workspace.workspace :global(.redesign-shell .triage-board-heading h2 > span) { border-radius: 20px; font-size: 12px; padding: 3px 9px; vertical-align: middle; }
 .workspace.workspace :global(.redesign-shell .triage-board-heading p) { margin-top: 4px; font-size: 12px; }
-.workspace.workspace :global(.redesign-shell .triage-filters) { padding: 14px; margin: 0 0 22px; background: #fff; border: 1px solid #e5e9e0; border-radius: 16px; box-shadow: 0 4px 16px #183c2807; }
+.workspace.workspace :global(.redesign-shell .triage-filters) { padding: 14px; margin: 0 0 22px; background: #fff; border: 1px solid var(--brand-line); border-radius: 16px; box-shadow: 0 4px 16px #12517e07; }
 .workspace.workspace :global(.redesign-shell .triage-filters [data-slot=input]),
 .workspace.workspace :global(.redesign-shell [data-slot=select-trigger]),
 .workspace.workspace :global(.redesign-shell .dashboard-view-controls [data-slot=button]) { min-height: 40px; height: 40px; border-radius: 10px; }
 .workspace.workspace :global(.redesign-shell .triage-list) { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; gap: 24px; padding: 0; background: transparent; }
 .workspace.workspace :global(.redesign-shell .triage-patient),
-.workspace.workspace :global(.redesign-shell .triage-patient:first-of-type) { margin: 0; background: #fff; border: 1px solid #e0e6dc; border-radius: 22px; box-shadow: var(--forest-shadow); }
+.workspace.workspace :global(.redesign-shell .triage-patient:first-of-type) { margin: 0; background: #fff; border: 1px solid var(--brand-line); border-radius: 22px; box-shadow: var(--forest-shadow); }
 .workspace.workspace.workspace :global(.redesign-shell .triage-list .triage-patient-row) { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: auto auto auto auto; padding: 0; gap: 0; }
 .workspace.workspace :global(.redesign-shell .triage-patient-identity) { grid-column: 1 / -1; grid-row: 1; padding: 22px; background: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; border-bottom: 1px solid var(--forest-line); }
 .workspace.workspace :global(.redesign-shell .triage-patient-identity > a) { grid-row: 1 / span 2; }
 .workspace.workspace :global(.redesign-shell .triage-patient .person strong) { font-size: 17px; }
 .workspace.workspace :global(.redesign-shell .triage-patient .person small) { font-size: 12px; }
-.workspace.workspace :global(.redesign-shell .triage-patient .patient-avatar) { width: 42px; height: 42px; font-size: 14px; background: #edf0e5 !important; color: #3e5933; border: 0; }
+.workspace.workspace :global(.redesign-shell .triage-patient .patient-avatar) { width: 42px; height: 42px; font-size: 14px; background: var(--brand-soft) !important; color: var(--brand-teal); border: 0; }
 .workspace.workspace :global(.redesign-shell .overview-patient-meta) { margin: 0; font-size: 11px; grid-template-columns: max-content 1fr; gap: 3px 6px; }
 .workspace.workspace :global(.redesign-shell .overview-preparation-status) { margin: 0; font-size: 11px; }
 .workspace.workspace :global(.redesign-shell .triage-preview-medications) { grid-column: 1; grid-row: 2; padding: 20px 22px; border: 0; }
@@ -121,13 +134,13 @@
 .workspace.workspace :global(.redesign-shell .triage-next-step > strong),
 .workspace.workspace :global(.redesign-shell .triage-next-step > .triage-priority) { grid-column: 1 / -1; }
 .workspace.workspace :global(.redesign-shell .triage-next-step > .overview-direct-action) { justify-self: end; }
-.workspace.workspace :global(.redesign-shell .triage-mobile-label) { font-size: 10px; letter-spacing: .1em; color: #53614d; margin-bottom: 12px; }
+.workspace.workspace :global(.redesign-shell .triage-mobile-label) { font-size: 10px; letter-spacing: .1em; color: var(--brand-muted); margin-bottom: 12px; }
 .workspace.workspace :global(.redesign-shell .triage-row-actions) { position: static; grid-column: 1 / -1; grid-row: 4; flex-direction: row; justify-content: space-between; align-items: center; padding: 14px 22px 20px; border: 0; gap: 16px; }
-.workspace.workspace :global(.redesign-shell .triage-row-actions [data-slot=button]) { background: #37664c; color: #fff; border: 1px solid #37664c; min-height: 40px; padding-inline: 18px; border-radius: 10px; font-size: 12px; }
-.workspace.workspace :global(.redesign-shell .triage-row-actions [data-slot=button]:hover) { background: #133b28; }
-.workspace.workspace :global(.redesign-shell .triage-expand) { min-height: 40px; color: #3d5747; font-size: 12px; }
+.workspace.workspace :global(.redesign-shell .triage-row-actions [data-slot=button]) { background: var(--brand-teal); color: #fff; border: 1px solid var(--brand-teal); min-height: 40px; padding-inline: 18px; border-radius: 10px; font-size: 12px; }
+.workspace.workspace :global(.redesign-shell .triage-row-actions [data-slot=button]:hover) { background: var(--brand-teal-hover); }
+.workspace.workspace :global(.redesign-shell .triage-expand) { min-height: 40px; color: var(--brand-ink); font-size: 12px; }
 .workspace.workspace :global(.redesign-shell .triage-patient.is-expanded) { grid-column: 1 / -1; }
-.workspace.workspace :global(.redesign-shell .triage-expanded) { background: #fafbf7; }
+.workspace.workspace :global(.redesign-shell .triage-expanded) { background: var(--brand-paper); }
 .workspace.workspace :global(.redesign-shell .triage-patient-row:not(:has(.triage-preview-medications)) .triage-preview-outcomes),
 .workspace.workspace :global(.redesign-shell .triage-patient-row:not(:has(.triage-preview-outcomes)) .triage-preview-medications) { grid-column: 1 / -1; border-left: 0; }
 .workspace.workspace :global(.redesign-shell .panel-bottom) { margin-top: 20px; background: transparent; padding: 10px 0; }
@@ -186,10 +199,10 @@
   .workspace.workspace :global(.redesign-shell .workspace-name) { margin-top: 12px; }
 }
 
-/* Carry the warm, quiet palette through the supporting controls. */
-.workspace.workspace :global(.redesign-shell .nav-link[href="/review-queue"] .nav-count) { background: #f2e5c9; color: #795528; }
-.workspace.workspace :global(.workspace-advisor-dock .advisor-dock-fab) { background: #e4eddb; color: #294f36; border: 1px solid #c4d3b8; box-shadow: 0 5px 18px #46503912; }
-:global(body):has(.workspace) :global(.fb-btn-main:not(.fb-active)) { background: #edf2e6 !important; color: #37563b !important; border: 1px solid #cbd7c0 !important; box-shadow: 0 4px 14px #46503910; }
+/* Carry the brand palette through the supporting controls. */
+.workspace.workspace :global(.redesign-shell .nav-link[href="/review-queue"] .nav-count) { background: var(--brand-soft); color: var(--brand-blue); }
+.workspace.workspace :global(.workspace-advisor-dock .advisor-dock-fab) { background: var(--brand-soft); color: var(--brand-teal); border: 1px solid var(--brand-line); box-shadow: 0 5px 18px #12517e12; }
+:global(body):has(.workspace) :global(.fb-btn-main:not(.fb-active)) { background: var(--brand-soft) !important; color: var(--brand-teal) !important; border: 1px solid var(--brand-line) !important; box-shadow: 0 4px 14px #12517e10; }
 
 /* One continuous worklist toolbar on desktop, with natural wrapping below it. */
 @media (min-width: 1200px) {
@@ -199,8 +212,8 @@
   .workspace.workspace :global(.redesign-shell .triage-board-heading > div:first-child) { grid-column: 1 / -1; grid-row: 1; padding-bottom: 18px; }
   .workspace.workspace :global(.redesign-shell .triage-board)::before {
     content: ''; grid-column: 1 / -1; grid-row: 2; margin-bottom: 22px;
-    background: #fff; border: 1px solid #e5e9e0; border-radius: 16px;
-    box-shadow: 0 4px 16px #183c2807; pointer-events: none;
+    background: #fff; border: 1px solid var(--brand-line); border-radius: 16px;
+    box-shadow: 0 4px 16px #12517e07; pointer-events: none;
   }
   .workspace.workspace :global(.redesign-shell .triage-filters) {
     grid-column: 1; grid-row: 2; z-index: 1; padding: 14px; padding-right: 10px;
@@ -230,40 +243,30 @@
   .workspace.workspace :global(.redesign-shell .dashboard-view-controls .picker) { width: 132px; }
 }
 
-/* Welcome banner: a clear text/action column and a human care illustration. */
+/* Compact text-only welcome header keeps the patient worklist higher on screen. */
 .workspace.workspace :global(.redesign-shell .page-title) {
-  display: grid; grid-template-columns: 1fr 1fr; align-content: center;
-  min-height: 268px; padding: 32px 40px; gap: 22px;
-  background: #fff; border-color: #e4e9df;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-content: center; align-items: center;
+  min-height: 132px; padding: 22px 32px; gap: 20px;
+  background: #fff; border-color: var(--brand-line);
 }
 .workspace.workspace :global(.redesign-shell .page-title > div:first-child) { grid-column: 1; position: relative; }
 .workspace.workspace :global(.redesign-shell .page-title > div:first-child)::before {
-  content: 'THERANETRIX  /  CARE, TOGETHER'; margin-bottom: 14px;
+  content: 'THERANETRIX  /  CARE, TOGETHER'; margin-bottom: 6px;
 }
-.workspace.workspace :global(.redesign-shell .page-title h1) { font-size: 44px; }
-.workspace.workspace :global(.redesign-shell .page-title p) { font-size: 15px; max-width: 360px; }
-.workspace.workspace :global(.redesign-shell .page-title .page-actions) { grid-column: 1; justify-content: flex-start; }
-.workspace.workspace :global(.redesign-shell .page-title)::before {
-  width: 53%; height: 100%; right: 0; top: 0; bottom: auto; transform: none; opacity: 1;
-  background: url('/design-preview/care-conversation.png') center 44% / cover no-repeat;
-  mask-image: linear-gradient(to right, transparent, #000 18%);
-}
-.workspace.workspace :global(.redesign-shell .page-title)::after { content: none; }
+.workspace.workspace :global(.redesign-shell .page-title h1) { font-size: 36px; }
+.workspace.workspace :global(.redesign-shell .page-title p) { font-size: 14px; max-width: none; margin-top: 6px; }
+.workspace.workspace :global(.redesign-shell .page-title .page-actions) { grid-column: 2; justify-content: flex-end; flex-wrap: wrap; }
+.workspace.workspace :global(.redesign-shell .page-title)::before,
+.workspace.workspace :global(.redesign-shell .page-title)::after { content: none; background: none; }
 @media (min-width: 768px) and (max-width: 1199px) {
-  .workspace.workspace :global(.redesign-shell .page-title) { padding: 28px; grid-template-columns: 1.15fr 1fr; }
-  .workspace.workspace :global(.redesign-shell .page-title h1) { font-size: 38px; }
-  .workspace.workspace :global(.redesign-shell .page-title p) { max-width: 290px; }
-  .workspace.workspace :global(.redesign-shell .page-title)::before { width: 48%; background-position: 62% center; }
+  .workspace.workspace :global(.redesign-shell .page-title) { padding: 20px 24px; }
+  .workspace.workspace :global(.redesign-shell .page-title h1) { font-size: 32px; }
 }
 @media (max-width: 767px) {
-  .workspace.workspace :global(.redesign-shell .page-title) { grid-template-columns: 1fr; padding: 26px 24px 192px; gap: 18px; }
-  .workspace.workspace :global(.redesign-shell .page-title h1) { font-size: 36px; }
+  .workspace.workspace :global(.redesign-shell .page-title) { grid-template-columns: 1fr; min-height: 0; padding: 20px; gap: 16px; }
+  .workspace.workspace :global(.redesign-shell .page-title h1) { font-size: 32px; }
   .workspace.workspace :global(.redesign-shell .page-title p) { font-size: 14px; }
-  .workspace.workspace :global(.redesign-shell .page-title)::before {
-    width: 100%; height: 172px; top: auto; bottom: 0; right: 0;
-    background-size: 310px auto; background-position: right 42%;
-    mask-image: linear-gradient(to bottom, transparent, #000 15%);
-  }
+  .workspace.workspace :global(.redesign-shell .page-title .page-actions) { grid-column: 1; justify-content: flex-start; }
 }
 
 /* Compact patient cards with three side-by-side report scales. */
@@ -285,17 +288,17 @@
 .workspace.workspace :global(.redesign-shell .triage-outcomes) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 10px; }
 .workspace.workspace :global(.redesign-shell .triage-outcomes > div:not(.report-summary-footer)) {
   display: grid; grid-template-columns: 1fr; gap: 8px; padding: 10px 8px;
-  background: #f7f8f4; border: 1px solid #edf0e7; border-radius: 10px;
+  background: var(--brand-paper); border: 1px solid var(--brand-line); border-radius: 10px;
 }
-.workspace.workspace :global(.redesign-shell .triage-outcomes > div > .report-score-label) { font-size: 12px; color: #40513e; }
-.workspace.workspace :global(.redesign-shell .triage-outcomes strong) { font-size: 24px; line-height: 1; color: #263e2e; }
+.workspace.workspace :global(.redesign-shell .triage-outcomes > div > .report-score-label) { font-size: 12px; color: var(--brand-ink); }
+.workspace.workspace :global(.redesign-shell .triage-outcomes strong) { font-size: 24px; line-height: 1; color: var(--brand-ink); }
 .workspace.workspace :global(.redesign-shell .triage-outcomes strong small) { font-size: 11px; font-weight: 400; }
 .workspace.workspace :global(.redesign-shell .triage-outcomes .report-score-track) {
-  height: 8px; border-radius: 0; background: #e2e8dc;
+  height: 8px; border-radius: 0; overflow: hidden; background: var(--brand-track);
   mask-image: repeating-linear-gradient(to right, #000 0, #000 calc(10% - 2px), transparent calc(10% - 2px), transparent 10%);
 }
 .workspace.workspace :global(.redesign-shell .triage-outcomes .report-score-track > span) { border-radius: 0; }
-.workspace.workspace :global(.redesign-shell .triage-outcomes .report-score-direction) { font-size: 10px; line-height: 1.4; color: #53624d; }
+.workspace.workspace :global(.redesign-shell .triage-outcomes .report-score-direction) { font-size: 10px; line-height: 1.4; color: var(--brand-muted); }
 .workspace.workspace :global(.redesign-shell .triage-outcomes > .report-summary-footer) { grid-column: 1 / -1; margin-top: 0; padding-top: 10px; gap: 5px 10px; }
 .workspace.workspace :global(.redesign-shell .triage-outcomes .report-summary-footer small) { font-size: 11px; }
 @media (min-width: 1200px) {
@@ -366,7 +369,7 @@
 
 .workspace.workspace :global(.redesign-shell .nav-link[href="/review-queue"] .nav-count),
 .workspace.workspace :global(.redesign-shell .notification-count) {
-  background: #2c6147;
+  background: var(--brand-teal);
   color: #fff;
 }
 
@@ -404,12 +407,12 @@
 .workspace.workspace :global(.redesign-shell .sidebar-note) { position: relative; }
 .workspace.workspace :global(.redesign-shell .secondary-nav)::before {
   content: ''; position: absolute; top: 0; left: 18px; right: 18px;
-  height: 1px; background: #e1e7de; pointer-events: none;
+  height: 1px; background: var(--brand-line); pointer-events: none;
 }
 .workspace.workspace :global(.redesign-shell .sidebar-note) { padding-top: 14px; }
 .workspace.workspace :global(.redesign-shell .sidebar-note)::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 1px; background: #e1e7de; pointer-events: none;
+  height: 1px; background: var(--brand-line); pointer-events: none;
 }
 
 /* Forest uses the floating sidebar as its primary navigation surface. */
@@ -421,37 +424,37 @@
 :global(body):has(.workspace) :global(.forest-sidebar-notification) {
   display: flex; width: 100%; height: 42px; gap: 10px; padding: 0 10px;
   align-items: center; justify-content: flex-start; border-radius: 10px;
-  background: #f2f5ed; color: #3d5744; font-size: 12px;
+  background: var(--brand-paper); color: var(--brand-ink); font-size: 12px;
 }
-:global(body):has(.workspace) :global(.forest-sidebar-notification:hover) { background: #e7eedf; }
+:global(body):has(.workspace) :global(.forest-sidebar-notification:hover) { background: var(--brand-soft); }
 :global(body):has(.workspace) :global(.forest-sidebar-notification .notification-count) {
   position: static; margin-left: auto; display: inline-flex; align-items: center; justify-content: center;
   min-width: 22px; height: 22px; padding: 0 5px; border-radius: 50%;
-  background: #2c6147; color: #fff; font-size: 11px;
+  background: var(--brand-teal); color: #fff; font-size: 11px;
 }
 :global(body):has(.workspace) :global([data-mobile=true] .workspace-name) { display: none; }
 @media (max-width: 767px) {
   .workspace.workspace :global(.redesign-shell .forest-mobile-navigation) {
     display: flex; align-items: center; gap: 10px; padding: 12px 16px 0;
-    color: #2c513d; font-weight: 600;
+    color: var(--brand-teal); font-weight: 600;
   }
   .workspace.workspace :global(.redesign-shell .forest-mobile-navigation button) { width: 44px; height: 44px; }
   .workspace.workspace :global(.redesign-shell .main-content) { padding-top: 14px; }
 }
 
 /* The mobile sidebar is rendered in a portal outside the preview wrapper. */
-:global(body):has(.workspace) :global([data-mobile=true][data-sidebar=sidebar]) { background: #fff; color: #334b39; }
+:global(body):has(.workspace) :global([data-mobile=true][data-sidebar=sidebar]) { background: #fff; color: var(--brand-ink); }
 :global(body):has(.workspace) :global([data-mobile=true] .brand-header) { padding: 22px 18px 12px; gap: 18px; }
-:global(body):has(.workspace) :global([data-mobile=true] .brand) { color: #2d513b; }
-:global(body):has(.workspace) :global([data-mobile=true] .brand-symbol) { background: #e4edda; color: #2d513b; }
+:global(body):has(.workspace) :global([data-mobile=true] .brand) { color: var(--brand-teal); }
+:global(body):has(.workspace) :global([data-mobile=true] .brand-symbol) { background: var(--brand-soft); color: var(--brand-teal); }
 :global(body):has(.workspace) :global([data-mobile=true] .side-label),
 :global(body):has(.workspace) :global([data-mobile=true] .nav-link),
 :global(body):has(.workspace) :global([data-mobile=true] .sidebar-note),
-:global(body):has(.workspace) :global([data-mobile=true] .side-profile) { color: #4b5e49; }
-:global(body):has(.workspace) :global([data-mobile=true] .nav-link[data-active=true]) { background: #2c6147; color: #fff; }
-:global(body):has(.workspace) :global([data-mobile=true] .nav-count) { background: #2c6147; color: #fff; }
+:global(body):has(.workspace) :global([data-mobile=true] .side-profile) { color: var(--brand-muted); }
+:global(body):has(.workspace) :global([data-mobile=true] .nav-link[data-active=true]) { background: var(--brand-teal); color: #fff; }
+:global(body):has(.workspace) :global([data-mobile=true] .nav-count) { background: var(--brand-teal); color: #fff; }
 :global(body):has(.workspace) :global([data-mobile=true][data-sidebar=sidebar]) { top: 0; height: 100svh; }
-:global(body):has(.workspace) :global([data-mobile=true] .nav-link[data-active=true]) { background: #2c6147 !important; color: #fff !important; }
+:global(body):has(.workspace) :global([data-mobile=true] .nav-link[data-active=true]) { background: var(--brand-teal) !important; color: #fff !important; }
 :global(body):has(.workspace):has(:global([data-mobile=true])) :global(.workspace-advisor-dock),
 :global(body):has(.workspace):has(:global([data-mobile=true])) :global(.fb-btn-main) { visibility: hidden; }
 :global(body):has(.workspace) :global([data-mobile=true] .nav-link) { min-height: 40px; height: 40px; }
@@ -463,14 +466,14 @@
 }
 :global(body):has(.workspace) :global(.forest-notification-item)::before {
   content: ''; position: absolute; top: 0; left: 6px; right: 6px;
-  height: 1px; background: #e1e7de; pointer-events: none;
+  height: 1px; background: var(--brand-line); pointer-events: none;
 }
 :global(body):has(.workspace) :global(.forest-sidebar-notification) {
-  background: transparent; color: #4b5e49; padding-inline: 12px;
+  background: transparent; color: var(--brand-muted); padding-inline: 12px;
   border: 0; border-radius: 12px; font-size: 13px; font-weight: 400;
   box-shadow: none; gap: 10px;
 }
-:global(body):has(.workspace) :global(.forest-sidebar-notification:hover) { background: #f0f3e9; color: #2c513b; }
+:global(body):has(.workspace) :global(.forest-sidebar-notification:hover) { background: var(--brand-soft); color: var(--brand-teal); }
 @media (max-height: 850px) {
   :global(body):has(.workspace) :global(.forest-sidebar-notification) { height: 38px; }
 }
@@ -481,3 +484,115 @@
 
 /* Standalone Forest home has no design-study switcher above it. */
 .workspace.workspace :global(.redesign-shell) { min-height: 100svh; }
+
+/* Brand accents for inherited home components; clinical warning colors stay distinct. */
+.workspace.workspace {
+  --muted-foreground: var(--brand-muted);
+  --ring: var(--brand-turquoise);
+}
+.workspace.workspace :global(.redesign-shell .page-title h1) { color: var(--brand-teal); }
+.workspace.workspace :global(.redesign-shell .page-title > div:first-child)::before { color: var(--brand-blue); }
+.workspace.workspace :global(.redesign-shell .triage-board-heading h2),
+.workspace.workspace :global(.redesign-shell .triage-patient .person strong) { color: var(--brand-ink); }
+.workspace.workspace :global(.redesign-shell .triage-board-heading p),
+.workspace.workspace :global(.redesign-shell .triage-mobile-label),
+.workspace.workspace :global(.redesign-shell .workspace-footer),
+.workspace.workspace :global(.redesign-shell .panel-bottom) { color: var(--brand-muted); }
+.workspace.workspace :global(.redesign-shell .triage-board-heading h2 > span),
+.workspace.workspace :global(.redesign-shell .profile-avatar) {
+  background: var(--brand-soft); color: var(--brand-teal); border-color: var(--brand-line);
+}
+.workspace.workspace :global(.redesign-shell .triage-filters [data-slot=input]),
+.workspace.workspace :global(.redesign-shell [data-slot=select-trigger]) {
+  color: var(--brand-ink); background: #fbfdfd; border-color: var(--brand-line);
+}
+.workspace.workspace :global(.redesign-shell input::placeholder) { color: var(--brand-muted); }
+.workspace.workspace :global(.redesign-shell .overview-direct-action),
+.workspace.workspace :global(.redesign-shell .recommendation-trigger),
+.workspace.workspace :global(.redesign-shell .text-link),
+.workspace.workspace :global(.redesign-shell .triage-pain-change.text-teal) { color: var(--brand-teal); }
+.workspace.workspace :global(.redesign-shell .overview-preparation-status.has-report > svg) { background: var(--brand-teal); }
+.workspace.workspace :global(.redesign-shell .triage-outcomes .report-summary-footer) { border-color: var(--brand-line); }
+.workspace.workspace :global(.redesign-shell .triage-outcomes .report-score-pain > span) { background: var(--brand-turquoise); }
+.workspace.workspace :global(.redesign-shell .triage-outcomes .report-score-function > span) { background: var(--brand-teal); }
+.workspace.workspace :global(.redesign-shell .triage-outcomes .report-score-sleep > span) { background: var(--brand-blue); }
+.workspace.workspace :global(.redesign-shell .triage-patient-row:hover) { background: #fbfdfd; }
+.workspace.workspace :global(.workspace-advisor-dock .advisor-dock-fab) {
+  background: var(--brand-soft); color: var(--brand-teal); border-color: var(--brand-line);
+}
+.workspace.workspace :global(.workspace-advisor-dock .advisor-dock-fab:hover) { background: #d3ebed; }
+.workspace.workspace :global(.workspace-advisor-dock .advisor-dock-head) { background: var(--brand-teal); }
+:global(body):has(.workspace) :global([data-slot=select-item][data-highlighted]),
+:global(body):has(.workspace) :global([data-slot=dropdown-menu-item][data-highlighted]) { background: var(--brand-soft); color: var(--brand-ink); }
+:global(body):has(.workspace) :global([data-mobile=true] .profile-avatar) {
+  background: var(--brand-soft); color: var(--brand-teal); border-color: var(--brand-line);
+}
+
+/* The card surface opens a summary; its existing action controls keep their behavior. */
+.workspace.workspace :global(.triage-patient[data-patient-clickable=true]) { cursor: pointer; }
+.workspace.workspace :global(.patient-panel-trigger) { display: block; width: 100%; text-align: left; border-radius: 6px; cursor: pointer; }
+.workspace.workspace :global(.patient-panel-trigger:focus-visible) { outline: 3px solid var(--brand-turquoise); outline-offset: 5px; }
+.workspace.workspace :global(.triage-patient[data-patient-clickable=true]:hover) { box-shadow: 0 6px 12px #12517e0a, 0 16px 30px #12517e14; }
+
+/* Small, input-driven responses keep the clinical worklist calm and scannable. */
+.workspace.workspace :global(.redesign-shell .triage-patient[data-patient-clickable=true]),
+.workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card) {
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out, background-color 160ms ease;
+}
+.workspace.workspace :global(.redesign-shell :is([data-slot=button], .nav-link, .forest-sidebar-notification, .overview-direct-action, .triage-expand, .recommendation-trigger)),
+.workspace.workspace :global(.advisor-dock-fab) {
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.workspace.workspace :global(.redesign-shell :is(.overview-direct-action, .triage-row-actions [data-slot=button]) > .lucide-arrow-right) {
+  transition: transform 180ms ease-out;
+}
+.workspace.workspace :global(.redesign-shell :is([data-slot=input], [data-slot=select-trigger])) {
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+.workspace.workspace :global(.redesign-shell .triage-patient[data-patient-clickable=true]:focus-within) {
+  box-shadow: 0 0 0 2px var(--brand-turquoise), var(--forest-shadow);
+}
+.workspace.workspace :global(.redesign-shell :is(button, a, [data-slot=select-trigger]):focus-visible) {
+  outline: 3px solid var(--brand-turquoise); outline-offset: 3px;
+}
+.workspace.workspace :global(.redesign-shell .triage-filters [data-slot=input]:focus-visible) {
+  border-color: var(--brand-turquoise); box-shadow: 0 0 0 3px #24a3af20; outline: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .workspace.workspace :global(.redesign-shell .triage-patient[data-patient-clickable=true]:hover) {
+    transform: translateY(-3px); box-shadow: 0 6px 14px #12517e0a, 0 18px 34px #12517e16;
+  }
+  .workspace.workspace :global(.redesign-shell .triage-summary .triage-summary-card:hover) { transform: translateY(-3px); }
+  .workspace.workspace :global(.redesign-shell :is(.page-actions, .triage-row-actions, .dashboard-view-controls) [data-slot=button]:not(:disabled):hover),
+  .workspace.workspace :global(.advisor-dock-fab:hover) { transform: translateY(-1px); box-shadow: 0 4px 10px #12517e18; }
+  .workspace.workspace :global(.redesign-shell :is(.overview-direct-action, .triage-row-actions [data-slot=button]):hover > .lucide-arrow-right) { transform: translateX(3px); }
+  .workspace.workspace :global(.redesign-shell :is(.overview-direct-action, .triage-expand, .recommendation-trigger):hover) {
+    color: var(--brand-teal-hover); text-decoration: underline; text-underline-offset: 4px;
+  }
+  .workspace.workspace :global(.redesign-shell .nav-link:not([data-active=true]):hover > svg) { color: var(--brand-teal); }
+  .workspace.workspace :global(.redesign-shell .triage-filters [data-slot=input]:hover),
+  .workspace.workspace :global(.redesign-shell [data-slot=select-trigger]:hover) { border-color: var(--brand-turquoise); background: #fff; }
+}
+.workspace.workspace :global(.redesign-shell :is(.triage-summary-card, [data-slot=button]):not(:disabled):active),
+.workspace.workspace :global(.advisor-dock-fab:active) { transform: translateY(1px); }
+@media (prefers-reduced-motion: reduce) {
+  .workspace.workspace :global(*), .workspace.workspace :global(*)::before, .workspace.workspace :global(*)::after {
+    animation: none !important; transition: none !important;
+  }
+  .workspace.workspace :global(.redesign-shell :is(.triage-patient, .triage-summary-card, [data-slot=button], .overview-direct-action > svg)),
+  .workspace.workspace :global(.advisor-dock-fab) { transform: none !important; }
+}
+
+/* Full records reuse the existing clinical views inside the standalone preview. */
+.workspace.workspace :global(.preview-record-heading) { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; color: var(--brand-muted); font-size: 13px; }
+.workspace.workspace :global(.preview-record-heading > span) { font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.workspace.workspace :global(.preview-record-heading > button) { min-height: 40px; padding: 8px 14px; background: #fff; border: 1px solid var(--brand-line); border-radius: 10px; color: var(--brand-teal); cursor: pointer; }
+.workspace.workspace :global(.preview-record-heading > button:hover) { background: var(--brand-soft); }
+.workspace.workspace :global(.patient-record-head h1:focus) { outline: none; }
+.workspace.workspace :global(.redesign-shell .patient-record-flow .text-link) { color: #fff; }
+.workspace.workspace :global(.redesign-shell .patient-chart-header) { margin-top: 0; }
+@media (max-width: 767px) {
+  .workspace.workspace :global(.redesign-shell .patient-chart-header) { margin-inline: -14px; padding-inline: 14px; }
+  .workspace.workspace :global(.redesign-shell .patient-record-flow) { margin-inline: -14px; }
+  .workspace.workspace :global(.redesign-shell .patient-identity-pin) { margin-inline: -14px; }
+}

@@ -54,5 +54,7 @@ export function stickyRecordOffset():number{
   const bottom=(selector:string,pinned:boolean)=>{const el=document.querySelector<HTMLElement>(selector);if(!el)return 0;const style=getComputedStyle(el);if(style.display==='none')return 0;
     if(pinned){const top=parseFloat(style.top);return style.position==='sticky'&&Number.isFinite(top)?top+el.offsetHeight:0;}
     return Math.max(0,el.getBoundingClientRect().bottom);};
+  const navigation=bottom('.patient-tabs > .patient-record-flow',true);
+  if(navigation)return Math.max(bottom('.topbar',false),navigation);
   return Math.max(bottom('.topbar',false),bottom('.patient-chart-header',false),bottom('.patient-identity-pin',true));
 }
