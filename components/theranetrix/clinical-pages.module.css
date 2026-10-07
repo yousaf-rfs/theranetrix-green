@@ -1,0 +1,162 @@
+/* Applied only to Treatment and Care pathways in the approved demo design. */
+.clinical.clinical.clinical {
+  --clinical-shadow: 0 6px 24px #12517e08;
+  color: var(--brand-ink, #193c49);
+  min-width: 0;
+}
+
+/* Quiet white surfaces keep the comparison and recorded context distinct. */
+.clinical.clinical.clinical :global(:is(.panel,.treatment-twin-feed,.treatment-pst,.treatment-shadow,.pathway-banner)) {
+  min-width: 0;
+  background: #fff;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: var(--clinical-shadow);
+}
+.clinical.clinical.clinical :global(.engine-run-toolbar) {
+  padding: 18px 22px;
+  margin: 0 0 20px;
+  border: 0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--clinical-shadow);
+  gap: 16px;
+}
+.clinical.clinical.clinical :global(.engine-run-toolbar strong) { color: var(--brand-ink); font-size: 15px; }
+.clinical.clinical.clinical :global(.engine-run-toolbar small) { color: var(--brand-muted); line-height: 1.6; }
+.clinical.clinical.clinical :global(.treatment-board) { gap: 20px; align-items: start; }
+.clinical.clinical.clinical :global(:is(.treatment-panel-heading,.treatment-pst-head,.panel-head)) {
+  padding: 20px;
+  border-color: var(--brand-line);
+  background: transparent;
+}
+.clinical.clinical.clinical :global(:is(.treatment-panel-heading,.treatment-pst-head,.panel-head) h2) {
+  color: var(--brand-ink);
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+.clinical.clinical.clinical :global(:is(.treatment-panel-heading,.treatment-pst-head,.panel-head) p) { color: var(--brand-muted); font-size: 13px; line-height: 1.55; }
+.clinical.clinical.clinical :global(:is(.pst-eyebrow,.pathway-step .eyebrow)) {
+  color: var(--brand-muted);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.clinical.clinical.clinical :global(:is(.text-link,.recommendation-details-trigger)) { color: var(--brand-teal); }
+.clinical.clinical.clinical :global(:is(button,a,input,select,textarea,summary,[tabindex]):focus-visible) {
+  outline: 3px solid var(--brand-turquoise);
+  outline-offset: 3px;
+}
+.clinical.clinical.clinical :global([data-slot=button]) { border-radius: 10px; min-height: 40px; transition: background-color 160ms ease,box-shadow 160ms ease; }
+.clinical.clinical.clinical :global([data-slot=button][data-variant=default]) { background: var(--brand-teal); color: #fff; }
+.clinical.clinical.clinical :global([data-slot=button][data-variant=outline]) { background: #fff; color: var(--brand-teal); border-color: var(--brand-line); }
+
+/* A compact metric grid makes patient context readable at a glance. */
+.clinical.clinical.clinical :global(.treatment-feed-measures) { gap: 8px; margin: 0 16px 16px; }
+.clinical.clinical.clinical :global(.treatment-feed-measures > div) { padding: 12px; border: 0; border-radius: 12px; background: var(--brand-paper); }
+.clinical.clinical.clinical :global(.treatment-feed-measures dt) { color: var(--brand-muted); font-size: 12px; }
+.clinical.clinical.clinical :global(.treatment-feed-measures dd) { color: var(--brand-ink); font-size: 21px; font-variant-numeric: tabular-nums; }
+.clinical.clinical.clinical :global(:is(.treatment-context-fact,.treatment-context-section,.treatment-context-history)) { border-color: var(--brand-line); }
+.clinical.clinical.clinical :global(:is(.treatment-context-fact,.treatment-context-section,.treatment-context-history) p) { font-size: 13px; line-height: 1.6; }
+.clinical.clinical.clinical :global(:is(.treatment-context-fact,.treatment-context-section) h3) { color: var(--brand-ink); }
+.clinical.clinical.clinical :global(.treatment-allergy) { border-radius: 10px; }
+.clinical.clinical.clinical :global(.treatment-model-note) { color: var(--brand-muted); line-height: 1.6; border-radius: 0 0 20px 20px; }
+
+/* Preserve every score, caution, source and label while updating the comparison. */
+.clinical.clinical.clinical :global(.pst-sliders) { gap: 18px 20px; }
+.clinical.clinical.clinical :global(.pst-sliders strong) { color: var(--brand-teal); }
+.clinical.clinical.clinical :global(.pst-sliders [data-slot=slider-track]) { background: var(--brand-track); }
+.clinical.clinical.clinical :global(.pst-sliders [data-slot=slider-range]) { background: var(--brand-teal); }
+.clinical.clinical.clinical :global(.pst-sliders [data-slot=slider-thumb]) { border-color: var(--brand-teal); background: #fff; }
+.clinical.clinical.clinical :global(:is(.pst-patient-preferences,.pst-filter-bar,.pst-lowest,.pst-model-limits,.pst-drug-controls)) { background: var(--brand-paper); border-color: var(--brand-line); border-radius: 12px; }
+.clinical.clinical.clinical :global(.pst-filter-bar) { border-radius: 0; }
+.clinical.clinical.clinical :global(.pst-category-tabs) { border: 0; border-radius: 10px; padding: 4px; }
+.clinical.clinical.clinical :global(.pst-category-tabs button) { min-height: 36px; border-radius: 7px; }
+.clinical.clinical.clinical :global(:is(.pst-category-tabs,.pst-history-choice) button[aria-pressed=true]) { color: #fff; background: var(--brand-teal); }
+.clinical.clinical.clinical :global(.treatment-feedback input:is([type=checkbox],[type=radio])) { accent-color: var(--brand-teal); }
+.clinical.clinical.clinical :global(.pst-find-bar :is(input,select)) { min-height: 40px; border-radius: 9px; border-color: var(--brand-line); background: #fbfdfd; color: var(--brand-ink); }
+.clinical.clinical.clinical :global(.pst-table-wrap) { max-width: 100%; border-color: var(--brand-line); }
+.clinical.clinical.clinical :global(.pst-table th) { color: var(--brand-muted); background: var(--brand-paper); border-color: var(--brand-line); }
+.clinical.clinical.clinical :global(.pst-table td) { color: var(--brand-ink); border-color: var(--brand-line); padding-block: 15px; }
+.clinical.clinical.clinical :global(.pst-table .is-picked) { background: var(--brand-soft); box-shadow: inset 3px 0 var(--brand-teal); }
+.clinical.clinical.clinical :global(.pst-explanation) { background: var(--brand-paper); color: var(--brand-ink); }
+.clinical.clinical.clinical :global(.treatment-shadow .shadow-card) { border-color: var(--brand-line); }
+.clinical.clinical.clinical :global(.treatment-shadow .shadow-card.is-picked) { background: var(--brand-soft); box-shadow: inset 3px 0 var(--brand-teal); }
+.clinical.clinical.clinical :global(.shadow-prototype-note) { background: var(--brand-paper); color: var(--brand-muted); border-radius: 0 0 20px 20px; }
+.clinical.clinical.clinical :global(.treatment-feedback .treatment-decision) { background: #fff; border: 1px solid var(--brand-line); border-top: 3px solid var(--brand-teal); border-radius: 16px; box-shadow: 0 8px 28px #12517e14; padding: 20px; }
+.clinical.clinical.clinical :global(.treatment-decision-actions button) { border-radius: 8px; min-height: 40px; }
+.clinical.clinical.clinical :global(.treatment-decision-actions button.selected) { background: var(--brand-soft); color: var(--brand-teal); border-color: var(--brand-teal); }
+.clinical.clinical.clinical :global(.treatment-decision textarea) { border-radius: 10px; border-color: var(--brand-line); }
+
+/* Enrollment overview and the five recorded operational pathway activities. */
+.clinical.clinical.clinical :global(.pathway-banner) { padding: 24px; margin-bottom: 24px; gap: 20px; color: var(--brand-ink); }
+.clinical.clinical.clinical :global(.pathway-banner-icon) { width: 52px; height: 52px; border: 0; border-radius: 16px; color: var(--brand-teal); background: var(--brand-soft); }
+.clinical.clinical.clinical :global(.pathway-banner h2) { color: var(--brand-ink); font-size: 20px; }
+.clinical.clinical.clinical :global(.pathway-banner :is(p,.eyebrow,.pathway-banner-stat span)) { color: var(--brand-muted); }
+.clinical.clinical.clinical :global(.pathway-banner-stat strong) { color: var(--brand-teal); font-size: 30px; font-variant-numeric: tabular-nums; }
+.clinical.clinical.clinical :global(.pathways-workspace [data-slot=table-cell]) { padding-block: 20px; border-color: var(--brand-line); }
+.clinical.clinical.clinical :global(.pathways-workspace [data-slot=table]) { width: 100%; min-width: 0; table-layout: fixed; }
+.clinical.clinical.clinical :global(.pathways-workspace :is([data-slot=table-cell],[data-slot=table-head])) { padding-inline: 14px; white-space: normal; overflow-wrap: anywhere; }
+.clinical.clinical.clinical :global(.pathways-workspace [data-slot=table-head]:nth-child(1)) { width: 26%; }
+.clinical.clinical.clinical :global(.pathways-workspace [data-slot=table-head]:nth-child(2)) { width: 14%; }
+.clinical.clinical.clinical :global(.pathways-workspace [data-slot=table-head]:nth-child(3)) { width: 14%; }
+.clinical.clinical.clinical :global(.pathways-workspace [data-slot=table-head]:nth-child(4)) { width: 29%; }
+.clinical.clinical.clinical :global(.pathways-workspace [data-slot=table-head]:nth-child(5)) { width: 17%; }
+.clinical.clinical.clinical :global(.pathways-workspace :is(.completion,.person,.person > div)) { min-width: 0; }
+.clinical.clinical.clinical :global(.pathways-workspace .person) { gap: 10px; }
+.clinical.clinical.clinical :global(.pathways-workspace .person :is(strong,small)) { white-space: normal; overflow-wrap: anywhere; }
+.clinical.clinical.clinical :global(.pathways-workspace .completion > div) { flex-wrap: wrap; gap: 4px; }
+.clinical.clinical.clinical :global(.pathways-workspace [data-slot=table-cell]:last-child [data-slot=button]) { width: 100%; min-width: 0; padding-inline: 8px; white-space: normal; }
+.clinical.clinical.clinical :global(.pathways-workspace [data-slot=table-cell]:last-child [data-slot=button] svg) { flex-shrink: 0; }
+.clinical.clinical.clinical :global(.pathway-next-activity) { gap: 8px; padding: 12px 14px; background: var(--brand-paper); border-radius: 12px; }
+.clinical.clinical.clinical :global(.pathway-steps) { padding: 0 24px 12px; }
+.clinical.clinical.clinical :global(.pathway-step) { padding: 22px 0; gap: 16px; border-color: var(--brand-line); }
+.clinical.clinical.clinical :global(.step-node) { width: 38px; height: 38px; color: var(--brand-blue); background: var(--brand-paper); border: 1px solid var(--brand-line); font-weight: 650; }
+.clinical.clinical.clinical :global(.is-complete .step-node) { color: #fff; background: var(--brand-teal); border-color: var(--brand-teal); }
+.clinical.clinical.clinical :global(.pathway-step > div) { min-width: 0; }
+.clinical.clinical.clinical :global(.pathway-step h3) { color: var(--brand-ink); font-size: 16px; line-height: 1.45; }
+.clinical.clinical.clinical :global(.pathway-step p) { color: var(--brand-muted); line-height: 1.65; }
+.clinical.clinical.clinical :global(.pathway-step [role=checkbox]) { flex-shrink: 0; width: 24px; height: 24px; border-color: var(--brand-line); border-radius: 7px; }
+.clinical.clinical.clinical :global(.pathway-step [role=checkbox][data-state=checked]) { background: var(--brand-teal); border-color: var(--brand-teal); color: #fff; }
+.clinical.clinical.clinical :global(.completion [data-slot=progress]) { background: var(--brand-track); border-radius: 6px; height: 8px; }
+.clinical.clinical.clinical :global(.completion [data-slot=progress-indicator]) { background: var(--brand-teal); }
+.clinical.clinical.clinical :global(.completion strong) { color: var(--brand-teal); }
+.clinical.clinical.clinical :global(.model-notice) { background: var(--brand-paper); border: 1px solid var(--brand-line); border-radius: 16px; padding: 22px; color: var(--brand-muted); }
+.clinical.clinical.clinical :global(.model-notice > svg) { color: var(--brand-blue); }
+.clinical.clinical.clinical :global(.model-notice h3) { color: var(--brand-ink); }
+
+@media (min-width: 901px) {
+  /* The record navigation ends at 68px; keep comparison labels below it. */
+  .clinical.clinical.clinical :global(.treatment-feedback .pst-table thead th) { top: 76px; }
+}
+@media (max-height: 800px) {
+  /* Let the complete decision form scroll naturally on laptop-height screens. */
+  .clinical.clinical.clinical :global(.treatment-feedback .treatment-decision) { position: static; }
+}
+@media (max-width: 899px) {
+  .clinical.clinical.clinical :global(.pathways-workspace [data-slot=table-container]) { overflow-x: auto; overscroll-behavior-x: contain; }
+  .clinical.clinical.clinical :global(.pathways-workspace [data-slot=table]) { min-width: 740px; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .clinical.clinical.clinical :global(.pst-table tbody tr:not(.pst-explanation-row):not(.is-picked):hover) { background: #f4fafb; }
+  .clinical.clinical.clinical :global([data-slot=button]:not(:disabled):hover) { box-shadow: 0 3px 12px #12517e14; }
+  .clinical.clinical.clinical :global([data-slot=button][data-variant=default]:not(:disabled):hover) { background: var(--brand-teal-hover); }
+}
+@media (max-width: 767px) {
+  .clinical.clinical.clinical :global(.engine-run-toolbar) { flex-wrap: wrap; padding: 18px; }
+  .clinical.clinical.clinical :global(.engine-run-toolbar > div:last-child) { display: flex; flex-wrap: wrap; gap: 8px; }
+  .clinical.clinical.clinical :global(.pathway-banner) { flex-wrap: wrap; padding: 20px; gap: 14px; }
+  .clinical.clinical.clinical :global(.pathway-banner-stat) { margin-left: 66px; text-align: left; }
+  .clinical.clinical.clinical :global(.pathway-steps) { padding: 0 16px 8px; }
+  .clinical.clinical.clinical :global(.pathway-step) { gap: 12px; }
+  .clinical.clinical.clinical :global(.pathway-step h3) { font-size: 15px; }
+  .clinical.clinical.clinical :global(.pst-category-tabs) { flex-wrap: wrap; }
+  .clinical.clinical.clinical :global(:is(.pst-category-tabs button,.pst-history-choice button,[data-slot=button])) { min-height: 44px; }
+  .clinical.clinical.clinical :global(.pst-table-wrap) { overflow-x: auto; overscroll-behavior-x: contain; }
+  .clinical.clinical.clinical :global(.treatment-feedback .treatment-decision) { position: static; padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .clinical.clinical.clinical :global([data-slot=button]) { transition: none; }
+}

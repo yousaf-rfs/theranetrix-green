@@ -596,3 +596,13 @@
   .workspace.workspace :global(.redesign-shell .patient-record-flow) { margin-inline: -14px; }
   .workspace.workspace :global(.redesign-shell .patient-identity-pin) { margin-inline: -14px; }
 }
+
+/* Shared overlays for the expanded sample workspace. */
+:global(body):has(.workspace) :global(:is([data-slot=dialog-content],[data-slot=sheet-content],[data-slot=select-content])) {
+  --primary:var(--brand-teal); --primary-foreground:#fff; --ring:var(--brand-turquoise);
+  --border:var(--brand-line); --input:var(--brand-line); color:var(--brand-ink);
+  font-family:'Thera Plex',Arial,sans-serif;
+}
+:global(body):has(.workspace) :global([data-slot=dialog-content]) { border-radius:20px; border:1px solid var(--brand-line); box-shadow:0 20px 70px #193c4926; }
+:global(body):has(.workspace) :global([data-slot=dialog-content] [data-slot=button][data-variant=default]) { background:var(--brand-teal); color:#fff; }
+:global(body):has(.workspace) :global([data-slot=dialog-content] :is(input,textarea,[data-slot=select-trigger])) { border-color:var(--brand-line); border-radius:9px; }

@@ -1,0 +1,134 @@
+/* The approved home style, extended to the remaining sample-workspace pages. */
+.screens.screens.screens {
+  --ux-primary: var(--brand-teal); --ux-ink: var(--brand-ink); --ux-muted: var(--brand-muted);
+  --ux-line: var(--brand-line); --primary: var(--brand-teal); --primary-foreground: #fff;
+  --border: var(--brand-line); --input: var(--brand-line); --ring: var(--brand-turquoise);
+  color: var(--brand-ink); min-width: 0;
+}
+.screens.screens.screens :global(.page-title) { min-height: 126px; padding: 24px 32px; margin-bottom: 24px; border: 0; box-shadow: none; }
+.screens.screens.screens :global(.page-title .eyebrow) { display: none; }
+.screens.screens.screens :global(.page-title h1) { font-size: 36px; }
+.screens.screens.screens :global(h1:focus) { outline: none; }
+.screens.screens.screens :global(:is(h2,h3,h4)) { color: var(--brand-ink); }
+.screens.screens.screens :global(:is(.panel,.config-intro,.schedule-overview,.pathway-banner)) {
+  border: 0; border-radius: 20px; background: #fff; box-shadow: var(--forest-shadow); overflow: hidden;
+}
+.screens.screens.screens :global(:is(.panel-heading,.directory-heading)) { padding: 22px 24px; border-color: var(--brand-line); }
+.screens.screens.screens :global(:is(.panel-heading,.directory-heading) h2) { font-size: 20px; letter-spacing: -.35px; }
+.screens.screens.screens :global(:is(.panel-heading,.directory-heading) p) { color: var(--brand-muted); }
+.screens.screens.screens :global(:is(.text-link,.workflow-action-link.secondary,.recommendation-trigger,.agenda-patient)) { color: var(--brand-teal); }
+.screens.screens.screens :global(:is([data-slot=button],.workflow-action-link)) { min-height: 42px; border-radius: 10px; transition: background-color 160ms, box-shadow 180ms, transform 180ms; }
+.screens.screens.screens :global(:is([data-slot=button][data-variant=default],.workflow-action-link:not(.secondary))) { color:#fff; background:var(--brand-teal); border-color:var(--brand-teal); }
+.screens.screens.screens :global([data-slot=button][data-variant=outline]) { color:var(--brand-teal); background:#fff; border-color:var(--brand-line); }
+.screens.screens.screens :global(:is([data-slot=input],[data-slot=select-trigger],textarea)) { border-color:var(--brand-line); border-radius:10px; background:#fbfdfd; color:var(--brand-ink); min-height:42px; }
+.screens.screens.screens :global(:is(button,a,input,textarea,[role=combobox]):focus-visible) { outline:3px solid var(--brand-turquoise); outline-offset:3px; }
+.screens.screens.screens :global(.patient-avatar) { border:0; border-radius:50%; background:hsl(var(--patient-avatar-hue) 52% 42%) !important; color:#fff; flex-shrink:0; }
+.screens.screens.screens :global(.table-toolbar) { padding:18px 24px; gap:12px; background:#fff; border-block:1px solid var(--brand-line); }
+.screens.screens.screens :global(.panel-bottom) { padding:16px 24px; color:var(--brand-muted); background:#fff; border-color:var(--brand-line); }
+.screens.screens.screens :global([data-slot=table-head]) { color:var(--brand-muted); background:var(--brand-paper); font-size:11px; letter-spacing:.08em; text-transform:uppercase; }
+.screens.screens.screens :global([data-slot=table-cell]) { border-color:var(--brand-line); color:var(--brand-ink); }
+.screens.screens.screens :global([data-slot=table-row]) { border-color:var(--brand-line); }
+.screens.screens.screens :global([data-slot=table-row]:hover) { background:#f6fbfb; }
+.screens.screens.screens :global(.app-tabs) { padding:6px; border:0; background:#fff; border-radius:14px; height:auto; min-height:52px; box-shadow:var(--forest-shadow); gap:4px; max-width:100%; overflow-x:auto; justify-content:flex-start; }
+.screens.screens.screens :global(.app-tabs [role=tab]) { min-height:40px; border-radius:9px; color:var(--brand-muted); flex-shrink:0; padding-inline:16px; }
+.screens.screens.screens :global(.app-tabs [role=tab][data-state=active]) { background:var(--brand-teal); color:#fff; box-shadow:none; }
+
+/* Patients and the treatment patient picker: keep dense rows easy to compare. */
+.screens.screens.screens :global(.directory-heading > div:first-child h2 > span) { color:var(--brand-teal); background:var(--brand-soft); border-radius:20px; padding:3px 9px; font-size:13px; }
+.screens.screens.screens :global(.directory-table td) { padding:22px 18px; vertical-align:middle; }
+.screens.screens.screens :global(.directory-table td:first-child) { padding-left:24px; }
+.screens.screens.screens :global(.directory-table td:last-child) { padding-right:24px; }
+.screens.screens.screens :global(.directory-table td small) { color:var(--brand-muted); line-height:1.6; }
+.screens.screens.screens :global(.directory-table .patient-name > strong) { font-size:15px; }
+.screens.screens.screens :global(.directory-details) { background:var(--brand-paper); border-radius:14px; padding:20px; gap:20px; }
+.screens.screens.screens :global(.directory-details > div > span) { color:var(--brand-muted); font-size:11px; letter-spacing:.06em; text-transform:uppercase; }
+.screens.screens.screens :global(.directory-row-expanded) { background:var(--brand-paper); }
+
+/* Review queue: the same selected-card treatment as the home summary. */
+.screens.screens.screens :global(.workflow-metrics) { gap:16px; margin-bottom:24px; }
+.screens.screens.screens :global(.workflow-metrics > button) { border:0; border-radius:20px; min-height:114px; box-shadow:var(--forest-shadow); padding:22px 24px; }
+.screens.screens.screens :global(.workflow-metrics > button.selected) { background:var(--brand-soft); box-shadow:inset 0 -3px var(--brand-teal),var(--forest-shadow); }
+.screens.screens.screens :global(.workflow-metrics > button strong) { color:var(--brand-ink); font-size:30px; }
+.screens.screens.screens :global(.workflow-metrics > button small) { color:var(--brand-muted); }
+.screens.screens.screens :global(.workflow-metric-icon) { border-radius:50%; background:var(--brand-paper); color:var(--brand-teal); }
+.screens.screens.screens :global(.priority-metric .workflow-metric-icon) { background:#fff3e4; color:#986629; }
+.screens.screens.screens :global(.review-column-headings) { background:var(--brand-paper); color:var(--brand-muted); border-color:var(--brand-line); padding-inline:24px; }
+.screens.screens.screens :global(.review-work-item) { border-color:var(--brand-line); padding:24px; gap:24px; }
+.screens.screens.screens :global(.review-work-item.needs-attention) { background:#fff; }
+.screens.screens.screens :global(.review-item-meta dt) { color:var(--brand-muted); }
+.screens.screens.screens :global(.review-visible-concern) { background:#fff8f5; border-radius:10px; padding:12px; }
+
+/* Messages: quiet list on the left, a clearly separated conversation on the right. */
+.screens.screens.screens :global(.messages-layout) { min-height:600px; grid-template-columns:minmax(260px, .36fr) minmax(0,1fr); }
+.screens.screens.screens :global(.conversation-list) { background:#fbfdfd; border-color:var(--brand-line); }
+.screens.screens.screens :global(.conversation) { border-color:var(--brand-line); margin:0 10px 6px; width:calc(100% - 20px); border-radius:12px; border-left:3px solid transparent; }
+.screens.screens.screens :global(.conversation.selected) { background:var(--brand-soft); border-left-color:var(--brand-teal); }
+.screens.screens.screens :global(.conversation-sort) { color:var(--brand-muted); font-size:12px; }
+.screens.screens.screens :global(.conversation-date) { color:var(--brand-muted); }
+.screens.screens.screens :global(.thread-header) { padding:22px 24px; border-color:var(--brand-line); }
+.screens.screens.screens :global(.thread-context) { background:var(--brand-paper); border-color:var(--brand-line); color:var(--brand-muted); }
+.screens.screens.screens :global(.message > div) { background:var(--brand-paper); color:var(--brand-ink); border-radius:4px 16px 16px; }
+.screens.screens.screens :global(.message.own > div) { background:var(--brand-soft); color:var(--brand-ink); border-radius:16px 4px 16px 16px; }
+.screens.screens.screens :global(.message-compose) { padding:18px 24px; border-color:var(--brand-line); background:#fff; }
+
+/* Schedule: compact date controls, readable appointment details. */
+.screens.screens.screens :global(.schedule-overview) { padding:22px 24px; margin-bottom:18px; }
+.screens.screens.screens :global(.schedule-overview-icon) { background:var(--brand-soft); color:var(--brand-teal); border-radius:14px; }
+.screens.screens.screens :global(.schedule-days) { gap:10px; margin-bottom:24px; overflow-x:auto; padding-bottom:4px; }
+.screens.screens.screens :global(.schedule-days > button) { border:1px solid var(--brand-line); background:#fff; color:var(--brand-muted); border-radius:14px; min-width:72px; }
+.screens.screens.screens :global(.schedule-days > button.selected) { color:#fff; background:var(--brand-teal); border-color:var(--brand-teal); }
+.screens.screens.screens :global(.schedule-date-heading) { background:var(--brand-paper); color:var(--brand-muted); border-color:var(--brand-line); }
+.screens.screens.screens :global(.agenda-item) { border-color:var(--brand-line); }
+.screens.screens.screens :global(.agenda-time strong) { color:var(--brand-ink); }
+.screens.screens.screens :global(.agenda-owner) { color:var(--brand-muted); }
+
+/* Care pathways, patient companion, and settings use the same surfaces and controls. */
+.screens.screens.screens :global(.pathway-banner) { padding:24px; margin-bottom:24px; color:var(--brand-ink); }
+.screens.screens.screens :global(.pathway-banner-icon) { background:var(--brand-soft); color:var(--brand-teal); border-radius:16px; }
+.screens.screens.screens :global(.pathway-banner-stat strong) { color:var(--brand-teal); }
+.screens.screens.screens :global(.pathway-next-activity) { background:var(--brand-paper); border-radius:10px; }
+.screens.screens.screens :global(.companion-preview) { max-width:860px; margin:0 auto; }
+.screens.screens.screens :global(.companion-surface) { width:100%; border:0; border-radius:24px; background:var(--brand-paper); box-shadow:var(--forest-shadow); }
+.screens.screens.screens :global(:is(.companion-header,.companion-tabs,.companion-snapshot)) { border-color:var(--brand-line); }
+.screens.screens.screens :global(.companion-tabs [role=tab][data-state=active]) { background:var(--brand-soft); color:var(--brand-teal); }
+.screens.screens.screens :global(:is(.companion-card,.companion-next-med,.companion-snapshot)) { border:0; border-radius:16px; background:#fff; box-shadow:var(--forest-shadow); }
+.screens.screens.screens :global(.checkin-chips button.selected) { background:var(--brand-teal); color:#fff; }
+.screens.screens.screens :global(.config-section-nav) { top:20px; }
+.screens.screens.screens :global(.config-section-nav > button) { min-height:44px; border-radius:12px; color:var(--brand-muted); }
+.screens.screens.screens :global(.config-section-nav > button[aria-current=page]) { color:var(--brand-teal); background:var(--brand-soft); border-color:transparent; box-shadow:none; }
+.screens.screens.screens :global(:is(.config-icon,.integration-icon,.account-symbol)) { color:var(--brand-teal); background:var(--brand-soft); border-radius:14px; }
+.screens.screens.screens :global(:is(.config-presets,.config-core)) { background:var(--brand-paper); border-color:var(--brand-line); }
+.screens.screens.screens :global(.integration-card) { padding:24px; }
+.screens.screens.screens :global(.integration-facts) { border-color:var(--brand-line); }
+
+@media (hover:hover) and (pointer:fine) {
+  .screens.screens.screens :global(:is(.workflow-metrics > button,.schedule-days > button,.conversation):hover) { box-shadow:0 4px 16px #12517e14; }
+  .screens.screens.screens :global([data-slot=button]:not(:disabled):hover) { transform:translateY(-1px); box-shadow:0 4px 10px #12517e12; }
+  .screens.screens.screens :global([data-slot=button][data-variant=default]:hover) { background:var(--brand-teal-hover); }
+}
+@media (max-width:1100px) {
+  .screens.screens.screens :global(.messages-layout) { grid-template-columns:260px minmax(0,1fr); }
+  .screens.screens.screens :global(.directory-table) { min-width:880px; }
+}
+@media (max-width:767px) {
+  .screens.screens.screens :global(.page-title) { padding:22px; min-height:0; border-radius:18px; }
+  .screens.screens.screens :global(.page-title h1) { font-size:30px; }
+  .screens.screens.screens :global(.page-title .page-actions) { width:100%; }
+  .screens.screens.screens :global(.workflow-metrics) { grid-template-columns:1fr; gap:10px; }
+  .screens.screens.screens :global(.workflow-metrics > button) { min-height:80px; padding:16px 20px; }
+  .screens.screens.screens :global(.messages-layout) { display:flex; flex-direction:column; }
+  .screens.screens.screens :global(.conversation-results) { max-height:230px; overflow-y:auto; }
+  .screens.screens.screens :global(:is(.thread-header,.thread-context)) { flex-wrap:wrap; }
+  .screens.screens.screens :global(.message-history) { min-height:280px; max-height:450px; }
+  .screens.screens.screens :global(:is(.table-toolbar,.directory-heading,.panel-heading,.schedule-overview)) { padding:18px; flex-wrap:wrap; }
+  .screens.screens.screens :global(:is(.review-work-item,.agenda-item)) { padding:20px; grid-template-columns:1fr; }
+  .screens.screens.screens :global(.review-column-headings) { display:none; }
+  .screens.screens.screens :global(.review-item-meta) { display:flex; gap:24px; }
+  .screens.screens.screens :global(.agenda-time) { display:flex; gap:12px; align-items:center; }
+  .screens.screens.screens :global(.config-section-nav) { position:static; }
+  .screens.screens.screens :global(.companion-header) { flex-wrap:wrap; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .screens.screens.screens :global(*), .screens.screens.screens :global(*)::before, .screens.screens.screens :global(*)::after { transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+  .screens.screens.screens :global([data-slot=button]:hover) { transform:none; }
+}

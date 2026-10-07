@@ -52,7 +52,7 @@ export function PatientPreviewPanel({patient, ctx, open, onOpenChange, returnFoc
           onReviewMedications={()=>setMedicationPatient(patient.id)}
           onReviewPlan={()=>setPlanPatient(patient.id)}/>
       </div>
-      <footer className={styles.footer}><span>Sample patient · Changes are not saved</span><button type="button" className={styles.done} onClick={()=>onPatientDetails(patient.id)}>Patient details</button></footer>
+      <footer className={styles.footer}><span>Sample patient · Changes reset on refresh</span><button type="button" className={styles.done} onClick={()=>onPatientDetails(patient.id)}>Patient details</button></footer>
       <MedicationDialog patientId={medicationPatient} close={()=>setMedicationPatient(null)} ctx={ctx}/>
       <PlanDialog patientId={planPatient} close={()=>setPlanPatient(null)} ctx={ctx}/>
     </SheetContent>}

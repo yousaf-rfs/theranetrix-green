@@ -1,0 +1,128 @@
+/* Supplement the shared workspace skin for messaging, scheduling and settings. */
+.communication { min-width: 0; }
+.communication.communication.communication.communication :global(:is(.messages-workspace,.schedule-workspace,.settings-workspace,.companion-preview)) { min-width: 0; }
+
+/* Contain long conversations without making the whole workspace scroll sideways. */
+.communication.communication.communication.communication :global(.messages-layout) {
+  display: grid;
+  grid-template-columns: minmax(250px, .36fr) minmax(0, 1fr);
+  min-height: 620px;
+}
+.communication.communication.communication.communication :global(:is(.conversation-list,.message-thread,.conversation-results)) { min-width: 0; }
+.communication.communication.communication.communication :global(.conversation-list) { display: flex; flex-direction: column; overflow: hidden; }
+.communication.communication.communication.communication :global(.conversation-list-heading) { padding: 20px 22px 14px; }
+.communication.communication.communication.communication :global(.conversation-list-heading > span) { color: var(--brand-teal); background: var(--brand-soft); border-radius: 999px; }
+.communication.communication.communication.communication :global(.conversation-sort) { padding-inline: 22px; line-height: 1.5; }
+.communication.communication.communication.communication :global(.conversation-results) { display: block; max-height: 580px; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 8px; }
+.communication.communication.communication.communication :global(.conversation) { padding: 16px; min-height: 96px; transition: background-color 160ms, box-shadow 160ms; }
+.communication.communication.communication.communication :global(.conversation .person strong) { font-size: 14px; line-height: 1.4; }
+.communication.communication.communication.communication :global(.conversation-preview) { line-height: 1.5; color: var(--brand-muted); }
+.communication.communication.communication.communication :global(.message-thread) { display: flex; flex-direction: column; background: #fff; }
+.communication.communication.communication.communication :global(.thread-header) { min-height: 92px; gap: 12px; }
+.communication.communication.communication.communication :global(.thread-header > a:first-child) { min-width: 0; }
+.communication.communication.communication.communication :global(.thread-context) { flex-wrap: wrap; row-gap: 6px; }
+.communication.communication.communication.communication :global(.thread-concern-link) { color: var(--brand-teal); font-weight: 600; }
+.communication.communication.communication.communication :global(.message-history) { flex: 1; overflow-y: auto; overscroll-behavior: contain; max-height: 480px; min-height: 280px; }
+.communication.communication.communication.communication :global(.message) { max-width: 86%; overflow-wrap: anywhere; }
+.communication.communication.communication.communication :global(.message > small) { color: var(--brand-muted); line-height: 1.5; }
+.communication.communication.communication.communication :global(.message > div) { font-size: 14px; line-height: 1.65; }
+.communication.communication.communication.communication :global(.message-compose) { align-items: flex-end; }
+.communication.communication.communication.communication :global(.message-compose textarea) { min-width: 0; min-height: 76px; resize: vertical; }
+.communication.communication.communication.communication :global(.message-compose button) { flex-shrink: 0; min-height: 44px; }
+.communication.communication.communication.communication :global(.message-disclaimer) { color: var(--brand-muted); padding: 0 24px 20px; font-size: 12px; line-height: 1.55; }
+
+/* Agenda information stays aligned, with generous targets for date selection. */
+.communication.communication.communication.communication :global(.schedule-overview) { gap: 16px; }
+.communication.communication.communication.communication :global(.schedule-overview > div) { min-width: 0; }
+.communication.communication.communication.communication :global(.schedule-days) { overscroll-behavior-x: contain; scroll-padding-inline: 4px; }
+.communication.communication.communication.communication :global(.schedule-days > button) { flex-shrink: 0; padding: 14px 20px; min-height: 98px; transition: background-color 160ms, box-shadow 160ms; }
+.communication.communication.communication.communication :global(.schedule-days > button > strong) { color: var(--brand-ink); font-size: 24px; font-weight: 600; }
+.communication.communication.communication.communication :global(.schedule-days > button > :is(span,small)) { color: var(--brand-muted); }
+.communication.communication.communication.communication :global(.schedule-days > button.selected > :is(strong,span,small)) { color: #fff; }
+.communication.communication.communication.communication :global(.agenda-item) { grid-template-columns: 116px minmax(0, 1fr) 172px; gap: 22px; padding: 24px; }
+.communication.communication.communication.communication :global(.agenda-title h3) { font-size: 15px; line-height: 1.5; }
+.communication.communication.communication.communication :global(.agenda-time > .badge) { border-radius: 999px; padding: 4px 8px; background: var(--brand-soft); color: var(--brand-teal); }
+.communication.communication.communication.communication :global(.agenda-time > .badge.tone-neutral) { background: var(--brand-paper); color: var(--brand-muted); }
+.communication.communication.communication.communication :global(.agenda-actions) { grid-column: auto; align-items: flex-end; }
+.communication.communication.communication.communication :global(.agenda-complete) { min-height: 40px; line-height: 1.5; }
+.communication.communication.communication.communication :global(.agenda-item.completed) { background: var(--brand-paper); }
+
+/* Companion remains patient-friendly while sharing the approved visual language. */
+.communication.communication.communication.communication :global(.companion-header) { background: #fff; gap: 20px; }
+.communication.communication.communication.communication :global(.companion-brand) { color: var(--brand-teal); }
+.communication.communication.communication.communication :global(.companion-tabs) { display: flex; width: 100%; max-width: 100%; height: auto; justify-content: flex-start; overflow-x: auto; background: #fff; }
+.communication.communication.communication.communication :global(.companion-tabs [role=tab]) { flex: 0 0 auto; padding-inline: 14px; min-height: 44px; border-radius: 10px; }
+.communication.communication.communication.communication :global(.companion-tabs [role=tab][data-state=active]) { background: var(--brand-teal); color: #fff; }
+.communication.communication.communication.communication :global(.companion-preparation-actions > button) { border: 0; border-radius: 16px; box-shadow: var(--forest-shadow); min-height: 90px; transition: box-shadow 160ms, transform 160ms; }
+.communication.communication.communication.communication :global(.companion-preparation-icon) { border-radius: 12px; color: var(--brand-teal); background: var(--brand-soft); }
+.communication.communication.communication.communication :global(.companion-latest-report) { border: 0; border-radius: 18px; padding: 18px; gap: 16px; }
+.communication.communication.communication.communication :global(.companion-snapshot) { box-shadow: none; background: transparent; gap: 10px; min-width: 0; }
+.communication.communication.communication.communication :global(.companion-latest-report .companion-snapshot > div) { border: 0; background: var(--brand-paper); border-radius: 12px; padding: 12px; min-width: 0; }
+.communication.communication.communication.communication :global(.companion-snapshot strong) { color: var(--brand-ink); }
+.communication.communication.communication.communication :global(.companion-worse) { border-radius: 10px; min-height: 44px; }
+.communication.communication.communication.communication :global(.companion-shortcuts button) { border-color: var(--brand-line); border-radius: 12px; }
+
+/* Keep long configuration forms readable, and prevent sticky actions covering fields. */
+.communication.communication.communication.communication :global(.config-layout) { gap: 24px; }
+.communication.communication.communication.communication :global(:is(.config-controls,.config-section-content,.config-page-section)) { min-width: 0; }
+.communication.communication.communication.communication :global(.config-intro) { flex-wrap: wrap; }
+.communication.communication.communication.communication :global(.config-intro > div) { flex: 1 1 240px; min-width: 0; }
+.communication.communication.communication.communication :global(.config-section-nav) { border-radius: 16px; padding: 8px; background: #fff; }
+.communication.communication.communication.communication :global(.config-feature) { padding: 22px 24px; border-color: var(--brand-line); gap: 20px; }
+.communication.communication.communication.communication :global(.config-feature > div) { min-width: 0; }
+.communication.communication.communication.communication :global(.config-feature p) { font-size: 13px; color: var(--brand-muted); line-height: 1.65; }
+.communication.communication.communication.communication :global(.config-feature-title) { row-gap: 7px; }
+.communication.communication.communication.communication :global(.config-feature-detail summary) { cursor: pointer; color: var(--brand-teal); padding-block: 6px; }
+.communication.communication.communication.communication :global(.config-form label) { font-size: 13px; color: var(--brand-ink); }
+.communication.communication.communication.communication :global(.config-form :is(input,textarea)) { font-size: 14px; }
+.communication.communication.communication.communication :global(.config-savebar) { border: 1px solid var(--brand-line); border-radius: 16px; box-shadow: 0 6px 24px #12517e12; }
+/* Override the legacy line-tab !important color on the new solid active state. */
+.communication.communication.communication.communication :global(:is(.settings-workspace .app-tabs,.companion-tabs) [role=tab][data-state=active]),
+.communication.communication.communication.communication :global(:is(.settings-workspace .app-tabs,.companion-tabs) [role=tab][data-state=active] :is(svg,span)) { color: #fff !important; }
+.communication.communication.communication.communication :global(.settings-workspace .app-tabs [role=tab][data-state=active]::after) { display: none; }
+.communication.communication.communication.communication :global(.integration-card) { display: flex; flex-direction: column; min-width: 0; }
+.communication.communication.communication.communication :global(.integration-card > button) { margin-top: auto; white-space: normal; height: auto; padding-block: 10px; }
+.communication.communication.communication.communication :global(.integration-facts) { grid-template-columns: minmax(90px, .7fr) minmax(0, 1fr); }
+.communication.communication.communication.communication :global(.integration-facts dd) { overflow-wrap: anywhere; }
+.communication.communication.communication.communication :global(.role-list > div) { border-color: var(--brand-line); padding: 20px 24px; }
+
+@media (max-width: 1100px) {
+  .communication.communication.communication.communication :global(.agenda-item) { grid-template-columns: 100px minmax(0, 1fr); gap: 18px; }
+  .communication.communication.communication.communication :global(.agenda-actions) { grid-column: 2; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: center; }
+}
+@media (max-width: 767px) {
+  .communication.communication.communication.communication :global(.messages-layout) { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .communication.communication.communication.communication :global(.conversation-results) { display: flex; flex-direction: row; overflow-x: auto; overflow-y: hidden; max-height: none; padding: 0 12px 12px; gap: 8px; }
+  .communication.communication.communication.communication :global(.conversation) { width: 242px; flex: 0 0 242px; margin: 0; border-bottom: 0; }
+  .communication.communication.communication.communication :global(.conversation-sort) { font-size: 11px; margin-bottom: 12px; }
+  .communication.communication.communication.communication :global(.conversation-list > .input-search) { display: flex; }
+  .communication.communication.communication.communication :global(:is(.thread-header,.thread-context,.message-compose)) { padding-inline: 18px; }
+  .communication.communication.communication.communication :global(.message) { max-width: 94%; }
+  .communication.communication.communication.communication :global(.message-history) { min-height: 260px; max-height: 390px; padding: 20px 18px; }
+  .communication.communication.communication.communication :global(.message-disclaimer) { padding-inline: 18px; }
+  .communication.communication.communication.communication :global(.schedule-overview) { flex-wrap: wrap; }
+  .communication.communication.communication.communication :global(.schedule-overview .picker) { width: 100%; }
+  .communication.communication.communication.communication :global(.agenda-item) { grid-template-columns: minmax(0, 1fr); padding: 20px; gap: 14px; }
+  .communication.communication.communication.communication :global(.agenda-time) { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .communication.communication.communication.communication :global(.agenda-actions) { grid-column: 1; }
+  .communication.communication.communication.communication :global(.companion-body) { padding: 20px 16px; }
+  .communication.communication.communication.communication :global(.companion-header) { flex-direction: column; align-items: stretch; padding: 20px; }
+  .communication.communication.communication.communication :global(.companion-account) { justify-content: flex-start; }
+  .communication.communication.communication.communication :global(.companion-preparation-actions) { grid-template-columns: minmax(0, 1fr); }
+  .communication.communication.communication.communication :global(.companion-latest-report) { flex-direction: column; align-items: stretch; }
+  .communication.communication.communication.communication :global(.companion-latest-report > span) { width: auto; }
+  .communication.communication.communication.communication :global(.companion-snapshot) { width: 100%; }
+  .communication.communication.communication.communication :global(.companion-worse-bar) { flex-wrap: wrap; }
+  .communication.communication.communication.communication :global(.config-feature) { padding: 18px; gap: 12px; }
+  .communication.communication.communication.communication :global(.config-savebar) { position: static; }
+  .communication.communication.communication.communication :global(.config-section-nav) { max-width: 100%; }
+  .communication.communication.communication.communication :global(.settings-workspace .app-tabs) { gap: 4px !important; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .communication.communication.communication.communication :global(.companion-preparation-actions > button:hover) { transform: translateY(-2px); box-shadow: 0 8px 22px #12517e14; }
+  .communication.communication.communication.communication :global(.agenda-item:hover) { background: #f8fcfc; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .communication.communication.communication.communication :global(:is(.conversation,.schedule-days > button,.companion-preparation-actions > button)) { transition: none; }
+  .communication.communication.communication.communication :global(.companion-preparation-actions > button:hover) { transform: none; }
+}
